@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Silencing & Help-Seeking | Bella Kang Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFAF7;
+            --plum: #6B2E4A;
+            --rose: #C48A95;
+            --rose-dark: #A06B78;
+            --mauve: #8C5A6E;
+            --text: #2A2024;
+            --text-body: #4A4045;
+            --text-muted: #8A7E82;
+            --spacing: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Newsreader', serif;
+            background-color: var(--bg);
+            color: var(--text-body);
+            line-height: 1.7;
+            letter-spacing: 0.3px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem var(--spacing) 4rem;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 3rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover {
+            color: var(--plum);
+        }
+
+        .header {
+            margin-bottom: 3rem;
+        }
+
+        .meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .category {
+            color: var(--rose-dark);
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Newsreader', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .thesis {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 3px solid var(--rose);
+        }
+
+        .status {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            background-color: var(--mauve);
+            color: white;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: 'Newsreader', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--text);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-body);
+        }
+
+        .background {
+            background-color: rgba(196, 138, 149, 0.08);
+            padding: 1.5rem;
+            border-radius: 2px;
+            margin: 1.5rem 0;
+        }
+
+        .background h3 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .research-question {
+            padding: 2rem;
+            background-color: var(--bg);
+            border: 1px solid var(--rose);
+            border-left: 3px solid var(--plum);
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+
+        .research-question h3 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--rose-dark);
+            margin-bottom: 1rem;
+        }
+
+        .research-question p {
+            font-family: 'Newsreader', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        .method-section {
+            margin: 2rem 0;
+        }
+
+        .method-section h3 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .method-step {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--rose);
+        }
+
+        .method-step strong {
+            color: var(--plum);
+        }
+
+        .theoretical-framework {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: rgba(107, 46, 74, 0.05);
+            border: 1px solid rgba(196, 138, 149, 0.2);
+        }
+
+        .theory-box {
+            padding: 1.5rem;
+            border-left: 3px solid var(--mauve);
+        }
+
+        .theory-box h4 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .theory-box p {
+            font-size: 0.9rem;
+            color: var(--text-body);
+        }
+
+        .collaborators {
+            padding: 1.5rem;
+            background-color: var(--rose);
+            color: white;
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+
+        .collaborators h3 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .collaborator {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .collaborator:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .collaborator-name {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .collaborator-role {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .significance {
+            background-color: rgba(139, 90, 110, 0.08);
+            padding: 1.5rem;
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+
+        .significance h3 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .references {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(196, 138, 149, 0.3);
+        }
+
+        .references p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem 3rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .theoretical-framework {
+                grid-template-columns: 1fr;
+            }
+
+            .thesis {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://bellakang017.github.io/portfolio/" class="nav-back">← Back to Portfolio</a>
+
+        <div class="header">
+            <div class="meta"><span class="category">Health Communication</span></div>
+            <h1>Self-Silencing &<br/>Help-Seeking</h1>
+            <div class="thesis">"The silence isn't empty. It's full of culturally learned restraint."</div>
+            <div class="status">In Progress (Thesis)</div>
+        </div>
+
+        <div class="research-question">
+            <h3>Research Question</h3>
+            <p>How do self-silencing behaviors—learned patterns of suppressing needs, emotions, and perspectives to maintain relationships—affect mental health help-seeking among Korean American midlife women? And what role does cultural identity play in the decision to seek care?</p>
+        </div>
+
+        <h2>Background</h2>
+        <div class="background">
+            <h3>The Problem</h3>
+            <p>Korean American women experience high rates of depression and anxiety, yet help-seeking rates lag behind other demographics. This isn't laziness or lack of awareness. It's a coherent response shaped by cultural values—filial piety, emotional restraint, collective harmony—that conflict with Western models of individual therapy and self-disclosure.</p>
+            <p>Self-silencing—the suppression of authentic thoughts and emotions—is both culturally adaptive and psychologically costly. This research asks: When does protective silence become harmful? When does restraint become repression?</p>
+        </div>
+
+        <h2>Method</h2>
+        <p>Sequential mixed-methods design combining quantitative and qualitative depth:</p>
+
+        <div class="method-section">
+            <h3>Phase 1: Survey (N=150)</h3>
+            <div class="method-step">
+                <strong>Self-Silencing Scale:</strong> Validated instrument measuring suppression, restraint, and emotional withholding
+            </div>
+            <div class="method-step">
+                <strong>Mental Health Help-Seeking Attitudes:</strong> Beliefs about stigma, efficacy, and help-seeking intentions
+            </div>
+            <div class="method-step">
+                <strong>Cultural Identity Measures:</strong> Enculturation, acculturation, bicultural identity integration
+            </div>
+        </div>
+
+        <div class="method-section">
+            <h3>Phase 2: In-Depth Interviews (N=30)</h3>
+            <div class="method-step">
+                <strong>Narrative Interviews:</strong> Stories of when silence protected, when it harmed, turning points in help-seeking
+            </div>
+            <div class="method-step">
+                <strong>Phenomenological Approach:</strong> Detailed exploration of lived experience—how women experience restraint, family pressure, shame
+            </div>
+            <div class="method-step">
+                <strong>Thematic Analysis:</strong> Identify patterns in how cultural identity intersects with mental health decisions
+            </div>
+        </div>
+
+        <h2>Theoretical Framework</h2>
+        <div class="theoretical-framework">
+            <div class="theory-box">
+                <h4>Self-Relevance (Falk)</h4>
+                <p>Mental health messaging that centers identity and cultural values increases engagement. Generic help-seeking campaigns fail because they don't account for the listener's cultural context.</p>
+            </div>
+            <div class="theory-box">
+                <h4>Mindset × Physiology (Crum)</h4>
+                <p>Beliefs about mental health shape physiological stress responses. Viewing therapy as growth versus shame has measurable effects on treatment-seeking and treatment efficacy.</p>
+            </div>
+            <div class="theory-box">
+                <h4>Cultural Communication (Health Comm)</h4>
+                <p>Help-seeking is not individual. It's embedded in family systems, intergenerational patterns, and cultural narratives about mental illness and treatment.</p>
+            </div>
+            <div class="theory-box">
+                <h4>Intersectionality & Identity</h4>
+                <p>Korean American midlife women occupy multiple identity positions—cultural insider/outsider, daughter/mother, immigrant generation/U.S. raised—each shaping help-seeking decisions.</p>
+            </div>
+        </div>
+
+        <h2>Collaborators</h2>
+        <div class="collaborators">
+            <h3>Research Team</h3>
+            <div class="collaborator">
+                <div class="collaborator-name">GARAM (Doctoral Researcher)</div>
+                <div class="collaborator-role">Sociology, UT Austin. Expertise in family systems and intergenerational trauma.</div>
+            </div>
+            <div class="collaborator">
+                <div class="collaborator-name">SEULGI (Doctoral Researcher)</div>
+                <div class="collaborator-role">Nursing, UT Austin. Expertise in health communication and cultural competency in care.</div>
+            </div>
+            <p style="margin-top: 1rem; font-style: italic; opacity: 0.95;">Collaborative research across disciplines—sociology, nursing, communication—recognizing that help-seeking is simultaneously a psychological, relational, and cultural phenomenon.</p>
+        </div>
+
+        <div class="significance">
+            <h3>Why This Matters</h3>
+            <p>A Korean American woman, 52, mother of two, describes her anxiety to her own mother. Her mother's response: <em>"We don't talk about these things. It makes the family look weak."</em> She doesn't seek therapy. A clinician might call this "treatment avoidance." But that diagnosis misses the architecture entirely. She's not avoiding help—she's <em>honoring an intergenerational contract</em> that says suffering in silence equals loyalty, and disclosure equals betrayal. Her silence isn't a barrier. It's a communication system with internal logic.</p>
+            <p>When research treats self-silencing as a psychological problem to solve, we lose what's actually happening: women navigating real constraints with extraordinary sophistication. This work flips the question. Instead of "How do we make them seek help like Western patients?" we ask "What does their silence protect? When does it serve? When does it harm? How do we intervene <em>within</em> their cultural logic rather than against it?"</p>
+            <p>The implications are structural. Anywhere a healthcare system built on individualist assumptions meets a population shaped by collectivist values, the same pattern repeats: high burden, low help-seeking, clinical confusion. The framework developed here is proven, specific, and replicable across populations. It shows that culturally competent care isn't about cultural sensitivity training. It's about understanding that the "problem" may not be pathology—it's misalignment between a patient's values and the system designed to help them.</p>
+        </div>
+
+        <div class="references">
+            <p><strong>Key Theoretical Sources:</strong></p>
+            <p>Falk, E. B. (2021). Neuroscience of self-relevance. <em>Current Opinion in Psychology</em>.</p>
+            <p>Crum, A. J. (2023). Mindset as medicine. <em>Perspectives on Psychological Science</em>.</p>
+            <p>Jack, D. C. (1991). Silencing the self. <em>Harvard University Press</em>.</p>
+            <p>Sue, D. W., & Sue, D. (2016). Counseling the culturally diverse. <em>John Wiley & Sons</em>.</p>
+        </div>
+    </div>
+</body>
+</html>

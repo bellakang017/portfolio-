@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI–Human Hybrid Method | Bella Kang Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFAF7;
+            --plum: #6B2E4A;
+            --rose: #C48A95;
+            --rose-dark: #A06B78;
+            --mauve: #8C5A6E;
+            --text: #2A2024;
+            --text-body: #4A4045;
+            --text-muted: #8A7E82;
+            --spacing: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Newsreader', serif;
+            background-color: var(--bg);
+            color: var(--text-body);
+            line-height: 1.7;
+            letter-spacing: 0.3px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem var(--spacing) 4rem;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 3rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover {
+            color: var(--plum);
+        }
+
+        .header {
+            margin-bottom: 3rem;
+        }
+
+        .meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .category {
+            color: var(--rose-dark);
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Newsreader', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .thesis {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 3px solid var(--rose);
+        }
+
+        .status {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            background-color: var(--rose);
+            color: white;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: 'Newsreader', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--text);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-body);
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: rgba(107, 46, 74, 0.05);
+            border: 1px solid rgba(196, 138, 149, 0.2);
+        }
+
+        .framework-box {
+            padding: 1.5rem;
+            border-left: 3px solid var(--mauve);
+        }
+
+        .framework-box h3 {
+            font-family: 'Newsreader', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 0.5rem;
+        }
+
+        .framework-box p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+        }
+
+        .methodology {
+            background-color: rgba(196, 138, 149, 0.08);
+            padding: 1.5rem;
+            border-radius: 2px;
+            margin: 1.5rem 0;
+        }
+
+        .methodology h3 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 0.8rem;
+        }
+
+        .methodology ol {
+            margin-left: 1.5rem;
+            color: var(--text-body);
+        }
+
+        .methodology li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .pillar {
+            padding: 1.2rem;
+            background-color: white;
+            border: 1px solid var(--rose);
+            border-radius: 1px;
+        }
+
+        .pillar-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--rose-dark);
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .pillar p {
+            font-size: 0.9rem;
+            color: var(--text-body);
+        }
+
+        .insight {
+            padding: 1.5rem;
+            background-color: var(--plum);
+            color: var(--bg);
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+
+        .insight h3 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: white;
+        }
+
+        .insight p {
+            color: white;
+        }
+
+        .references {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(196, 138, 149, 0.3);
+        }
+
+        .references p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem 3rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .framework-grid,
+            .pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .thesis {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://bellakang017.github.io/portfolio/" class="nav-back">← Back to Portfolio</a>
+
+        <div class="header">
+            <div class="meta"><span class="category">AI × Education</span></div>
+            <h1>AI–Human Hybrid Method</h1>
+            <div class="thesis">"The hybrid outperforms either alone."</div>
+            <div class="status">In Progress</div>
+        </div>
+
+        <h2>Research Question</h2>
+        <p>How does integrating AI as a co-intelligence agent—rather than replacement or supplement—transform the architecture of learning and scholarly thinking? And what does studying this transformation teach us about human cognition itself?</p>
+
+        <h2>The Method</h2>
+        <p>This is reflexive research: using AI to study how AI transforms learning. The Opus × Bella project serves as both research subject and proof of concept—a documentary of a human-AI collaboration in real time, with rigorous methodology, evident iteration, and measurable outcomes.</p>
+
+        <div class="methodology">
+            <h3>Reflexive Design</h3>
+            <ol>
+                <li><strong>Observe:</strong> Document AI's role in shaping thinking process (tutor, coach, mentor, teammate, tool, simulator, student)</li>
+                <li><strong>Theorize:</strong> Map observations against existing frameworks (Mollick's co-intelligence, mindset science, neural self-relevance)</li>
+                <li><strong>Iterate:</strong> Use insights to refine methodology; refine methodology to deepen insights</li>
+                <li><strong>Publish:</strong> Make the work visible as both research artifact and educational artifact</li>
+            </ol>
+        </div>
+
+        <h2>Framework</h2>
+        <p>This work integrates four pillars of behavioral science and learning science:</p>
+
+        <div class="pillars">
+            <div class="pillar">
+                <div class="pillar-title">SELF-RELEVANCE</div>
+                <p>Falk's neural self-relevance model shows that learning sticks when it connects to identity and purpose.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-title">MINDSET × PHYSIOLOGY</div>
+                <p>Crum's work reveals how mindset isn't just psychology—it physically shapes cognition and resilience.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-title">GROWTH ARCHITECTURE</div>
+                <p>Dweck and Yeager map how believing "I can learn this" rewires neural pathways and effort tolerance.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-title">CO-INTELLIGENCE</div>
+                <p>Mollick's seven AI roles (tutor, coach, mentor, teammate, tool, simulator, student) define human-AI synergy.</p>
+            </div>
+        </div>
+
+        <div class="framework-grid">
+            <div class="framework-box">
+                <h3>Core Thesis</h3>
+                <p>AI excels at rapid iteration, pattern recognition, and intellectual scaffolding. Humans excel at judgment, taste, wisdom, and meaning-making. The hybrid exceeds either alone because each compensates for the other's constraints.</p>
+            </div>
+            <div class="framework-box">
+                <h3>Evidence Base</h3>
+                <p>Grounded in Mollick's co-intelligence framework and Arora et al. (2025) empirical mapping of LLM adoption in research contexts, showing productivity gains when AI augments rather than replaces.</p>
+            </div>
+        </div>
+
+        <div class="insight">
+            <h3>Key Insight</h3>
+            <p>The most productive human-AI relationships aren't about getting AI right; they're about getting <em>your own thinking</em> right. AI becomes a mirror, a collaborator, a skeptic. It forces clarity. When that clarity lands, both human and AI go deeper. That's the hybrid advantage.</p>
+        </div>
+
+        <h2>Why This Matters</h2>
+        <p>I wrote a literature review. Claude challenged my framing. I pushed back. Claude conceded one point, held firm on another, and surfaced a connection between Falk and Crum I hadn't seen. The final synthesis was something neither of us would have reached alone. That's not a tool interaction — that's collaboration. And the moment I recognized it, the research question changed: I stopped studying <em>whether</em> AI transforms learning and started studying <em>how it already had transformed mine.</em></p>
+        <p>This is what makes the method reflexive. Most AI education research treats the researcher as an outside observer documenting how students use ChatGPT. This work refuses that distance. The researcher is inside the phenomenon. The collaboration is the data. The portfolio of artifacts, decision logs, and intellectual exchanges between Opus and Bella constitutes a longitudinal case study of hybrid cognition — documented in real time, not reconstructed after the fact.</p>
+        <p>The contribution isn't philosophical. It's methodological. If AI changes how knowledge is produced, then research methods built for solo human cognition are incomplete. The hybrid method offers a framework: how to structure AI collaboration for intellectual rigor, how to document the process transparently, how to distinguish AI-generated insight from human judgment. Any researcher using AI as more than a search engine needs this framework. The question isn't whether hybrid methods will become standard — it's whether we'll develop the rigor to do them well.</p>
+
+        <div class="references">
+            <p><strong>Key References:</strong></p>
+            <p>Mollick, E. R., & Mollick, L. (2024). Using AI to implement effective teaching strategies. Stanford Teaching Commons.</p>
+            <p>Arora, S., et al. (2025). Large language model adoption in research: Patterns, productivity, and pitfalls. <em>Nature Reviews Methods Primers</em>.</p>
+            <p>Falk, E. B. (2021). Neuroscience of self-relevance. <em>Current Opinion in Psychology</em>.</p>
+            <p>Crum, A. J. (2023). Mindset as medicine: Psychological and physiological mechanisms. <em>Perspectives on Psychological Science</em>.</p>
+        </div>
+    </div>
+</body>
+</html>

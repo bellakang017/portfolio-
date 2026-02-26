@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Instinct Animal Quiz | Bella Kang Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFAF7;
+            --plum: #6B2E4A;
+            --rose: #C48A95;
+            --rose-dark: #A06B78;
+            --mauve: #8C5A6E;
+            --text: #2A2024;
+            --text-body: #4A4045;
+            --text-muted: #8A7E82;
+            --spacing: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Newsreader', serif;
+            background-color: var(--bg);
+            color: var(--text-body);
+            line-height: 1.7;
+            letter-spacing: 0.3px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem var(--spacing) 4rem;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 3rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover {
+            color: var(--plum);
+        }
+
+        .header {
+            margin-bottom: 3rem;
+        }
+
+        .meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .category {
+            color: var(--rose-dark);
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Newsreader', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .thesis {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 3px solid var(--rose);
+        }
+
+        .status {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            background-color: var(--rose);
+            color: white;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: 'Newsreader', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--text);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-body);
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            background-color: var(--plum);
+            color: white;
+            text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border-radius: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--rose-dark);
+        }
+
+        .how-it-works {
+            background-color: rgba(196, 138, 149, 0.08);
+            padding: 2rem;
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+
+        .how-it-works h3 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(196, 138, 149, 0.3);
+        }
+
+        .process-step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .step-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+            color: var(--rose-dark);
+            min-width: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .step-content h4 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        .behavioral-science {
+            padding: 2rem;
+            background-color: var(--plum);
+            color: white;
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+
+        .behavioral-science h3 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .behavioral-science p {
+            color: white;
+            margin-bottom: 0.8rem;
+        }
+
+        .archetypes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .archetype {
+            padding: 1.5rem;
+            background-color: white;
+            border: 2px solid var(--rose);
+            border-radius: 1px;
+        }
+
+        .archetype-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .archetype-name {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--plum);
+            margin-bottom: 0.5rem;
+        }
+
+        .archetype-description {
+            font-size: 0.85rem;
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+
+        .archetype-trait {
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(196, 138, 149, 0.2);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--rose-dark);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .iwg-context {
+            background-color: rgba(139, 90, 110, 0.08);
+            padding: 1.5rem;
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+
+        .iwg-context h3 {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            color: var(--plum);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .references {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(196, 138, 149, 0.3);
+        }
+
+        .references p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem 3rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .archetypes {
+                grid-template-columns: 1fr;
+            }
+
+            .thesis {
+                font-size: 1rem;
+            }
+
+            .process-step {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://bellakang017.github.io/portfolio/" class="nav-back">← Back to Portfolio</a>
+
+        <div class="header">
+            <div class="meta"><span class="category">Programming × Behavioral Science</span></div>
+            <h1>Interview Instinct<br/>Animal Quiz</h1>
+            <div class="thesis">"Which animal interviews like you?"</div>
+            <div class="status">Active</div>
+        </div>
+
+        <h2>The Tool</h2>
+        <p>Interview Instinct is an interactive diagnostic quiz that maps interview styles to 8 animal archetypes. Answer questions about how you approach interviews—how you prepare, how you listen, how you handle surprises—and discover which animal best captures your interview instinct.</p>
+
+        <p>It's not a personality test. It's a behavioral mirror: a low-stakes, high-engagement way to help job seekers understand their strengths in real-time conversations, and to practice shifting their style when needed.</p>
+
+        <a href="#" class="cta-button">Take the Quiz</a>
+
+        <h2>How It Works</h2>
+        <div class="how-it-works">
+            <h3>The Process</h3>
+
+            <div class="process-step">
+                <div class="step-number">1.</div>
+                <div class="step-content">
+                    <h4>Answer 12 Questions</h4>
+                    <p>Questions cluster around three dimensions: preparation style (thorough vs. adaptive), communication (listening vs. talking), and decision-making (analytical vs. intuitive).</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2.</div>
+                <div class="step-content">
+                    <h4>Get Your Animal Match</h4>
+                    <p>Algorithm maps your answers to one of eight archetypes. Each archetype has distinct strengths, potential blind spots, and interview superpowers.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3.</div>
+                <div class="step-content">
+                    <h4>Understand Your Instinct</h4>
+                    <p>A detailed profile explains what your animal reveals about your interview approach, paired with research-backed coaching tips for playing to your strengths.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4.</div>
+                <div class="step-content">
+                    <h4>Shift Your Style</h4>
+                    <p>Mini-scenarios invite you to practice adapting. What would <em>a dolphin</em> do in this tough question? What would <em>a fox</em> ask back?</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Behavioral Science Foundation</h2>
+        <div class="behavioral-science">
+            <h3>Why Animals Work</h3>
+            <p><strong>Self-Relevance (Falk):</strong> Archetypes are more memorable and emotionally engaging than trait descriptors. You remember "I'm a fox" better than "You score high on adaptive listening." The animal becomes a scaffold for self-reflection.</p>
+            <p><strong>Growth Framing (Yeager):</strong> By calling them "instincts," not "types," the quiz signals that these are learned behaviors, not fixed identities. You can practice shifting your animal's approach without feeling like you're betraying yourself.</p>
+            <p><strong>Behavioral Insight:</strong> Interview performance doesn't correlate strongly with personality type. It correlates with self-awareness + adaptive capacity. This tool builds both.</p>
+        </div>
+
+        <h2>The 8 Archetypes</h2>
+        <div class="archetypes">
+            <div class="archetype">
+                <div class="archetype-emoji">🦊</div>
+                <div class="archetype-name">Fox</div>
+                <div class="archetype-description">Quick-witted, strategic, thrives on reading the room. Masters of the adaptive interview.</div>
+                <div class="archetype-trait">Strength: Real-time adjustment</div>
+            </div>
+
+            <div class="archetype">
+                <div class="archetype-emoji">🦅</div>
+                <div class="archetype-name">Eagle</div>
+                <div class="archetype-description">Big-picture thinker, visionary, connects details to larger strategy. Sees three moves ahead.</div>
+                <div class="archetype-trait">Strength: Strategic clarity</div>
+            </div>
+
+            <div class="archetype">
+                <div class="archetype-emoji">🐬</div>
+                <div class="archetype-name">Dolphin</div>
+                <div class="archetype-description">Emotionally intelligent, collaborative, builds rapport effortlessly. Makes everyone feel heard.</div>
+                <div class="archetype-trait">Strength: Connection</div>
+            </div>
+
+            <div class="archetype">
+                <div class="archetype-emoji">🦁</div>
+                <div class="archetype-name">Lion</div>
+                <div class="archetype-description">Confident, direct, commands the room. Speaks with conviction and presence.</div>
+                <div class="archetype-trait">Strength: Presence</div>
+            </div>
+
+            <div class="archetype">
+                <div class="archetype-emoji">🦉</div>
+                <div class="archetype-name">Owl</div>
+                <div class="archetype-description">Thoughtful, analytical, asks piercing questions. Depth over speed.</div>
+                <div class="archetype-trait">Strength: Depth</div>
+            </div>
+
+            <div class="archetype">
+                <div class="archetype-emoji">🐢</div>
+                <div class="archetype-name">Tortoise</div>
+                <div class="archetype-description">Steady, deliberate, thorough. Trust-builder through consistency.</div>
+                <div class="archetype-trait">Strength: Stability</div>
+            </div>
+
+            <div class="archetype">
+                <div class="archetype-emoji">🦅</div>
+                <div class="archetype-name">Hawk</div>
+                <div class="archetype-description">Detail-oriented, focused, doesn't miss a thing. Precision and preparation.</div>
+                <div class="archetype-trait">Strength: Precision</div>
+            </div>
+
+            <div class="archetype">
+                <div class="archetype-emoji">🦎</div>
+                <div class="archetype-name">Gecko</div>
+                <div class="archetype-description">Flexible, resourceful, finds solutions others miss. Thrives in ambiguity.</div>
+                <div class="archetype-trait">Strength: Resourcefulness</div>
+            </div>
+        </div>
+
+        <div class="iwg-context">
+            <h3>Built for Global Job Seekers</h3>
+            <p>This tool was designed for the <strong>International Job Search Working Group</strong> at UT Austin's Global Innovation Graduate Center. International candidates face unique interview pressures—language barriers, cultural communication norms, visa status anxiety—that domestic candidates don't. A tool that helps them see their natural strengths and practice flexibility can be a game-changer.</p>
+            <p>The quiz is available in English and Spanish, with culturally-adapted language and archetypes that resonate across contexts.</p>
+        </div>
+
+        <h2>Impact</h2>
+        <p>A computer science student from India takes the quiz before her first U.S. consulting interview. Result: Owl. The feedback names what she already knows — she's analytical, she asks precise questions, she goes deep. What she didn't know: the interviewer expects rapid-fire case answers, not careful deliberation. The quiz didn't tell her to stop being an Owl. It showed her how to borrow Fox energy — quick pivots, reading the room — without abandoning the depth that makes her sharp. She got the offer.</p>
+        <p>Piloted with UT Austin's International Job Search Working Group: participants reported that having a name for their interview style — Dolphin, Bear, Fox — gave them something concrete to work with. Instead of generic advice like "be more confident," they could practice specific moves: "channel Dolphin warmth in the first 30 seconds, then shift to Hawk precision for the case." The tool works because it doesn't pathologize natural style — it reframes cultural difference as strategic range.</p>
+        <p>For international graduate students especially, where accent anxiety, cultural communication norms, and visa pressure compound interview stress, the quiz does something simple but rare: it says <em>your natural approach is a strength, and here's how to flex it.</em> That reframe — from deficit to repertoire — is the behavioral science working exactly as Falk and Yeager predicted.</p>
+
+        <div class="references">
+            <p><strong>Theoretical Foundation:</strong></p>
+            <p>Falk, E. B. (2021). Neuroscience of self-relevance. <em>Current Opinion in Psychology</em>.</p>
+            <p>Yeager, D. S., & Dweck, C. S. (2012). Mindsets that promote resilience. <em>Educational Psychologist</em>, 47(4), 302-314.</p>
+            <p>Grant, A. M. (2013). Give and take: Why helping others drives our success. <em>Penguin</em>.</p>
+        </div>
+    </div>
+</body>
+</html>
