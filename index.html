@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Bella Kang — AI Education × Health Communication</title>
+<!-- Open Graph / LinkedIn / Social Sharing -->
+<meta property="og:title" content="Bella Kang — AI Education Researcher">
+<meta property="og:description" content="I study how AI–human collaboration transforms learning. MA Advertising (Thesis Track), UT Austin.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bellakang017.github.io">
+<meta property="og:image" content="https://bellakang017.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bella Kang — AI Education Researcher">
+<meta name="twitter:description" content="I study how AI–human collaboration transforms learning.">
+<meta name="description" content="Bella Kang — AI Education Researcher at UT Austin. Studying how AI–human collaboration transforms learning. Health Communication. Behavioral Science.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='12' fill='%23FAFAF7' stroke='%236B2E4A' stroke-width='1.5'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAFAF7;--white:#FEFEFE;--cream:#F8F6F2;--blush:#E0D0D4;--rose:#C48A95;--rose-dark:#A06B78;--mauve:#8C5A6E;--plum:#6B2E4A;--text:#2A2024;--text-body:#4A4045;--text-muted:#8A7E82;--text-light:#B8ADB0;--border:rgba(60,40,50,0.06);--serif:'Newsreader',Georgia,serif;--mono:'IBM Plex Mono','SF Mono',monospace;--ease:cubic-bezier(0.25,0.46,0.45,0.94)}
+*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;overflow:hidden}body{font-family:var(--mono);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}::selection{background:var(--plum);color:#fff}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--blush);border-radius:10px}
+.tl-card-sm{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;text-align:center;max-width:300px;margin:0 auto;transition:all .3s var(--ease)}
+.tl-card-sm:hover{border-color:var(--blush)}
+.tl-q{font-family:var(--serif);font-size:13px;font-style:italic;color:var(--text);line-height:1.55;margin-bottom:5px;transition:opacity .4s var(--ease)}
+.tl-scholar{font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:10px;transition:opacity .4s var(--ease)}
+.tl-btn{display:inline-block;padding:4px 12px;border-radius:12px;border:1px solid var(--blush);font-family:var(--mono);font-size:9px;letter-spacing:.04em;cursor:pointer;transition:all .25s var(--ease);background:transparent;color:var(--text-muted)}
+.tl-btn:hover{background:var(--cream);color:var(--text);border-color:var(--rose)}
+.app{display:flex;height:100vh}
+.sidebar{width:260px;min-width:260px;background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;user-select:none}
+.sb-hd{padding:32px 24px 26px;border-bottom:1px solid var(--border)}
+.sb-lb{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:8px}
+.sb-nm{font-family:var(--serif);font-size:24px;font-weight:400;font-style:italic;color:var(--text)}
+.sb-mt{font-size:10.5px;color:var(--text-muted);margin-top:6px;line-height:1.5}
+.sb-nav{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.sb-i{width:100%;display:flex;align-items:center;gap:10px;padding:0 24px;height:46px;border:none;background:none;cursor:pointer;font-family:var(--mono);text-align:left;border-left:2.5px solid transparent;transition:all .2s var(--ease);color:var(--text-muted)}
+.sb-i:hover{background:rgba(0,0,0,.012);color:var(--text)}
+.sb-i.active .sb-dot{opacity:1}
+.sb-readme{font-size:12.5px;font-weight:500;color:#6A6A6A;letter-spacing:.04em}
+.sb-readme.active{color:var(--plum);border-left-color:var(--plum)}
+.sb-sep{height:1px;margin:6px 24px 8px;background:var(--border)}
+.sb-folder{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.sb-folder.active{border-left-color:var(--plum);color:var(--text)}
+.sb-sym{font-size:13px;width:18px;text-align:center;flex-shrink:0;animation:sparkle 3s ease-in-out infinite}
+@keyframes sparkle{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
+.sb-sym.d1{animation-delay:.6s}.sb-sym.d2{animation-delay:1.2s}
+.sb-fic{flex-shrink:0;display:flex;align-items:center}
+.sb-dot{width:5px;height:5px;border-radius:50%;background:var(--rose-dark);opacity:0;transition:opacity .25s;flex-shrink:0;margin-left:auto}
+.sb-ft{padding:18px 24px;border-top:1px solid var(--border);font-family:var(--serif);font-size:9.5px;font-style:italic;color:var(--text-light);letter-spacing:.03em}
+.tab-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--white);border-top:1px solid var(--border);padding:6px 0 env(safe-area-inset-bottom,8px);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.tab-bar-inner{display:flex;justify-content:space-around;align-items:center;max-width:400px;margin:0 auto}
+.tab-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 12px;border:none;background:none;cursor:pointer;transition:all .2s;border-radius:8px}
+.tab-btn:active{transform:scale(0.95)}
+.tab-icon{width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:14px;opacity:.5;transition:opacity .2s}
+.tab-label{font-family:var(--mono);font-size:9px;color:var(--text-light);letter-spacing:.03em;transition:color .2s}
+.tab-btn.active .tab-icon{opacity:1}
+.tab-btn.active .tab-label{color:var(--plum);font-weight:600}
+.content{flex:1;overflow-y:auto;overflow-x:hidden}
+.pnl{opacity:0;transform:translateY(10px);transition:all .5s var(--ease);min-height:100%}
+.pnl.vis{opacity:1;transform:translateY(0)}
+.rm{padding:56px;max-width:720px}
+.rm-sr{display:flex;align-items:center;gap:8px;margin-bottom:22px}
+.rm-sy{font-size:14px;color:#8A8A8A}
+.rm-sl{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A}
+.rm-t{font-family:var(--serif);font-size:32px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:10px;line-height:1.25}
+.rm-st{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--rose-dark);margin-bottom:28px;line-height:1.6}
+.rm-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:36px}
+.rm-tag{padding:3px 11px;border-radius:12px;font-size:10.5px;color:var(--text-muted);background:var(--cream);border:1px solid var(--blush)}
+.rm-dv{width:50px;height:1px;margin-bottom:30px;background:linear-gradient(90deg,var(--rose),transparent)}
+.rm-bd{font-family:var(--serif);font-size:15.5px;line-height:1.85;color:var(--text-body)}
+.rm-bd p{margin-bottom:16px}.rm-bd em{color:var(--rose-dark)}.rm-bd strong{color:var(--text);font-weight:600}
+.cur{margin-top:40px;padding:28px;border:1px solid var(--border);border-radius:3px;background:var(--white)}
+.cur-hd{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.cur-pulse{width:6px;height:6px;border-radius:50%;background:#D4577A;animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4;box-shadow:0 0 0 0 rgba(212,87,122,.3)}50%{opacity:1;box-shadow:0 0 0 6px rgba(212,87,122,0)}}
+.cur-i{padding:11px 0;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start}
+.cur-i:last-child{border-bottom:none}
+.cur-ar{color:var(--text-light);font-size:12px;flex-shrink:0;margin-top:1px}
+.cur-tt{font-family:var(--serif);font-size:14.5px;font-weight:500;color:var(--text);margin-bottom:2px}
+.cur-sb{font-size:10px;color:var(--text-muted)}
+.wk{padding:44px 48px 80px}
+.wk-hd{margin-bottom:36px}
+.s-lb{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.s-lb::before{content:'';width:20px;height:1px;background:var(--rose)}
+.s-t{font-family:var(--serif);font-size:30px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:8px}
+.s-d{font-family:var(--serif);font-size:15px;color:var(--text-muted);line-height:1.7}
+.wk-fl{display:flex;gap:6px;margin-bottom:32px;flex-wrap:wrap}
+.wf{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--text-muted);padding:7px 18px;border-radius:16px;border:1px solid rgba(60,40,50,.1);background:none;cursor:pointer;transition:all .25s var(--ease);letter-spacing:.03em}
+.wf:hover{border-color:var(--rose);color:var(--text)}
+.wf.on{background:var(--plum);color:#fff;border-color:var(--plum)}
+.wk-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px 24px}
+.wc{cursor:pointer;transition:all .3s var(--ease);opacity:0;transform:translateY(14px)}
+.wc.sh{opacity:1;transform:translateY(0)}
+.wc:hover{transform:translateY(-3px)}
+.wc-tp{font-size:9.5px;font-weight:500;color:var(--text-muted);margin-bottom:6px;letter-spacing:.05em;text-transform:uppercase}
+.wc-im{width:100%;aspect-ratio:4/3;border-radius:3px;overflow:hidden;margin-bottom:12px;position:relative}
+.wc-ii{width:100%;height:100%;transition:transform .6s var(--ease)}
+.wc:hover .wc-ii{transform:scale(1.04)}
+.wc-rf{font-size:9.5px;color:var(--text-light);margin-bottom:4px;letter-spacing:.04em}
+.wc-nm{font-family:var(--serif);font-size:17px;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:5px}
+.wc-su{font-size:11px;color:var(--text-muted);line-height:1.4;letter-spacing:.02em}
+.wc-pl{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.wp{font-size:9px;font-weight:500;padding:2px 9px;border-radius:10px;letter-spacing:.04em;border:1px solid var(--blush);color:var(--text-muted);background:var(--cream);transition:all .2s}
+.wc:hover .wp{background:var(--blush);color:var(--text-body)}
+.wp-a{color:var(--plum);border-color:rgba(107,46,74,.2)}.wp-h{color:var(--mauve);border-color:rgba(140,90,110,.2)}.wp-g{color:#6A5B7A;border-color:rgba(106,91,122,.2)}
+.g1{background:linear-gradient(145deg,#E0D0D4 0%,#D4577A 35%,#6B2E4A 100%)}.g2{background:linear-gradient(145deg,#E8D8DC 0%,#9B88B0 40%,#6A5B7A 100%)}.g3{background:linear-gradient(145deg,#D4D8E0 0%,#7A8AB0 40%,#3A4A6A 100%)}.g4{background:linear-gradient(145deg,#E0DCD4 0%,#BBA88E 40%,#8A7B6A 100%)}.g5{background:linear-gradient(145deg,#E0D0D4 0%,#C48A95 40%,#6B2E4A 100%)}.g6{background:linear-gradient(145deg,#E4D8D4 0%,#C47A94 40%,#8C5A6E 100%)}.g7{background:linear-gradient(145deg,#E0D4D8 0%,#D4577A 40%,#6B2E4A 100%)}.g8{background:linear-gradient(145deg,#E8E0D8 0%,#C48A95 40%,#8C5A6E 100%)}.g9{background:linear-gradient(145deg,#E0D0D4 0%,#D4577A 40%,#6B2E4A 100%)}.g10{background:linear-gradient(145deg,#D8E0D8 0%,#8AC4A8 40%,#4A7A5A 100%)}.g11{background:linear-gradient(145deg,#E8E4D8 0%,#BBA88E 40%,#8A7B6A 100%)}.g12{background:linear-gradient(145deg,#E8E0D8 0%,#D4C4A8 40%,#8A7B5A 100%)}
+.rs{padding:44px 48px 80px;max-width:900px}
+.rs-tr{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:48px}
+.rt{padding:32px 28px;border:1px solid var(--border);border-radius:3px;background:var(--white);transition:border-color .3s}
+.rt:hover{border-color:var(--rose)}
+.rt-bg{display:inline-block;font-size:8.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:8px;margin-bottom:14px}
+.rt-bg-p{background:rgba(107,46,74,.06);color:var(--plum)}.rt-bg-c{background:rgba(140,90,110,.06);color:var(--mauve)}
+.rt-t{font-family:var(--serif);font-size:20px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:8px}
+.rt-q{font-family:var(--serif);font-size:13.5px;font-style:italic;color:var(--rose-dark);margin-bottom:16px;line-height:1.6}
+.rt-b{font-family:var(--serif);font-size:14px;color:var(--text-body);line-height:1.8;margin-bottom:18px}
+.rt-ul{list-style:none}
+.rt-li{font-size:11.5px;color:var(--text-muted);padding:7px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;letter-spacing:.02em}
+.rt-li:last-child{border-bottom:none}
+.rt-aw{color:var(--text-light);font-size:11px;flex-shrink:0}
+.rp-hd{margin-bottom:20px}
+.rp-t{font-family:var(--serif);font-size:22px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:6px}
+.rp-d{font-family:var(--serif);font-size:14px;color:var(--text-muted);line-height:1.7}
+.rp-g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.rp{padding:22px 18px;border:1px solid var(--border);border-radius:3px;background:var(--white);transition:all .25s var(--ease)}
+.rp:hover{border-color:var(--rose);transform:translateY(-2px);box-shadow:0 6px 20px rgba(107,46,74,.05)}
+.rp-n{font-size:9px;color:var(--text-light);letter-spacing:.1em;margin-bottom:8px}
+.rp-nm{font-family:var(--serif);font-size:16px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:3px}
+.rp-fc{font-size:9px;font-weight:500;color:var(--rose);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.rp-ds{font-family:var(--serif);font-size:12px;color:var(--text-muted);line-height:1.6}
+.ab{padding:44px 48px 80px;max-width:800px}
+.ab-hr{display:flex;gap:36px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.ab-ph{width:140px;height:180px;min-width:140px;border-radius:3px;background:var(--cream);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:40px;font-style:italic;color:var(--blush)}
+.ab-nm{font-family:var(--serif);font-size:28px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:4px}
+.ab-rl{font-size:11px;color:var(--text-muted);line-height:1.7;margin-bottom:18px;letter-spacing:.02em}
+.ab-lk{display:flex;gap:8px;flex-wrap:wrap}
+.ab-a{font-size:10.5px;font-weight:500;color:var(--text-muted);padding:7px 16px;border:1px solid var(--blush);border-radius:16px;text-decoration:none;transition:all .2s;letter-spacing:.03em}
+.ab-a:hover{border-color:var(--rose);color:var(--plum);background:var(--cream)}
+.ab-bk{margin-bottom:36px}
+.ab-bk h3{font-family:var(--serif);font-size:20px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:14px}
+.ab-bk p{font-family:var(--serif);font-size:15px;color:var(--text-body);line-height:1.85}
+.ab-bk p+p{margin-top:14px}.ab-bk em{color:var(--rose-dark)}
+.ab-tl{margin-top:8px}
+.tl{display:flex;gap:20px;padding:12px 0;border-bottom:1px solid var(--border)}
+.tl:last-child{border-bottom:none}
+.tl-y{font-size:10px;color:var(--rose);min-width:110px;padding-top:3px;letter-spacing:.03em;flex-shrink:0}
+.tl-t{font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:2px}
+.tl-s{font-size:11px;color:var(--text-muted)}
+.rm-hero{display:flex;gap:36px;align-items:flex-start;margin-bottom:8px}
+.rm-photo{width:120px;height:120px;min-width:120px;border-radius:50%;overflow:hidden;border:2px solid var(--blush);background:var(--cream);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rm-photo img{width:100%;height:100%;object-fit:cover}
+.rm-photo-placeholder{font-family:var(--serif);font-size:36px;font-style:italic;color:var(--blush)}
+.rm-photo{position:relative;cursor:pointer}
+.rm-photo-init{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--cream);border-radius:50%;transition:opacity .5s var(--ease);z-index:1}
+.rm-photo-init span{font-family:var(--serif);font-size:36px;font-style:italic;color:var(--blush);transition:all .4s var(--ease)}
+.rm-photo:hover .rm-photo-init{opacity:0}
+.rm-photo:hover .rm-photo-init span{transform:scale(0.8);opacity:0}
+.rm-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;transition:transform .6s var(--ease)}
+.rm-photo:hover img{transform:scale(1.05)}
+.wl-hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:48px 0 36px}
+.wl-photo{width:140px;height:140px;border-radius:50%;overflow:hidden;border:2.5px solid var(--blush);background:var(--cream);position:relative;cursor:pointer;margin-bottom:24px}
+.wl-photo-bk{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--cream);border-radius:50%;transition:opacity .5s var(--ease);z-index:1}
+.wl-photo-bk span{font-family:var(--serif);font-size:42px;font-style:italic;color:var(--rose);letter-spacing:-.02em;transition:all .4s var(--ease)}
+.wl-photo-bk{opacity:0}
+.wl-photo:hover .wl-photo-bk{opacity:1}
+.wl-photo:hover .wl-photo-bk span{transform:scale(1);opacity:1}
+.wl-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;transition:transform .6s var(--ease)}
+.wl-photo:hover img{transform:scale(1.05)}
+.wl-nm{margin-bottom:4px;font-family:var(--serif);font-size:32px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:8px;letter-spacing:-.01em}
+.wl-cred{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;font-weight:400}
+.wl-statement{max-width:540px;margin-top:4px}
+.wl-hook{font-family:var(--serif);font-size:22px;font-weight:400;font-style:italic;color:var(--text);line-height:1.45;letter-spacing:-.01em;margin-bottom:14px}
+.wl-hook em{font-style:normal;color:var(--plum);font-weight:500}
+.wl-bridge{font-size:12.5px;color:var(--text-muted);line-height:1.7;letter-spacing:.01em}
+.wl-bridge strong{font-weight:500}
+.wl-kw-ai{color:#6B2E4A}
+.wl-kw-hc{color:#A06B78}
+.wl-kw-bs{color:#8C5A6E}
+.wl-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.wl-tag{font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+.wl-tag-ai{color:#6B2E4A;background:rgba(107,46,74,.08)}
+.wl-tag-hc{color:#A06B78;background:rgba(160,107,120,.08)}
+.wl-tag-bs{color:#8C5A6E;background:rgba(140,90,110,.07)}
+.wl-tag-loc{color:var(--text-muted);background:rgba(0,0,0,.03)}
+.wl-sec{margin-top:40px}
+.wl-sec-hd{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:16px;padding-left:2px}
+.wl-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wl-fc{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px 18px;cursor:pointer;transition:all .25s var(--ease);position:relative;overflow:hidden}
+.wl-fc:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(60,40,50,.06)}
+.wl-fc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;opacity:0;transition:opacity .25s}
+.wl-fc:hover::before{opacity:1}
+.wl-fc.ai::before{background:linear-gradient(90deg,var(--rose),var(--plum))}
+.wl-fc.hc::before{background:linear-gradient(90deg,var(--blush),var(--rose))}
+.wl-fc.pg::before{background:linear-gradient(90deg,var(--mauve),var(--rose-dark))}
+.wl-fc-ref{font-size:9px;letter-spacing:.12em;color:var(--text-light);margin-bottom:8px}
+.wl-fc-nm{font-family:var(--serif);font-size:15.5px;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:6px}
+.wl-fc-su{font-size:11px;color:var(--text-muted);line-height:1.5}
+.wl-fc-pill{display:inline-block;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-top:10px}
+.wl-fc.ai .wl-fc-pill{color:var(--plum);background:rgba(107,46,74,.06)}
+.wl-fc.hc .wl-fc-pill{color:var(--rose-dark);background:rgba(196,138,149,.08)}
+.wl-fc.pg .wl-fc-pill{color:var(--mauve);background:rgba(140,90,110,.06)}
+.wl-rg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.wl-rg-c{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;cursor:pointer;transition:all .25s var(--ease)}
+.wl-rg-c:hover{border-color:var(--blush);box-shadow:0 4px 16px rgba(60,40,50,.04)}
+.wl-rg-lb{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
+.wl-rg-q{font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text);line-height:1.5;margin-bottom:8px}
+.wl-rg-meta{font-size:10.5px;color:var(--text-muted)}
+.wl-cur{margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+.wl-cur-hd{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:500;display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.wl-cur-pulse{width:6px;height:6px;border-radius:50%;background:var(--rose);animation:pulse 2s ease-in-out infinite}
+.wl-cur-items{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wl-cur-it{font-size:11.5px;color:var(--text-body);line-height:1.5;padding:10px 14px;background:rgba(0,0,0,.01);border-radius:8px}
+.wl-cur-it strong{font-weight:500;color:var(--text);display:block;font-size:11px;margin-bottom:2px}
+@media(max-width:768px){
+  .wl-hero{padding:32px 0 24px}
+  .wl-photo{width:110px;height:110px}
+  .wl-photo-bk span{font-size:34px}
+  .wl-nm{margin-bottom:4px;font-size:26px}
+  .wl-hook{font-size:19px}
+  .wl-bridge{font-size:11.5px}
+  .wl-feat{grid-template-columns:1fr}
+  .wl-rg{grid-template-columns:1fr}
+  .wl-cur-items{grid-template-columns:1fr}
+}
+@media(min-width:769px) and (max-width:1024px){
+  .wl-feat{grid-template-columns:1fr 1fr}
+}
+.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(42,32,36,0.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .3s var(--ease);display:flex;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--white);border-radius:4px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;transform:translateY(20px) scale(0.97);transition:transform .35s var(--ease);box-shadow:0 24px 80px rgba(42,32,36,0.15)}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.modal-close{position:sticky;top:0;display:flex;justify-content:flex-end;padding:16px 20px 0;z-index:1}
+.modal-close-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text-muted);transition:all .2s}
+.modal-close-btn:hover{border-color:var(--rose);color:var(--text);background:var(--cream)}
+.modal-img{width:100%;aspect-ratio:16/9;margin-bottom:4px}
+.modal-body{padding:28px 32px 36px}
+.modal-badge{display:inline-block;font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:8px;margin-bottom:12px}
+.modal-badge-ai{background:rgba(107,46,74,.06);color:var(--plum)}
+.modal-badge-hc{background:rgba(140,90,110,.06);color:var(--mauve)}
+.modal-badge-pg{background:rgba(106,91,122,.06);color:#6A5B7A}
+.modal-title{font-family:var(--serif);font-size:24px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:8px;line-height:1.3}
+.modal-sub{font-size:11px;color:var(--text-muted);margin-bottom:20px;letter-spacing:.02em}
+.modal-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:24px}
+.modal-tag{padding:2px 10px;border-radius:10px;font-size:9.5px;color:var(--text-muted);background:var(--cream);border:1px solid var(--blush)}
+.modal-divider{width:40px;height:1px;margin-bottom:20px;background:linear-gradient(90deg,var(--rose),transparent)}
+.modal-text{font-family:var(--serif);font-size:15px;line-height:1.85;color:var(--text-body)}
+.modal-text p{margin-bottom:14px}
+.modal-text em{color:var(--rose-dark)}
+.modal-text strong{color:var(--text);font-weight:600}
+.modal-links{margin-top:24px;display:flex;flex-direction:column;gap:8px}
+.modal-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--plum);text-decoration:none;padding:10px 18px;border:1px solid var(--blush);border-radius:20px;width:fit-content;transition:all .25s var(--ease)}
+.modal-link:hover{background:var(--cream);transform:translateX(4px);box-shadow:0 2px 12px rgba(196,138,149,.15)}
+@media(max-width:1024px){
+  .sidebar{width:220px;min-width:220px}
+  .rs-tr{grid-template-columns:1fr}
+  .rp-g{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .sidebar{display:none}
+  .tab-bar{display:block}
+  .app{flex-direction:column}
+  .content{height:100vh;padding-bottom:72px}
+  .wk,.rs,.ab{padding:28px 20px 100px}
+  .rm{padding:32px 20px 100px}
+  .wk-g{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+  .rp-g{grid-template-columns:1fr 1fr}
+  .ab-hr{flex-direction:column;gap:24px}
+  .ab-ph{width:100px;height:130px;min-width:100px;font-size:32px}
+  .rm-t{font-size:26px}
+  .s-t{font-size:24px}
+  .wk-fl{gap:4px}
+  .wf{padding:6px 14px;font-size:10px}
+  .cur{padding:20px}
+  .rm-hero{flex-direction:column;gap:20px;align-items:center;text-align:center}
+  .rm-photo{width:100px;height:100px;min-width:100px}
+  .modal{max-width:calc(100vw - 32px);max-height:80vh}
+  .modal-body{padding:20px 24px 28px}
+  .modal-title{font-size:20px}
+}
+@media(max-width:480px){
+  .wk-g{grid-template-columns:1fr}
+  .rp-g{grid-template-columns:1fr}
+  .rm-tags{gap:4px}
+  .rm-tag{font-size:9.5px;padding:2px 9px}
+  .tl{flex-direction:column;gap:4px}
+  .tl-y{min-width:auto}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+<div class="sb-hd"><div class="sb-lb">Portfolio</div><div class="sb-nm">Bella Kang</div><div class="sb-mt">MA Advertising · UT Austin</div></div>
+<nav class="sb-nav">
+<button class="sb-i sb-readme active" onclick="go('readme',this)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" opacity=".6"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 5H11.5M4.5 8H9.5M4.5 11H7.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg><span>README</span><span class="sb-dot"></span></button>
+<div class="sb-sep"></div>
+<button class="sb-i sb-folder" onclick="go('work',this)"><span class="sb-sym" style="color:#C47A94">&#10043;</span><span class="sb-fic"><svg width="15" height="13" viewBox="0 0 16 14" fill="#C47A94" opacity=".7"><path d="M1.5 1C.67 1 0 1.67 0 2.5V11.5C0 12.33.67 13 1.5 13H14.5C15.33 13 16 12.33 16 11.5V4.5C16 3.67 15.33 3 14.5 3H8L6.5 1H1.5Z"/></svg></span><span>Work</span><span class="sb-dot"></span></button>
+<button class="sb-i sb-folder" onclick="go('research',this)"><span class="sb-sym d1" style="color:#D4577A">&#10022;</span><span class="sb-fic"><svg width="15" height="13" viewBox="0 0 16 14" fill="#D4577A" opacity=".7"><path d="M1.5 1C.67 1 0 1.67 0 2.5V11.5C0 12.33.67 13 1.5 13H14.5C15.33 13 16 12.33 16 11.5V4.5C16 3.67 15.33 3 14.5 3H8L6.5 1H1.5Z"/></svg></span><span>Research</span><span class="sb-dot"></span></button>
+<button class="sb-i sb-folder" onclick="go('about',this)"><span class="sb-sym d2" style="color:#BBA88E">&#10042;</span><span class="sb-fic"><svg width="15" height="13" viewBox="0 0 16 14" fill="#BBA88E" opacity=".7"><path d="M1.5 1C.67 1 0 1.67 0 2.5V11.5C0 12.33.67 13 1.5 13H14.5C15.33 13 16 12.33 16 11.5V4.5C16 3.67 15.33 3 14.5 3H8L6.5 1H1.5Z"/></svg></span><span>About</span><span class="sb-dot"></span></button>
+</nav>
+<div class="sb-ft">AI Education × Health Communication</div>
+</aside>
+<div class="tab-bar">
+<div class="tab-bar-inner">
+<button class="tab-btn active" onclick="goM('readme',this)"><div class="tab-icon">◈</div><div class="tab-label">Home</div></button>
+<button class="tab-btn" onclick="goM('work',this)"><div class="tab-icon" style="color:#C47A94">❋</div><div class="tab-label">Work</div></button>
+<button class="tab-btn" onclick="goM('research',this)"><div class="tab-icon" style="color:#D4577A">✦</div><div class="tab-label">Research</div></button>
+<button class="tab-btn" onclick="goM('about',this)"><div class="tab-icon" style="color:#BBA88E">✺</div><div class="tab-label">About</div></button>
+</div>
+</div>
+<main class="content" id="ct">
+<div class="pnl rm vis" id="p-readme">
+<div class="wl-hero">
+  <div class="wl-photo">
+    <div class="wl-photo-bk"><span>BK</span></div>
+    <img src="profile.jpg" alt="Bella Kang">
+  </div>
+  <h1 class="wl-nm">Bella Kang</h1>
+  <div class="wl-cred">MA Advertising · UT Austin · Graduate Consultant</div>
+  <div class="wl-statement">
+    <p class="wl-hook">I study how AI–human collaboration<br>transforms <em>learning</em>.</p>
+    <p class="wl-bridge">Bridging <strong class="wl-kw-ai">AI &amp; education</strong>, <strong class="wl-kw-bs">behavioral science</strong>, and <strong class="wl-kw-hc">health communication</strong> — designing interventions where technology and human insight produce what neither achieves alone.</p>
+  </div>
+  <div class="wl-tags"><span class="wl-tag wl-tag-ai">AI Education</span><span class="wl-tag wl-tag-bs">Behavioral Science</span><span class="wl-tag wl-tag-hc">Health Communication</span><span class="wl-tag wl-tag-loc">UT Austin</span></div>
+</div>
+<div class="wl-sec">
+  <div class="wl-sec-hd">Featured Work</div>
+  <div class="wl-feat">
+    <div class="wl-fc ai" onclick="go('work',document.querySelector('.sb-folder'));setTimeout(()=>openModal('AI.26.001'),300)">
+      <div class="wl-fc-ref">[AI.26.001]</div>
+      <div class="wl-fc-nm">AI–Human Hybrid Method</div>
+      <div class="wl-fc-su">Reflexive methodology — using AI to study how AI transforms learning. Opus × Bella as both subject and proof of concept.</div>
+      <div class="wl-fc-pill">AI Education</div>
+    </div>
+    <div class="wl-fc pg" onclick="go('work',document.querySelector('.sb-folder'));setTimeout(()=>openModal('P.26.001'),300)">
+      <div class="wl-fc-ref">[P.26.001]</div>
+      <div class="wl-fc-nm">Interview Instinct Quiz</div>
+      <div class="wl-fc-su">Interactive behavioral science tool — 8 animal archetypes mapping interview strengths. Built for IWG Workshop.</div>
+      <div class="wl-fc-pill">Programming</div>
+    </div>
+    <div class="wl-fc hc" onclick="go('work',document.querySelector('.sb-folder'));setTimeout(()=>openModal('HC.26.001'),300)">
+      <div class="wl-fc-ref">[HC.26.001]</div>
+      <div class="wl-fc-nm">Self-Silencing & Help-Seeking</div>
+      <div class="wl-fc-su">Master's thesis — how culturally embedded communication patterns affect health outcomes among Korean American midlife women. Collaborative research with doctoral colleagues in Sociology and Nursing.</div>
+      <div class="wl-fc-pill">Health Comm</div>
+    </div>
+  </div>
+</div>
+<div class="wl-sec">
+  <div class="wl-sec-hd">Research</div>
+  <div class="wl-rg">
+    <div class="wl-rg-c" onclick="go('research',document.querySelectorAll('.sb-folder')[1])">
+      <div class="wl-rg-lb">Primary — AI Education</div>
+      <div class="wl-rg-q">"How does AI–human collaboration transform learning, teaching, and the research process itself?"</div>
+      <div class="wl-rg-meta">Opus × Bella · Mollick · Reflexive Method</div>
+    </div>
+    <div class="wl-rg-c" onclick="go('research',document.querySelectorAll('.sb-folder')[1])">
+      <div class="wl-rg-lb">Collaborative — Health Communication</div>
+      <div class="wl-rg-q">"How do culturally embedded communication patterns shape health behaviors and help-seeking?"</div>
+      <div class="wl-rg-meta">With PhD Sociology & PhD Nursing · Korean American Women</div>
+    </div>
+  </div>
+</div>
+<div class="wl-cur">
+  <div class="wl-cur-hd"><span class="wl-cur-pulse"></span>Currently</div>
+  <div class="wl-cur-items">
+    <div class="wl-cur-it"><strong>AI Education Research</strong>The reflexive hybrid method — using AI to study how AI transforms learning</div>
+    <div class="wl-cur-it"><strong>Graduate Global Impact Consultant</strong>Career & Life Design, UT Austin — international graduate career readiness</div>
+    <div class="wl-cur-it"><strong>Health Communication</strong>Korean American midlife women — collaborative research with doctoral colleagues</div>
+    <div class="wl-cur-it"><strong>What's Next — 2027</strong>PhD programs · Research roles · Industry opportunities in AI Education</div>
+  </div>
+</div>
+</div>
+<div class="pnl wk" id="p-work" style="display:none">
+<div class="wk-hd"><div class="s-lb">Work</div><h2 class="s-t">Archive</h2><p class="s-d">Research, campaigns, and programming — a living collection that grows with each project.</p></div>
+<div class="wk-fl"><button class="wf on" onclick="fw('all',this)">All</button><button class="wf" onclick="fw('ai',this)">AI × Education</button><button class="wf" onclick="fw('hc',this)">Health Comm</button><button class="wf" onclick="fw('pg',this)">Programming</button></div>
+<div class="wk-g" id="wg">
+<div class="wc sh" data-c="ai"><div class="wc-tp">Research</div><div class="wc-im"><div class="wc-ii g1"></div></div><div class="wc-rf">[AI.26.001]</div><div class="wc-nm">AI–Human Hybrid Method</div><div class="wc-su">Reflexive methodology · Opus × Bella</div><div class="wc-pl"><span class="wp wp-a">AI Education</span><span class="wp">Mollick</span></div></div>
+<div class="wc sh" data-c="ai"><div class="wc-tp">Research</div><div class="wc-im"><div class="wc-ii g2"></div></div><div class="wc-rf">[AI.26.002]</div><div class="wc-nm">RAG Knowledge Base & Synthetic Data</div><div class="wc-su">MKT 397 · Empirics-First · Prof. Du</div><div class="wc-pl"><span class="wp wp-a">AI Education</span><span class="wp">Quantitative</span></div></div>
+<div class="wc sh" data-c="ai"><div class="wc-tp">Analysis</div><div class="wc-im"><div class="wc-ii g3"></div></div><div class="wc-rf">[AI.26.003]</div><div class="wc-nm">Arora et al. 2025 — LLM Adoption</div><div class="wc-su">Discussion Lead · Arora et al. Table 1 Framework</div><div class="wc-pl"><span class="wp wp-a">AI Education</span><span class="wp">MKT 397</span></div></div>
+<div class="wc sh" data-c="ai"><div class="wc-tp">Framework</div><div class="wc-im"><div class="wc-ii g4"></div></div><div class="wc-rf">[AI.26.004]</div><div class="wc-nm">Mollick's 7 AI Roles as Lens</div><div class="wc-su">Tutor · Coach · Mentor · Teammate · Tool · Simulator · Student</div><div class="wc-pl"><span class="wp wp-a">AI Education</span><span class="wp">Framework</span></div></div>
+<div class="wc sh" data-c="hc"><div class="wc-tp">Thesis</div><div class="wc-im"><div class="wc-ii g5"></div></div><div class="wc-rf">[HC.26.001]</div><div class="wc-nm">Self-Silencing & Help-Seeking</div><div class="wc-su">Korean American Midlife Women · Mixed Methods</div><div class="wc-pl"><span class="wp wp-h">Health Comm</span><span class="wp">Thesis</span></div></div>
+<div class="wc sh" data-c="hc"><div class="wc-tp">Grant</div><div class="wc-im"><div class="wc-ii g6"></div></div><div class="wc-rf">[HC.26.002]</div><div class="wc-nm">HCPS Grant — Multiple Role Strain</div><div class="wc-su">Collaborative · PhD Sociology & PhD Nursing</div><div class="wc-pl"><span class="wp wp-h">Health Comm</span><span class="wp">Grant</span></div></div>
+<div class="wc sh" data-c="hc"><div class="wc-tp">Campaign</div><div class="wc-im"><div class="wc-ii g7"></div></div><div class="wc-rf">[HC.25.003]</div><div class="wc-nm">Truth Campaign Analysis</div><div class="wc-su">ADV 382J Coursework · Neural Self-Relevance · Falk</div><div class="wc-pl"><span class="wp wp-h">Health Comm</span><span class="wp">ADV 382J</span></div></div>
+<div class="wc sh" data-c="pg"><div class="wc-tp">Interactive</div><div class="wc-im"><div class="wc-ii g8"></div></div><div class="wc-rf">[P.26.001]</div><div class="wc-nm">Interview Instinct Animal Quiz</div><div class="wc-su">IWG Workshop · 8 Archetypes · Behavioral Science</div><div class="wc-pl"><span class="wp wp-g">Programming</span><span class="wp">IWG</span></div></div>
+<div class="wc sh" data-c="pg"><div class="wc-tp">Worksheet</div><div class="wc-im"><div class="wc-ii g9"></div></div><div class="wc-rf">[P.26.002]</div><div class="wc-nm">Red Envelope STORY Prompt</div><div class="wc-su">Behavioral Design · Self-Relevance · Falk</div><div class="wc-pl"><span class="wp wp-g">Programming</span><span class="wp">STORY</span></div></div>
+<div class="wc sh" data-c="pg"><div class="wc-tp">Guide</div><div class="wc-im"><div class="wc-ii g10"></div></div><div class="wc-rf">[P.26.003]</div><div class="wc-nm">HIVE Framework Guide</div><div class="wc-su">Company Research · Habitat · Initiative · Venture · Effect</div><div class="wc-pl"><span class="wp wp-g">Programming</span><span class="wp">HIVE</span></div></div>
+<div class="wc sh" data-c="pg"><div class="wc-tp">Guide</div><div class="wc-im"><div class="wc-ii g11"></div></div><div class="wc-rf">[P.26.004]</div><div class="wc-nm">Multi-Cultural Coffee Chat Guide</div><div class="wc-su">Coffee & Connections · Belonging · Yeager</div><div class="wc-pl"><span class="wp wp-g">Programming</span><span class="wp">C&C</span></div></div>
+<div class="wc sh" data-c="ai"><div class="wc-tp">Design System</div><div class="wc-im"><div class="wc-ii g12"></div></div><div class="wc-rf">[AI.26.005]</div><div class="wc-nm">Opus × Bella Style Guide</div><div class="wc-su">Research Collaboration Identity</div><div class="wc-pl"><span class="wp wp-a">AI Education</span><span class="wp">Design</span></div></div>
+</div>
+</div>
+<div class="pnl rs" id="p-research" style="display:none">
+<div class="rs-hd" style="margin-bottom:40px"><div class="s-lb">Research</div><h2 class="s-t">What I Study</h2><p class="s-d">Two interconnected research tracks — one primary, one collaborative — unified by behavioral science and intervention design.</p></div>
+<div class="rs-tr">
+<div class="rt"><span class="rt-bg rt-bg-p">Primary</span><h3 class="rt-t">AI Education</h3><p class="rt-q">"How does AI–human collaboration transform learning, teaching, and the research process itself?"</p><p class="rt-b">The hybrid outperforms either alone. I use a reflexive method — studying AI-mediated learning while practicing it. Opus × Bella is both the research subject and the proof of concept.</p><ul class="rt-ul"><li class="rt-li"><span class="rt-aw">→</span>AI–Human Hybrid Method (Arora et al. 2025)</li><li class="rt-li"><span class="rt-aw">→</span>Mollick's 7 AI Roles as analytical lens</li><li class="rt-li"><span class="rt-aw">→</span>RAG knowledge base × synthetic data validity</li><li class="rt-li"><span class="rt-aw">→</span>Mindset architecture in AI-mediated learning</li></ul></div>
+<div class="rt"><span class="rt-bg rt-bg-c">Collaborative</span><h3 class="rt-t">Health Communication</h3><p class="rt-q">"How do culturally embedded communication patterns shape health behaviors and help-seeking?"</p><p class="rt-b">With collaborators Garam and Seulgi, I investigate how Korean American midlife women navigate self-silencing, multiple role strain, and mental health through culturally sensitive mixed-methods research.</p><ul class="rt-ul"><li class="rt-li"><span class="rt-aw">→</span>Self-silencing & help-seeking (MA Thesis)</li><li class="rt-li"><span class="rt-aw">→</span>HCPS Grant — multiple role strain</li><li class="rt-li"><span class="rt-aw">→</span>Community-engaged intervention design</li><li class="rt-li"><span class="rt-aw">→</span>Campaign analysis (Truth, Beyond Blue)</li></ul></div>
+</div>
+<div class="rp-hd"><div class="s-lb">Framework</div><h3 class="rp-t">Four Pillars</h3><p class="rp-d">Every recommendation, framework, or intervention traces back to at least one.</p></div>
+<div class="rp-g">
+<div class="rp"><div class="rp-n">01</div><div class="rp-nm">Dweck + Yeager</div><div class="rp-fc">Mindset Architecture</div><p class="rp-ds">Beliefs about ability shape challenge-seeking and resilience — changeable through targeted interventions.</p></div>
+<div class="rp"><div class="rp-n">02</div><div class="rp-nm">Crum</div><div class="rp-fc">Mindset × Physiology</div><p class="rp-ds">Mindset doesn't just change behavior — it changes biology. The body listens to what the mind believes.</p></div>
+<div class="rp"><div class="rp-n">03</div><div class="rp-nm">Falk</div><div class="rp-fc">Neural Self-Relevance</div><p class="rp-ds">Messages land when they activate self-related processing. Identity-congruent framing changes behavior.</p></div>
+<div class="rp"><div class="rp-n">04</div><div class="rp-nm">Mollick</div><div class="rp-fc">Co-Intelligence</div><p class="rp-ds">AI is not a tool or replacement — it is a collaborator. The hybrid outperforms either alone.</p></div>
+</div>
+</div>
+<div class="pnl ab" id="p-about" style="display:none">
+<div class="s-lb" style="margin-bottom:24px">About</div>
+<div class="ab-hr"><div class="ab-ph" style="overflow:hidden;position:relative;cursor:pointer"><div class="rm-photo-init" style="border-radius:3px"><span>BK</span></div><img src="profile.jpg" alt="Bella Kang" style="width:100%;height:100%;object-fit:cover"></div><div><h1 class="ab-nm">Bella Kang</h1><div class="ab-rl">AI Education Researcher<br>Health Communication<br>Certified Pilates Instructor</div><div class="ab-lk"><a href="mailto:bellakang017@gmail.com" class="ab-a">Email</a><a href="https://www.linkedin.com/in/bellakang017" target="_blank" class="ab-a">LinkedIn</a><a href="#" class="ab-a" id="cv-link">CV ↓</a></div></div></div>
+<div class="ab-bk"><h3>Research Identity</h3><p>I sit at the intersection of <em>AI education</em>, <em>health communication</em>, and <em>behavioral science</em>. My primary research asks how AI–human collaboration transforms learning — not as a tool question, but as a fundamental shift in how knowledge is created.</p><p>I call my approach <em>"green apple logic"</em> — designing environments where healthy choices feel natural rather than prescribed. Drawing from Yeager's wise interventions, Crum's mindset science, Falk's neural self-relevance work, and Mollick's co-intelligence framework, I design interventions that honor the integration of physical and psychological wellbeing across cultural contexts.</p></div>
+<div class="ab-bk"><h3>Background</h3><p>Bilingual in English and Korean, with a multicultural background spanning multiple countries. Certified Pilates instructor and leader of a Saturday reading group on mind-body connection. This embodied practice shapes how I think about intervention design, learning environments, and the integration of cognitive and somatic experience.</p></div>
+<div class="ab-bk"><h3>Education & Experience</h3><div class="ab-tl">
+<div class="tl"><span class="tl-y">2024 — Present</span><div><div class="tl-t">MA Advertising (Thesis Track)</div><div class="tl-s">UT Austin, Moody College of Communication</div></div></div>
+<div class="tl"><span class="tl-y">2024 — Present</span><div><div class="tl-t">Graduate Global Impact Consultant</div><div class="tl-s">UT Austin, Office of Career & Life Design</div></div></div>
+<div class="tl"><span class="tl-y">2024</span><div><div class="tl-t">Research Assistant</div><div class="tl-s">UT Austin, School of Nursing</div></div></div>
+<div class="tl"><span class="tl-y">2023</span><div><div class="tl-t">Brand Strategy Intern — Dasique</div><div class="tl-s">K-Beauty · Cross-Cultural Marketing</div></div></div>
+<div class="tl"><span class="tl-y">2027</span><div><div class="tl-t">What's Next</div><div class="tl-s">PhD programs · Research · Industry — AI Education</div></div></div>
+</div></div>
+<div style="text-align:center;padding:20px 0 8px">
+<div style="font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-bottom:10px;opacity:.7">◇ try my lens</div>
+<div class="tl-card-sm" id="tl-card">
+<div class="tl-q" id="tl-q" style="font-size:13px">A small shift in perspective.</div>
+<div class="tl-scholar" id="tl-scholar" style="font-size:8px">Click to begin</div>
+<button class="tl-btn" onclick="tryLens()">Next →</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<div id="grain-overlay" style="position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.048;mix-blend-mode:multiply">
+<svg width="100%" height="100%"><filter id="grain-filter" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" seed="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#grain-filter)"/></svg>
+</div>
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+<div class="modal" id="modal">
+<div class="modal-close"><button class="modal-close-btn" onclick="closeModal()">×</button></div>
+<div class="modal-img" id="modalImg"></div>
+<div class="modal-body" id="modalBody"></div>
+</div>
+</div>
+<script>
+const CARDS={
+'AI.26.001':{cat:'ai',title:'AI–Human Hybrid Method',sub:'Reflexive methodology · Opus × Bella',tags:['AI Education','Reflexive Method','Mollick','Co-Intelligence'],grad:'g1',body:'<p>The hybrid outperforms either alone.</p><p>A reflexive methodology — using AI–human collaboration to study AI–human collaboration. <em>Opus × Bella</em> is both the research subject and the proof of concept.</p><p>Grounded in <strong>Mollick\'s co-intelligence framework</strong> and <strong>Arora et al.\'s (2025)</strong> mapping of LLM adoption in research.</p>',links:['Opus × Bella Lab']},
+'AI.26.002':{cat:'ai',title:'RAG Knowledge Base & Synthetic Data',sub:'MKT 397 · Empirics-First · Coursework with Prof. Du',tags:['MKT 397','Quantitative','RAG','Synthetic Data'],grad:'g2',body:'<p>One question: <em>How does what AI knows change what AI produces?</em></p><p>Investigating how the quality, relevance, and volume of a RAG knowledge base affects synthetic survey data validity. Empirics-first methodology — let the data speak before theory constrains it.</p><p>Coursework with Prof. Rex Du, PhD-level Quantitative Marketing.</p>'},
+'AI.26.003':{cat:'ai',title:'Arora et al. 2025 — LLM Adoption',sub:'Discussion Lead · Table 1 Framework · MKT 397',tags:['MKT 397','LLM Adoption','Table 1','Discussion Lead'],grad:'g3',body:'<p>Led class discussion on the most comprehensive mapping of LLM adoption in marketing research to date.</p><p>Used <strong>Table 1</strong> as a navigation system — locating the hybrid method within the broader landscape of AI-mediated research. Included a live GenAI demonstration showing the gap between <em>"AI as tool"</em> and <em>"AI as collaborator."</em></p>'},
+'AI.26.004':{cat:'ai',title:'Mollick\'s 7 AI Roles as Lens',sub:'Analytical Framework · Based on Mollick (2024)',tags:['Co-Intelligence','Framework','Education','Mollick'],grad:'g4',body:'<p>Seven roles. One insight.</p><p>Tutor. Coach. Mentor. Teammate. Tool. Simulator. Student. — Ethan Mollick\'s framework for AI in learning.</p><p>The distinction that matters most: Opus × Bella operates in the <strong>teammate</strong> and <strong>mentor</strong> roles. The role you assign AI determines the output you get.</p>'},
+'HC.26.001':{cat:'hc',title:'Self-Silencing & Help-Seeking',sub:'Korean American Midlife Women · Mixed Methods',tags:['Thesis','Mixed Methods','Falk','Crum'],grad:'g5',body:'<p>The silence isn\'t empty. It\'s full of culturally learned restraint.</p><p>MA thesis examining how <em>self-silencing behaviors</em> affect mental health help-seeking among Korean American midlife women. Sequential mixed-methods design informed by Falk\'s neural self-relevance and Crum\'s mindset-physiology connection.</p><p>Collaborative research with doctoral colleagues in Sociology and Nursing.</p>'},
+'HC.26.002':{cat:'hc',title:'HCPS Grant — Multiple Role Strain',sub:'Collaborative Research · PhD Sociology & PhD Nursing',tags:['Grant','Collaborative','Community-Engaged','Health Outcomes'],grad:'g6',body:'<p>Mother. Daughter. Wife. Employee. Caregiver. — Not roles. Simultaneous demands.</p><p>Collaborative grant investigating how <em>multiple role strain</em> shapes health outcomes among Korean American midlife women. Community-engaged methods that honor cultural context rather than impose external frameworks.</p>'},
+'HC.25.003':{cat:'hc',title:'Truth Campaign Analysis',sub:'Anti-Smoking · Neural Self-Relevance · ADV 382J',tags:['Campaign Analysis','Falk','ADV 382J','Persuasion'],grad:'g7',body:'<p>Information alone doesn\'t change behavior. Identity does.</p><p>Analysis of the truth initiative through <em>neural self-relevance</em> (Falk). When anti-smoking messages activate self-related processing — <em>"this is about people like me"</em> — behavior shifts. When they don\'t, the message evaporates.</p><p>Coursework in ADV 382J, Persuasion Theory.</p>'},
+'P.26.001':{cat:'pg',title:'Interview Instinct Animal Quiz',sub:'IWG Workshop · 8 Archetypes · Behavioral Science',tags:['Interactive','IWG','Self-Relevance','Falk'],grad:'g8',body:'<p>Which animal interviews like you?</p><p>Interactive diagnostic tool mapping interview styles to 8 animal archetypes. Built on behavioral science: <em>self-relevance</em> (Falk) makes the result feel personal. <em>Growth framing</em> (Yeager) ensures every archetype empowers rather than limits.</p><p>Designed for the International Job Search Working Group.</p>'},
+'P.26.002':{cat:'pg',title:'Red Envelope STORY Prompt',sub:'Behavioral Design · Self-Relevance · Falk',tags:['Worksheet','STORY Framework','Behavioral Design'],grad:'g9',body:'<p>Your story is the strategy.</p><p>Structured storytelling using the STORY framework — <em>Situation, Task, Obstacle, Result, Your Learning</em> — wrapped in a culturally resonant red envelope metaphor. Because the best interview answer is the one that feels like yours.</p>'},
+'P.26.003':{cat:'pg',title:'HIVE Framework Guide',sub:'Company Research · Habitat · Initiative · Venture · Effect',tags:['Guide','HIVE','Company Research','IWG'],grad:'g10',body:'<p>Stop researching companies. Start understanding them.</p><p><strong>H</strong>abitat — culture & environment. <strong>I</strong>nitiative — growth & agency. <strong>V</strong>enture — mission & direction. <strong>E</strong>ffect — impact & contribution.</p><p>A framework that turns company research into genuine conversation material.</p>'},
+'P.26.004':{cat:'pg',title:'Multi-Cultural Coffee Chat Guide',sub:'Coffee & Connections · Belonging · Yeager',tags:['Guide','Belonging','Yeager','Networking'],grad:'g11',body:'<p>Networking shouldn\'t require performing a version of yourself that isn\'t you.</p><p>Programming guide for multicultural networking events. Designed to reduce <em>belonging uncertainty</em> (Yeager) and create structured-yet-organic spaces where cross-cultural interaction feels natural, not forced.</p>'},
+'AI.26.005':{cat:'ai',title:'Opus × Bella Style Guide',sub:'Research Collaboration Identity',tags:['Design System','Visual Identity','Opus × Bella'],grad:'g12',body:'<p>Every collaboration needs a language. This is ours.</p><p>Living design system documenting the visual and intellectual identity of Opus × Bella. Typography, color, and the × symbol — the signature of multiplication, not addition.</p><p><em>opus × bella — the great work × the beautiful.</em></p>'}
+};
+const badgeClass={ai:'modal-badge-ai',hc:'modal-badge-hc',pg:'modal-badge-pg'};
+const badgeLabel={ai:'AI × Education',hc:'Health Comm',pg:'Programming'};
+function openModal(ref){
+const d=CARDS[ref];if(!d)return;
+const overlay=document.getElementById('modalOverlay');
+const img=document.getElementById('modalImg');
+const body=document.getElementById('modalBody');
+img.className='modal-img '+d.grad;
+let h='<span class="modal-badge '+badgeClass[d.cat]+'">'+badgeLabel[d.cat]+'</span>';
+h+='<h2 class="modal-title">'+d.title+'</h2>';
+h+='<div class="modal-sub">'+d.sub+'</div>';
+h+='<div class="modal-tags">'+d.tags.map(function(t){return '<span class="modal-tag">'+t+'</span>'}).join('')+'</div>';
+h+='<div class="modal-divider"></div>';
+h+='<div class="modal-text">'+d.body+'</div>';
+if(d.links){h+='<div class="modal-links">'+d.links.map(function(l){return '<a href="#" class="modal-link"><span>\u2192</span>'+l+'</a>'}).join('')+'</div>'}
+body.innerHTML=h;
+overlay.classList.add('open');
+document.body.style.overflow='hidden';
+}
+function closeModal(){
+document.getElementById('modalOverlay').classList.remove('open');
+document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+document.querySelectorAll('.wc').forEach(function(card){
+const ref=card.querySelector('.wc-rf');
+if(ref){
+const id=ref.textContent.replace('[','').replace(']','');
+card.onclick=function(){openModal(id)};
+}
+});
+var cur='readme';
+function go(p,b){if(p===cur)return;var c=document.getElementById('p-'+cur);c.classList.remove('vis');setTimeout(function(){c.style.display='none';var n=document.getElementById('p-'+p);n.style.display='';document.querySelector('.content').scrollTop=0;requestAnimationFrame(function(){requestAnimationFrame(function(){n.classList.add('vis')})});document.querySelectorAll('.sb-i').forEach(function(i){i.classList.remove('active')});b.classList.add('active');cur=p;if(p==='work')ac();syncTab(p)},150)}
+function goM(p,b){if(p===cur)return;var c=document.getElementById('p-'+cur);c.classList.remove('vis');setTimeout(function(){c.style.display='none';var n=document.getElementById('p-'+p);n.style.display='';document.querySelector('.content').scrollTop=0;requestAnimationFrame(function(){requestAnimationFrame(function(){n.classList.add('vis')})});document.querySelectorAll('.tab-btn').forEach(function(i){i.classList.remove('active')});b.classList.add('active');cur=p;if(p==='work')ac();syncSb(p)},150)}
+function syncTab(p){document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.remove('active');if(['readme','work','research','about'][i]===p)b.classList.add('active')})}
+function syncSb(p){document.querySelectorAll('.sb-i').forEach(function(b){b.classList.remove('active');if(b.textContent.trim().toLowerCase().includes(p==='readme'?'readme':p))b.classList.add('active')})}
+function fw(c,b){document.querySelectorAll('.wf').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var d=0;document.querySelectorAll('.wc').forEach(function(x){var m=c==='all'||x.dataset.c===c;x.classList.remove('sh');if(m){x.style.display='';setTimeout(function(){x.classList.add('sh')},d);d+=40}else x.style.display='none'})}
+function ac(){document.querySelectorAll('.wc').forEach(function(c,i){c.classList.remove('sh');setTimeout(function(){c.classList.add('sh')},i*50)})}
+</script>
+<script>
+var lensData=[
+{q:"Look away from the screen. Find the farthest point you can see. Hold for 20 seconds.",scholar:"20-20-20 Rule \u2014 American Academy of Ophthalmology"},
+{q:"Close your eyes. Press your palms gently over them. Feel the warmth. This is called palming.",scholar:"Bates Method \u2014 eye relaxation through darkness and warmth"},
+{q:"Your eyes blink 15 times per minute normally. At a screen, only 5. Blink slowly three times now.",scholar:"Tear film stability decreases 60% during screen use"},
+{q:"In Chinese medicine, the liver opens into the eyes. Tired eyes may mean your whole system needs rest.",scholar:"Traditional Chinese Medicine \u2014 Wu Xing / Five Elements"},
+{q:"Roll your shoulders back. Drop them. Your neck just released tension it was sending to your eyes.",scholar:"Cervical-ocular reflex \u2014 posture directly affects visual strain"},
+{q:"Trace a figure-eight with your eyes, slowly. This is how optometrists test ocular flexibility.",scholar:"Extraocular muscle training \u2014 smooth pursuit exercise"},
+{q:"The Japanese concept ikigai suggests purpose reduces stress hormones. What gave you purpose today?",scholar:"Ikigai \u2014 reason for being, Okinawan longevity philosophy"},
+{q:"Your spine has a conversation with your breath. Sit tall. Inhale for 4. Hold for 4. Exhale for 6.",scholar:"Diaphragmatic breathing \u2014 vagus nerve activation"},
+{q:"In Pilates, every movement starts from the powerhouse. Where is your center right now?",scholar:"Joseph Pilates \u2014 contrology, the art of controlled movement"},
+{q:"Focus on your thumb at arm's length. Then focus on the wall behind it. Repeat 5 times.",scholar:"Accommodation exercise \u2014 ciliary muscle flexibility training"},
+{q:"Lao Tzu said: nature does not hurry, yet everything is accomplished. What can you stop rushing?",scholar:"Tao Te Ching, Chapter 15 \u2014 the way of water"},
+{q:"Your retina processes 10 million bits of data per second. It deserves a 2-minute break.",scholar:"Kolb et al. \u2014 Webvision, retinal neuroscience"},
+{q:"Place two fingers on your temples. Make slow circles. The temporalis muscle holds screen tension.",scholar:"Myofascial release \u2014 temporal region decompression"},
+{q:"Wabi-sabi teaches beauty in imperfection. What unfinished thing can you accept as enough today?",scholar:"Wabi-sabi \u2014 the Japanese art of impermanence"},
+{q:"Look at something green. Your eyes are most sensitive to green wavelengths. It literally relaxes them.",scholar:"Peak spectral sensitivity \u2014 555nm, green cones (M-cones)"},
+{q:"Stretch your arms overhead. Interlace fingers. Lean left, then right. Your eyes just got more blood flow.",scholar:"Lateral flexion \u2014 increased vertebral artery circulation"}
+];
+var lensIdx=-1;
+function tryLens(){
+  lensIdx=(lensIdx+1)%lensData.length;
+  var d=lensData[lensIdx];
+  var q=document.getElementById('tl-q'),sc=document.getElementById('tl-scholar');
+  [q,sc].forEach(function(e){e.style.opacity='0'});
+  setTimeout(function(){
+    q.textContent=d.q;sc.textContent=d.scholar;
+    [q,sc].forEach(function(e){e.style.opacity='1'});
+  },250);
+}
+function setGrain(v){
+  var opacity=v*0.012;
+  var el=document.getElementById('grain-overlay');
+  if(el) el.style.opacity=opacity;
+}
+</script>
+</body>
+</html>
