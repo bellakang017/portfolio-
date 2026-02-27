@@ -250,6 +250,25 @@
 .modal-links{margin-top:24px;display:flex;flex-direction:column;gap:8px}
 .modal-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--plum);text-decoration:none;padding:10px 18px;border:1px solid var(--blush);border-radius:20px;width:fit-content;transition:all .25s var(--ease)}
 .modal-link:hover{background:var(--cream);transform:translateX(4px);box-shadow:0 2px 12px rgba(196,138,149,.15)}
+.ga-link{border-bottom:1px dotted var(--rose);cursor:pointer;transition:color .2s}
+.ga-link:hover{color:var(--plum)}
+.ga-modal{background:var(--white);border-radius:4px;max-width:560px;width:100%;max-height:85vh;overflow-y:auto;transform:translateY(20px) scale(0.97);transition:transform .35s var(--ease);box-shadow:0 24px 80px rgba(42,32,36,0.15)}
+.modal-overlay.open .ga-modal{transform:translateY(0) scale(1)}
+.ga-body{padding:32px 36px 40px}
+.ga-body .ga-label{font-size:8.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin-bottom:16px}
+.ga-body .ga-title{font-family:var(--serif);font-size:22px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:24px;line-height:1.35}
+.ga-body .ga-text{font-family:var(--serif);font-size:14.5px;line-height:1.9;color:var(--text-body)}
+.ga-body .ga-text p{margin-bottom:16px}
+.ga-body .ga-text em{color:var(--rose-dark)}
+.ga-body .ga-text strong{color:var(--text);font-weight:600}
+.ga-body .ga-principle{font-family:var(--mono);font-size:12px;color:var(--plum);padding:16px 20px;background:rgba(107,46,74,.03);border-left:2px solid var(--rose);margin:24px 0;line-height:1.7}
+.ga-body .ga-quote{font-family:var(--serif);font-size:13.5px;font-style:italic;color:var(--text-muted);text-align:center;padding:20px 24px 0;border-top:1px solid var(--border);margin-top:28px;line-height:1.7}
+.ga-body .ga-quote-attr{font-family:var(--mono);font-size:10px;color:var(--text-light);margin-top:6px;letter-spacing:.04em}
+.em-modal{background:var(--white);border-radius:4px;max-width:380px;width:100%;padding:32px;text-align:center;transform:translateY(20px) scale(0.97);transition:transform .35s var(--ease);box-shadow:0 24px 80px rgba(42,32,36,0.15)}
+.modal-overlay.open .em-modal{transform:translateY(0) scale(1)}
+.em-addr{font-family:var(--mono);font-size:14px;color:var(--text);letter-spacing:.02em;padding:14px 20px;background:var(--cream);border:1px solid var(--blush);border-radius:6px;margin:20px 0 16px;display:flex;align-items:center;justify-content:center;gap:10px}
+.em-copy{font-family:var(--mono);font-size:11px;padding:8px 20px;border:1px solid var(--blush);border-radius:20px;background:var(--white);color:var(--plum);cursor:pointer;transition:all .2s var(--ease);letter-spacing:.04em}
+.em-copy:hover{background:var(--cream);border-color:var(--rose)}
 @media(max-width:1024px){
   .sidebar{width:220px;min-width:220px}
   .rs-tr{grid-template-columns:1fr}
@@ -397,8 +416,8 @@
 </div>
 <div class="pnl ab" id="p-about" style="display:none">
 <div class="s-lb" style="margin-bottom:24px">About</div>
-<div class="ab-hr"><div class="ab-ph" style="overflow:hidden;position:relative;cursor:pointer"><div class="rm-photo-init" style="border-radius:3px"><span>BK</span></div><img src="profile.jpg" alt="Bella Kang" style="width:100%;height:100%;object-fit:cover"></div><div class="ab-ph" style="overflow:hidden;position:relative;cursor:pointer"><div class="rm-photo-init" style="border-radius:3px"><span>민주</span></div><img src="graduation.jpg" alt="Bella Kang — UT Austin Graduation" style="width:100%;height:100%;object-fit:cover"></div><div><h1 class="ab-nm">Bella Kang</h1><div class="ab-rl">AI Education Researcher<br>Health Communication<br>Certified Pilates Instructor</div><div class="ab-lk"><a href="mailto:bellakang017@gmail.com" class="ab-a">Email ✉</a><a href="https://www.linkedin.com/in/bellakang017" target="_blank" class="ab-a">LinkedIn</a><a href="Bella-Kang-CV.pdf" target="_blank" class="ab-a">CV ↓</a></div></div></div>
-<div class="ab-bk"><h3>Research Identity</h3><p>I sit at the intersection of <em>AI education</em>, <em>health communication</em>, and <em>behavioral science</em>. My primary research asks how AI–human collaboration transforms learning — not as a tool question, but as a fundamental shift in how knowledge is created.</p><p>I call my approach <em>"green apple logic"</em> — designing environments where healthy choices feel natural rather than prescribed. Drawing from Yeager's wise interventions, Crum's mindset science, Falk's neural self-relevance work, and Mollick's co-intelligence framework, I design interventions that honor the integration of physical and psychological wellbeing across cultural contexts.</p></div>
+<div class="ab-hr"><div class="ab-ph" style="overflow:hidden;position:relative;cursor:pointer"><div class="rm-photo-init" style="border-radius:3px"><span>BK</span></div><img src="profile.jpg" alt="Bella Kang" style="width:100%;height:100%;object-fit:cover"></div><div class="ab-ph" style="overflow:hidden;position:relative;cursor:pointer"><div class="rm-photo-init" style="border-radius:3px"><span>민주</span></div><img src="graduation.jpg" alt="Bella Kang — UT Austin Graduation" style="width:100%;height:100%;object-fit:cover"></div><div><h1 class="ab-nm">Bella Kang</h1><div class="ab-rl">AI Education Researcher<br>Health Communication<br>Certified Pilates Instructor</div><div class="ab-lk"><a href="#" onclick="openEmailModal();return false" class="ab-a">Email ✉</a><a href="https://www.linkedin.com/in/bellakang017" target="_blank" class="ab-a">LinkedIn</a><a href="Bella-Kang-CV.pdf" target="_blank" class="ab-a">CV ↓</a></div></div></div>
+<div class="ab-bk"><h3>Research Identity</h3><p>I sit at the intersection of <em>AI education</em>, <em>health communication</em>, and <em>behavioral science</em>. My primary research asks how AI–human collaboration transforms learning — not as a tool question, but as a fundamental shift in how knowledge is created.</p><p>I call my approach <em class="ga-link" onclick="openGreenApple()">"green apple logic"</em> — designing environments where healthy choices feel natural rather than prescribed. Drawing from Yeager's wise interventions, Crum's mindset science, Falk's neural self-relevance work, and Mollick's co-intelligence framework, I design interventions that honor the integration of physical and psychological wellbeing across cultural contexts.</p></div>
 <div class="ab-bk"><h3>Background</h3><p>Bilingual in English and Korean, with a multicultural background spanning multiple countries. Certified Pilates instructor and leader of a Saturday reading group on mind-body connection. This embodied practice shapes how I think about intervention design, learning environments, and the integration of cognitive and somatic experience.</p></div>
 <div class="ab-bk"><h3>Education & Experience</h3><div class="ab-tl">
 <div class="tl"><span class="tl-y">2024 — Present</span><div><div class="tl-t">MA Advertising (Thesis Track)</div><div class="tl-s">UT Austin, Moody College of Communication</div></div></div>
@@ -426,6 +445,35 @@
 <div class="modal-close"><button class="modal-close-btn" onclick="closeModal()">×</button></div>
 <div class="modal-img" id="modalImg"></div>
 <div class="modal-body" id="modalBody"></div>
+</div>
+</div>
+<div class="modal-overlay" id="gaOverlay" onclick="if(event.target===this)closeGreenApple()">
+<div class="ga-modal">
+<div class="modal-close"><button class="modal-close-btn" onclick="closeGreenApple()">×</button></div>
+<div style="width:100%;height:3px;background:linear-gradient(90deg,#8BA86A,#6B8F4A,#4A7030);border-radius:4px 4px 0 0"></div>
+<div class="ga-body">
+<div class="ga-label">Origin Story</div>
+<h2 class="ga-title">Green Apple Logic</h2>
+<div class="ga-text">
+<p><strong>Spring 2012. Seoul, South Korea.</strong></p>
+<p>Before going to the English academy — typical after-school activity for a 10-year-old Korean kid — I sat on the windowsill with a vocabulary book in one hand and a green apple in the other. My mom had bought them. Each one wrapped in plastic, stacked inside the refrigerator.</p>
+<p>Cold. Crisp. Sour enough to wake my mouth up. A warm breeze came through the window.</p>
+<p>She never once told me to eat fruit. She just put them in the fridge. I reached in when I was hungry. That was all.</p>
+<p>Ten years later, a professor showed a stat in class. <em>Eighty percent of smokers already know smoking is bad for them.</em> Information was never the problem.</p>
+<p>That's when the window came back. The apple. My mom. She never said "Vitamin C is important." She bought the apples, put them where I could reach them, and let me decide. That was the communication.</p>
+</div>
+<div class="ga-principle">Green apple logic is one principle: <strong>make the healthy choice the easy choice.</strong><br>Not persuasion — design. Not a campaign — a counter. Not a billboard — a bowl.</div>
+<div class="ga-text"><p>My research starts with one question: <em>How do you put a green apple in everyone's refrigerator?</em></p></div>
+<div class="ga-quote">"Satisfaction of one's curiosity is one of the greatest sources of happiness in life."<div class="ga-quote-attr">— Linus Pauling</div></div>
+</div>
+</div>
+</div>
+<div class="modal-overlay" id="emailOverlay" onclick="if(event.target===this)closeEmailModal()">
+<div class="em-modal">
+<div style="font-family:var(--serif);font-size:20px;font-weight:500;font-style:italic;color:var(--text)">Get in touch</div>
+<div class="em-addr"><span id="emAddr">bellakang017@gmail.com</span></div>
+<button class="em-copy" onclick="copyEmail()">Copy to clipboard</button>
+<div id="emMsg" style="font-family:var(--mono);font-size:10px;color:var(--rose);margin-top:10px;height:16px;opacity:0;transition:opacity .2s"></div>
 </div>
 </div>
 <script>
@@ -458,7 +506,12 @@ function closeModal(){
 document.getElementById('modalOverlay').classList.remove('open');
 document.body.style.overflow='';
 }
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+function openGreenApple(){document.getElementById('gaOverlay').classList.add('open');document.body.style.overflow='hidden'}
+function closeGreenApple(){document.getElementById('gaOverlay').classList.remove('open');document.body.style.overflow=''}
+function openEmailModal(){document.getElementById('emailOverlay').classList.add('open');document.body.style.overflow='hidden'}
+function closeEmailModal(){document.getElementById('emailOverlay').classList.remove('open');document.body.style.overflow='';var m=document.getElementById('emMsg');m.style.opacity='0'}
+function copyEmail(){navigator.clipboard.writeText('bellakang017@gmail.com').then(function(){var m=document.getElementById('emMsg');m.textContent='Copied!';m.style.opacity='1';setTimeout(function(){m.style.opacity='0'},1500)})}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeModal();closeGreenApple();closeEmailModal()}});
 document.querySelectorAll('.wc').forEach(function(card){
 const ref=card.querySelector('.wc-rf');
 if(ref){
