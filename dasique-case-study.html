@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dasique â Research-Driven Localization | Bella Kang</title>
+<meta name="description" content="User research to product localization for a K-beauty brand's North American expansion. Case study by Bella Kang.">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF7;--white:#FEFEFE;--cream:#F8F6F2;--blush:#E0D0D4;--rose:#A6707D;--rose-dark:#8B5565;--mauve:#704658;--plum:#6B2E4A;--text:#2A2024;--text-body:#4A4045;--text-muted:#6D6165;--text-light:#857A7E;--border:rgba(60,40,50,0.06);
+  --dq-rose:#9c6169;--dq-dark:#563740;--dq-blush:#f8f1f4;--dq-border:#ddb1b0;--dq-cream:#fdf6f8;
+  --serif:'Newsreader',Georgia,serif;--mono:'IBM Plex Mono','SF Mono',monospace;--sans:'Poppins',system-ui,sans-serif;
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94)
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--mono);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+::selection{background:var(--plum);color:#fff}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--blush);border-radius:10px}
+
+.cs{max-width:960px;margin:0 auto;padding:48px 32px 80px}
+.cs-back{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;margin-bottom:40px;transition:color .2s}
+.cs-back:hover{color:var(--plum)}
+
+/* ââ HERO ââ */
+.hero{margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid var(--border)}
+.hero-badge{display:inline-block;font-size:8.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:8px;background:rgba(156,97,105,.08);color:var(--dq-rose);margin-bottom:16px}
+.hero-title{font-family:var(--serif);font-size:42px;font-weight:400;font-style:italic;color:var(--text);line-height:1.12;margin-bottom:14px}
+.hero-sub{font-family:var(--serif);font-size:15.5px;font-style:italic;color:var(--rose-dark);line-height:1.7;margin-bottom:28px;max-width:580px}
+.hero-meta{display:flex;gap:24px;flex-wrap:wrap;font-size:10.5px;color:var(--text-muted);letter-spacing:.03em;margin-bottom:32px}
+.hero-meta-label{font-weight:600;color:var(--text-light)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.metric{padding:22px 18px;background:var(--white);border:1px solid var(--border);border-radius:4px;text-align:center}
+.metric-num{font-family:var(--serif);font-size:36px;font-weight:400;font-style:italic;color:var(--plum);margin-bottom:3px}
+.metric-label{font-size:9.5px;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase}
+
+/* ââ SECTION ââ */
+.sec{margin-bottom:64px}
+.sec-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.sec-label::before{content:'';width:16px;height:1px;background:var(--rose)}
+.sec-h{font-family:var(--serif);font-size:26px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:18px;line-height:1.3}
+.sec-body{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--text-body);max-width:620px}
+.sec-body em{color:var(--rose-dark)}.sec-body strong{color:var(--text);font-weight:600}
+.insight-box{padding:18px 22px;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--dq-rose);border-radius:2px;margin:20px 0;font-family:var(--serif);font-size:14px;line-height:1.8;color:var(--text-body);max-width:620px}
+
+/* ââ DEMO SHOWCASE (Screen 2) ââ */
+.demo{margin-bottom:64px}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:2ze:10px;color:var(--text-muted);letter-spacing:.03em}
+.demo-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.demo-pair img{width:100%;border-radius:4px;border:1px solid var(--border);display:block}
+
+/* ââ BEFORE/AFTER ââ */
+.ba-screens{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:24px 0;border-radius:6px;overflow:hidden;border:1px solid var(--dq-border);box-shadow:0 8px 32px rgba(86,55,64,.08)}
+.ba-screens img{width:100%;display:block}
+.ba-screen-label{font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;text-align:center}
+.ba-screen-before{background:var(--dq-blush);color:var(--text-muted)}
+.ba-screen-after{background:var(--white);color:var(--dq-rose)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0;border-radius:6px;overflow:hidden;border:1px solid var(--dq-border);box-shadow:0 8px 32px rgba(86,55,64,.08)}
+.ba-col{padding:28px 24px}
+.ba-before{background:var(--dq-blush)}
+.ba-after{background:var(--white)}
+.ba-label{font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.ba-label-before{color:var(--text-muted)}
+.ba-label-after{color:var(--dq-rose)}
+.ba-label::before{content:'';width:12px;height:2px;border-radius:1px}
+.ba-label-before::before{background:var(--text-muted)}
+.ba-label-after::before{background:var(--dq-rose)}
+.ba-product{margin-bottom:16px;padding:14px;background:rgba(255,255,255,.5);border-radius:4px;border:1px solid rgba(156,97,105,.1)}
+.ba-after .ba-product{background:var(--dq-cream);border-color:var(--dq-border)}
+.ba-pname{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dq-dark);margin-bottom:6px}
+.ba-copy{font-family:var(--serif);font-size:12.5px;line-height:1.65;color:var(--dq-dark)}
+.ba-after .ba-copy{color:var(--text)}
+.ba-tag{display:inline-block;font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.ba-tag-before{background:rgba(109,97,101,.08);color:var(--text-muted)}
+.ba-tag-after{background:rgba(156,97,105,.1);color:var(--dq-rose)}
+
+/* ââ TIMELINE ââ */
+.tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
+.tl-card{padding:22px 16px 18px;background:var(--white);border:1px solid var(--border);border-radius:4px;transition:all .25s var(--ease);position:relative}
+.tl-card:hover{border-color:var(--dq-border);transform:translateY(-2px);box-shadow:0 6px 20px rgba(107,46,74,.05)}
+.tl-card::after{content:'\2192';position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--blush);font-size:13px;z-index:1}
+.tl-card:last-child::after{display:none}
+.tl-week{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--dq-rose);font-weight:600;margin-bottom:8px}
+.tl-phase{font-family:var(--serif);font-size:14px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:6px;line-height:1.3}
+.tl-skill{font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--plum);font-weight:600;margin-bottom:8px;padding:3px 8px;background:rgba(107,46,74,.04);border-radius:8px;display:inline-block}
+.tl-desc{font-size:10px;color:var(--text-muted);line-height:1.55}
+
+/* ââ EVIDENCE ââ */
+.ev{margin:20px 0;border-radius:6px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(42,32,36,.06)}
+.ev img{width:100%;display:block}
+.ev-caption{font-size:9px;letter-spacing:.06em;color:var(--text-muted);padding:10px 16px;background:var(--white);border-top:1px solid var(--border)}
+.ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.ev-grid .ev{margin:0}
+
+/* ââ CTA ââ */
+.cs-cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.cs-cta a{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--plum);text-decoration:none;padding:12px 20px;border:1px solid var(--blush);border-radius:20px;transition:all .25s var(--ease);letter-spacing:.03em}
+.cs-cta a:hover{background:var(--cream);transform:translateX(4px);box-shadow:0 2px 12px rgba(196,138,149,.15)}
+
+/* ââ RESPONSIVE ââ */
+@media(max-width:768px){
+  .cs{padding:32px 20px 60px}
+  .hero-title{font-size:30px}
+  .metrics{grid-template-columns:1fr}
+  .demo-grid{grid-template-columns:1fr}
+  .ba{grid-template-columns:1fr}
+  .ba-screens{grid-template-columns:1fr}
+  .tl-grid{grid-template-columns:1fr 1fr}
+  .tl-card::after{display:none}
+  .ev-grid{grid-template-columns:1fr}
+  .hero-meta{flex-direction:column;gap:8px}
+}
+@media(max-width:480px){
+  .tl-grid{grid-template-columns:1fr}
+  .cs-cta{flex-direction:column}
+  .cs-cta a{justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="cs">
+
+<a href="https://bellakang017.github.io/portfolio-/" class="cs-back">&larr; Back to Portfolio</a>
+
+<!-- âââââââ SCREEN 1: HERO âââââââ -->
+<div class="hero">
+  <div class="hero-badge">Product Design Case Study</div>
+  <h1 class="hero-title">Dasique &mdash; Research-Driven<br>Localization Design</h1>
+  <p class="hero-sub">I spent 6.5 weeks on the retail floor of a K-beauty flagship store, watching international customers struggle with product pages written for Korean consumers. Then I rewrote them.</p>
+  <div class="hero-meta">
+    <span><span class="hero-meta-label">Role</span> User Researcher &amp; Content Strategist</span>
+    <span><span class="hero-meta-label">Timeline</span> May&ndash;Jul 2025 &middot; 6.5 weeks</span>
+    <span><span class="hero-meta-label">Context</span> Dasique &middot; Olive Young Global Mall</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-num">18</div><div class="metric-label">Product pages localized</div></div>
+    <div class="metric"><div class="metric-num">64%</div><div class="metric-label">NA customer traffic</div></div>
+    <div class="metric"><div class="metric-num">25+</div><div class="metric-label">SKUs across categories</div></div>
+  </div>
+</div>
+
+<!-- âââââââ SCREEN 2: THE WORK â PRODUCT DEMO âââââââ -->
+<div class="sec demo">
+  <div class="sec-label">The Work</div>
+  <h2 class="sec-h">Two deliverables. Both shipped.</h2>
+
+  <div class="demo-grid">
+    <!-- LEFT: Product Pages -->
+    <div class="demo-card">
+      <img src="img/product-page-berry.png" alt="Localized Dasique product page â #18 Berry Smoothie palette on Olive Young Global" loading="lazy">
+      <div class="demo-pair">
+        <img src="img/product-page-glitter.png" alt="Product detail â function-first glitter description" loading="lazy">
+        <img src="img/folder-structure.png" alt="18 product folders organized by category" loading="lazy">
+      </div>
+      <div class="demo-card-body">
+        <div class="demo-card-title">18 Product Pages &mdash; Olive Young Global Mall</div>
+        <div class="demo-card-desc">Localized copy for Shadow Palettes, Lip Tints, Cheek, Base, and more. Benchmarked against Rhode, Dior, Laneige NA.</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Staff Training -->
+    <div class="demo-card">
+      <img src="img/staff-guide-cover.png" alt="Dasique Seongsu Flagship mobile staff guide" loading="lazy">
+      <div class="demo-pair">
+        <img src="img/staff-english-phrases.png" alt="11 customer scenarios with English scripts" loading="lazy">
+        <img src="img/staff-training-doc.png" alt="Full staff training document with shift procedures" loading="lazy">
+      </div>
+      <div class="demo-card-body">
+        <div class="demo-card-title">Mobile Staff Training System</div>
+        <div class="demo-card-desc">8 customer scenarios, English scripts with pronunciation, A/B shift checklists. One URL replaced scattered KakaoTalk images.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- âââââââ SCREEN 3: BEFORE â AFTER âââââââ -->
+<div class="sec">
+  <div class="sec-label">The Transformation</div>
+  <h2 class="sec-h">Same product. Different purchase logic.</h2>
+
+  <div class="ba-screens">
+    <div>
+      <img src="img/before-korean-copy.png" alt="Original Korean product page â sensory, mood-driven copy" loading="lazy">
+      <div class="ba-screen-label ba-screen-before">Original &mdash; Korean sensory copy</div>
+    </div>
+    <div>
+      <img src="img/after-english-copy.png" alt="Localized English product page â function-first copy" loading="lazy">
+      <div class="ba-screen-label ba-screen-after">Localized &mdash; Function-first copy</div>
+    </div>
+  </div>
+
+  <div class="ba">
+    <div class="ba-col ba-before">
+      <div class="ba-label ba-label-before">Direct Translation</div>
+      <div class="ba-product">
+        <div class="ba-pname">Shadow Palette &middot; Rose Petal</div>
+        <div class="ba-copy">From subtle pearl to dazzling glitter&mdash;eye-catching textures that add presence. A mermaid mood built with delicately sparkling glitter.</div>
+        <div class="ba-tag ba-tag-before">Sensory &middot; Mood</div>
+      </div>
+      <div class="ba-product">
+        <div class="ba-pname">Juicy Dewy Glow Tint</div>
+        <div class="ba-copy">Dewy pigment as if soaked in fruit juice. Moist hydration lingering on the lips.</div>
+        <div class="ba-tag ba-tag-before">Texture metaphor</div>
+      </div>
+    </div>
+    <div class="ba-col ba-after">
+      <div class="ba-label ba-label-after">Localized</div>
+      <div class="ba-product">
+        <div class="ba-pname">Shadow Palette &middot; Rose Petal</div>
+        <div class="ba-copy">9 shades, multi-sized glitter for dimensional shine. Ultra-smooth&mdash;easy blending, no creasing.</div>
+        <div class="ba-tag ba-tag-after">Function &middot; Performance</div>
+      </div>
+      <div class="ba-product">
+        <div class="ba-pname">Juicy Dewy Glow Tint</div>
+        <div class="ba-copy">Full pigment, no transfer. One coat, 8+ hour hydrating finish.</div>
+        <div class="ba-tag ba-tag-after">Wear time &middot; Coverage</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- âââââââ SCREEN 4: PROCESS âââââââ -->
+<div class="sec">
+  <div class="sec-label">How I Got There</div>
+  <h2 class="sec-h">6.5 weeks, four phases.</h2>
+  <div class="tl-grid">
+    <div class="tl-card">
+      <div class="tl-week">Weeks 1&ndash;4</div>
+      <div class="tl-phase">Discovery &amp; User Research</div>
+      <div class="tl-skill">Customer Insights</div>
+      <div class="tl-desc">Seongsu Flagship floor observation. Shadowed staff, coded international customer behavior&mdash;questions, hesitation points, exit triggers.</div>
+    </div>
+    <div class="tl-card">
+      <div class="tl-week">Week 5</div>
+      <div class="tl-phase">Content Strategy</div>
+      <div class="tl-skill">Voice of Customer</div>
+      <div class="tl-desc">Rewrote 18 product pages. Benchmarked against Rhode, Dior, Laneige. Delivered to web design team via Slack.</div>
+    </div>
+    <div class="tl-card">
+      <div class="tl-week">Week 6</div>
+      <div class="tl-phase">Operational Design</div>
+      <div class="tl-skill">Cross-functional</div>
+      <div class="tl-desc">Built mobile staff guide&mdash;8 scenarios with English scripts and pronunciation. One URL replaced KakaoTalk image workflow.</div>
+    </div>
+    <div class="tl-card">
+      <div class="tl-week">Week 6.5</div>
+      <div class="tl-phase">Go-to-Market</div>
+      <div class="tl-skill">Strategic Thinking</div>
+      <div class="tl-desc">NA expansion research. Pivoted from industry reports to consumer-perspective approach mid-week.</div>
+    </div>
+  </div>
+
+  <div class="ev-grid">
+    <div class="ev">
+      <img src="img/slack-collab.png" alt="Slack DM with web design team" loading="lazy">
+      <div class="ev-caption">Cross-functional coordination with web design team</div>
+    </div>
+    <div class="ev">
+      <img src="img/slack-handoff.png" alt="Final asset handoff to design lead" loading="lazy">
+      <div class="ev-caption">Asset handoff &mdash; localized pages delivered to design lead</div>
+    </div>
+  </div>
+</div>
+
+<!-- âââââââ SCREEN 5: CONTEXT âââââââ -->
+<div class="sec">
+  <div class="sec-label">Why It Mattered</div>
+  <h2 class="sec-h">64% North American traffic, 0% North American copy.</h2>
+  <div class="sec-body">
+    <p>Olive Young Global Mall's Dasique pages were direct-translated from Korean. The original copy sells through <em>mood and texture.</em> NA shoppers scan for <em>wear time, coverage, and whether it transfers.</em></p>
+  </div>
+  <div class="insight-box">
+    The gap wasn't language. It was how each audience decides to buy.
+  </div>
+</div>
+
+<!-- âââââââ CTA âââââââ -->
+<div class="sec" style="padding-top:24px;border-top:1px solid var(--border)">
+  <div class="cs-cta">
+    <a href="https://bellakang017.github.io/portfolio-/">&larr; Back to Portfolio</a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
