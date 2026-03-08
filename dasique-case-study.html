@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dasique &mdash; Product Design for Global Users | Bella Kang</title>
-<meta name="description" content="Redesigning 18 e-commerce product pages for North American users by identifying gaps in cross-cultural purchase logic. Case study by Bella Kang.">
+<title>Dasique &#8212; Product Localization | Bella Kang</title>
+<meta name="description" content="Localized 18 e-commerce product pages for North American shoppers. Case study by Bella Kang.">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FAFAF7;--white:#FEFEFE;--cream:#F8F6F2;--blush:#E0D0D4;--rose:#A6707D;--rose-dark:#8B5565;--mauve:#704658;--plum:#6B2E4A;--text:#2A2024;--text-body:#4A4045;--text-muted:#6D6165;--text-light:#857A7E;--border:rgba(60,40,50,0.06);
-  --dq-rose:#9c6169;--dq-dark:#563740;--dq-blush:#f8f1f4;--dq-border:#ddb1b0;--dq-cream:#fdf6f8;
+  --dq-rose:#9c6169;--dq-dark:#563740;--dq-blush:#f8f1f4;--dq-border:#ddb1b0;
   --serif:'Newsreader',Georgia,serif;--mono:'IBM Plex Mono','SF Mono',monospace;--sans:'Poppins',system-ui,sans-serif;
   --ease:cubic-bezier(0.25,0.46,0.45,0.94)
 }
@@ -18,421 +18,216 @@ body{font-family:var(--mono);background:var(--bg);color:var(--text);-webkit-font
 ::selection{background:var(--plum);color:#fff}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--blush);border-radius:10px}
 
-.cs{max-width:960px;margin:0 auto;padding:48px 32px 80px}
-.cs-back{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;margin-bottom:40px;transition:color .2s}
-.cs-back:hover{color:var(--plum)}
+.page{max-width:900px;margin:0 auto;padding:48px 32px 80px}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;margin-bottom:48px;transition:color .2s}
+.back:hover{color:var(--plum)}
 
-/* ââ HERO ââ */
-.hero{margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid var(--border)}
-.hero-badge{display:inline-block;font-size:8.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:8px;background:rgba(156,97,105,.08);color:var(--dq-rose);margin-bottom:16px}
-.hero-title{font-family:var(--serif);font-size:42px;font-weight:400;font-style:italic;color:var(--text);line-height:1.12;margin-bottom:14px}
-.hero-sub{font-family:var(--serif);font-size:15.5px;font-style:italic;color:var(--rose-dark);line-height:1.7;margin-bottom:28px;max-width:580px}
-.hero-meta{display:flex;gap:24px;flex-wrap:wrap;font-size:10.5px;color:var(--text-muted);letter-spacing:.03em;margin-bottom:32px}
-.hero-meta-label{font-weight:600;color:var(--text-light)}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.metric{padding:22px 18px;background:var(--white);border:1px solid var(--border);border-radius:4px;text-align:center}
-.metric-num{font-family:var(--serif);font-size:36px;font-weight:400;font-style:italic;color:var(--plum);margin-bottom:3px}
-.metric-label{font-size:9.5px;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase}
+/* &#8212; HERO &#8212; */
+.hero{margin-bottom:56px}
+.badge{display:inline-block;font-size:8px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:8px;background:rgba(156,97,105,.08);color:var(--dq-rose);margin-bottom:16px}
+h1{font-family:var(--serif);font-size:38px;font-weight:400;font-style:italic;color:var(--text);line-height:1.15;margin-bottom:16px}
+.lead{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--rose-dark);line-height:1.75;max-width:560px;margin-bottom:28px}
+.meta{display:flex;gap:20px;flex-wrap:wrap;font-size:10px;color:var(--text-muted);letter-spacing:.04em;margin-bottom:32px}
+.meta b{font-weight:600;color:var(--text-light)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.num{padding:20px 16px;background:var(--white);border:1px solid var(--border);border-radius:4px;text-align:center}
+.num-v{font-family:var(--serif);font-size:34px;font-weight:400;font-style:italic;color:var(--plum);margin-bottom:2px}
+.num-l{font-size:9px;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase}
 
-/* ââ SECTION ââ */
+/* &#8212; SECTIONS &#8212; */
 .sec{margin-bottom:64px}
-.sec-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.sec-label::before{content:'';width:16px;height:1px;background:var(--rose)}
-.sec-h{font-family:var(--serif);font-size:26px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:18px;line-height:1.3}
-.sec-body{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--text-body);max-width:620px}
-.sec-body em{color:var(--rose-dark)}.sec-body strong{color:var(--text);font-weight:600}
-.insight-box{padding:18px 22px;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--dq-rose);border-radius:2px;margin:20px 0;font-family:var(--serif);font-size:14px;line-height:1.8;color:var(--text-body);max-width:620px}
+.sec-label{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec-label::before{content:'';width:14px;height:1px;background:var(--rose)}
+.sec-h{font-family:var(--serif);font-size:24px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:14px;line-height:1.3}
+.sec-p{font-family:var(--serif);font-size:14px;line-height:1.85;color:var(--text-body);max-width:600px}
 
-/* ââ DEMO SHOWCASE ââ */
-.demo{margin-bottom:64px}
-.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
-.demo-card{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 6px 24px rgba(42,32,36,.06);transition:all .3s var(--ease)}
-.demo-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(42,32,36,.1)}
-.demo-card img{width:100%;display:block}
-.demo-card-body{padding:16px 20px}
-.demo-card-title{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px}
-.demo-card-desc{font-size:10px;color:var(--text-muted);letter-spacing:.03em}
-.demo-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.demo-pair img{width:100%;border-radius:4px;border:1px solid var(--border);display:block}
+/* &#8212; IMAGES &#8212; */
+.img-full{width:100%;border-radius:6px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(42,32,36,.06);display:block;margin:24px 0}
+.img-caption{font-size:9px;letter-spacing:.05em;color:var(--text-muted);margin-top:-14px;margin-bottom:24px}
+.img-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.img-pair img{width:100%;border-radius:6px;border:1px solid var(--border);box-shadow:0 6px 24px rgba(42,32,36,.05);display:block}
+.img-pair-cap{font-size:9px;color:var(--text-muted);letter-spacing:.04em;margin-top:6px}
 
-/* ââ BEFORE/AFTER SCREENS ââ */
-.ba-screens{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:24px 0;border-radius:6px;overflow:hidden;border:1px solid var(--dq-border);box-shadow:0 8px 32px rgba(86,55,64,.08)}
-.ba-screens img{width:100%;display:block}
-.ba-screen-label{font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;text-align:center}
-.ba-screen-before{background:var(--dq-blush);color:var(--text-muted)}
-.ba-screen-after{background:var(--white);color:var(--dq-rose)}
+/* &#8212; INSIGHT BOX &#8212; */
+.insight{padding:20px 24px;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--dq-rose);border-radius:2px;margin:24px 0;font-family:var(--serif);font-size:14px;line-height:1.8;color:var(--text-body);max-width:600px}
+.insight em{color:var(--rose-dark)}
 
-/* ââ REDESIGNED SHOWCASE (After Only) ââ */
-.redesign-showcase{margin:28px 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.redesign-card{background:var(--white);border:1px solid var(--dq-border);border-radius:8px;padding:24px;position:relative;overflow:hidden}
-.redesign-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--dq-rose),var(--mauve))}
-.redesign-pname{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dq-dark);margin-bottom:8px}
-.redesign-copy{font-family:var(--serif);font-size:13.5px;line-height:1.7;color:var(--text-body);margin-bottom:10px}
-.redesign-tags{display:flex;gap:6px;flex-wrap:wrap}
-.redesign-tag{font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:10px;font-weight:600;background:rgba(156,97,105,.1);color:var(--dq-rose)}
+/* &#8212; COPY COMPARISON &#8212; */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;border-radius:6px;overflow:hidden;border:1px solid var(--dq-border);box-shadow:0 6px 24px rgba(86,55,64,.06)}
+.compare-col{padding:24px 20px}
+.compare-before{background:var(--dq-blush)}
+.compare-after{background:var(--white)}
+.compare-label{font-family:var(--sans);font-size:8.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.compare-label-b{color:var(--text-muted)}
+.compare-label-a{color:var(--dq-rose)}
+.compare-item{margin-bottom:14px}
+.compare-item:last-child{margin-bottom:0}
+.compare-name{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dq-dark);margin-bottom:4px}
+.compare-copy{font-family:var(--serif);font-size:12.5px;line-height:1.6;color:var(--text-body)}
 
-/* ââ PHONE MOCKUP ââ */
-.phone-row{display:flex;justify-content:center;gap:24px;margin:32px 0;perspective:1000px}
-.phone-frame{width:220px;background:#1a1a1a;border-radius:28px;padding:8px;box-shadow:0 20px 60px rgba(42,32,36,.18),0 2px 8px rgba(0,0,0,.1);position:relative;transition:transform .4s var(--ease)}
-.phone-frame:hover{transform:translateY(-6px)}
-.phone-notch{width:80px;height:4px;background:#1a1a1a;border-radius:2px;margin:0 auto 6px;position:relative;z-index:2}
-.phone-screen{border-radius:20px;overflow:hidden;background:var(--white);position:relative;aspect-ratio:9/19.5}
-.phone-screen img{width:100%;height:100%;object-fit:cover;display:block}
-.phone-label{text-align:center;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:12px;font-weight:600}
+/* &#8212; TIMELINE &#8212; */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.tl-c{padding:18px 14px;background:var(--white);border:1px solid var(--border);border-radius:4px}
+.tl-w{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--dq-rose);font-weight:600;margin-bottom:6px}
+.tl-t{font-family:var(--serif);font-size:13px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:4px;line-height:1.3}
+.tl-d{font-size:9.5px;color:var(--text-muted);line-height:1.5}
 
-/* ââ PMPO FRAMEWORK ââ */
-.pmpo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}
-.pmpo-card{padding:20px 18px;background:var(--white);border:1px solid var(--border);border-radius:6px;transition:all .3s var(--ease);position:relative;overflow:hidden}
-.pmpo-card:hover{border-color:var(--dq-border);transform:translateY(-2px);box-shadow:0 8px 24px rgba(107,46,74,.06)}
-.pmpo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--dq-rose);opacity:.6}
-.pmpo-concept{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.06em;color:var(--dq-rose);margin-bottom:6px}
-.pmpo-title{font-family:var(--serif);font-size:14px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:8px;line-height:1.35}
-.pmpo-desc{font-size:9.5px;color:var(--text-muted);line-height:1.6}
-.pmpo-question{font-size:8.5px;color:var(--plum);font-style:italic;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);line-height:1.5}
+/* &#8212; LEARN &#8212; */
+.learn{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--text-body);max-width:600px;padding-top:24px;border-top:1px solid var(--border)}
 
-/* ââ POSITIONING ââ */
-.positioning{margin:40px 0;padding:32px 28px;background:linear-gradient(135deg,var(--dq-blush),var(--white));border:1px solid var(--dq-border);border-radius:8px;text-align:center}
-.positioning-quote{font-family:var(--serif);font-size:18px;font-style:italic;color:var(--dq-dark);line-height:1.6;max-width:640px;margin:0 auto}
-.positioning-quote em{color:var(--dq-rose);font-style:italic}
+/* &#8212; CTA &#8212; */
+.cta{margin-top:40px}
+.cta a{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--plum);text-decoration:none;padding:12px 20px;border:1px solid var(--blush);border-radius:20px;transition:all .25s var(--ease);letter-spacing:.03em}
+.cta a:hover{background:var(--cream);transform:translateX(4px)}
 
-/* ââ TIMELINE ââ */
-.tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
-.tl-card{padding:22px 16px 18px;background:var(--white);border:1px solid var(--border);border-radius:4px;transition:all .25s var(--ease);position:relative}
-.tl-card:hover{border-color:var(--dq-border);transform:translateY(-2px);box-shadow:0 6px 20px rgba(107,46,74,.05)}
-.tl-card::after{content:'\2192';position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--blush);font-size:13px;z-index:1}
-.tl-card:last-child::after{display:none}
-.tl-week{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--dq-rose);font-weight:600;margin-bottom:8px}
-.tl-phase{font-family:var(--serif);font-size:14px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:6px;line-height:1.3}
-.tl-skill{font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--plum);font-weight:600;margin-bottom:8px;padding:3px 8px;background:rgba(107,46,74,.04);border-radius:8px;display:inline-block}
-.tl-desc{font-size:10px;color:var(--text-muted);line-height:1.55}
-
-/* ââ EVIDENCE ââ */
-.ev{margin:20px 0;border-radius:6px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(42,32,36,.06)}
-.ev img{width:100%;display:block}
-.ev-caption{font-size:9px;letter-spacing:.06em;color:var(--text-muted);padding:10px 16px;background:var(--white);border-top:1px solid var(--border)}
-
-/* ââ CTA ââ */
-.cs-cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
-.cs-cta a{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--plum);text-decoration:none;padding:12px 20px;border:1px solid var(--blush);border-radius:20px;transition:all .25s var(--ease);letter-spacing:.03em}
-.cs-cta a:hover{background:var(--cream);transform:translateX(4px);box-shadow:0 2px 12px rgba(196,138,149,.15)}
-
-/* ââ RESPONSIVE ââ */
 @media(max-width:768px){
-  .cs{padding:32px 20px 60px}
-  .hero-title{font-size:30px}
-  .metrics{grid-template-columns:1fr}
-  .demo-grid{grid-template-columns:1fr}
-  .ba-screens{grid-template-columns:1fr}
-  .redesign-showcase{grid-template-columns:1fr}
-  .tl-grid{grid-template-columns:1fr 1fr}
-  .tl-card::after{display:none}
-  .hero-meta{flex-direction:column;gap:8px}
-  .phone-row{flex-direction:column;align-items:center;gap:16px}
-  .phone-frame{width:180px}
-  .pmpo-grid{grid-template-columns:1fr}
+  .page{padding:32px 20px 60px}
+  h1{font-size:28px}
+  .nums{grid-template-columns:1fr}
+  .img-pair{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .tl{grid-template-columns:1fr 1fr}
+  .meta{flex-direction:column;gap:8px}
 }
 @media(max-width:480px){
-  .tl-grid{grid-template-columns:1fr}
-  .cs-cta{flex-direction:column}
-  .cs-cta a{justify-content:center}
+  .tl{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<div class="cs">
+<div class="page">
 
-<a href="https://bellakang017.github.io/portfolio-/" class="cs-back">&larr; Back to Portfolio</a>
+<a href="https://bellakang017.github.io/portfolio-/" class="back">&#8592; Back to Portfolio</a>
 
-<!-- âââââââ HERO âââââââ -->
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">Product Design Case Study</div>
-  <h1 class="hero-title">Dasique &mdash; Product Design<br>for Global Users</h1>
-  <p class="hero-sub">64% of this brand's e-commerce traffic came from North America. Every product page was written for a completely different audience. I researched how each group evaluates cosmetics, then redesigned 18 pages around what NA shoppers actually look for.</p>
-  <div class="hero-meta">
-    <span><span class="hero-meta-label">Role</span> UX Researcher &amp; Content Strategist</span>
-    <span><span class="hero-meta-label">Timeline</span> May&ndash;Jul 2025 &middot; 6.5 weeks</span>
-    <span><span class="hero-meta-label">Context</span> Dasique &middot; Olive Young Global (e-commerce)</span>
+  <div class="badge">Product Design</div>
+  <h1>Dasique &#8212; Localization<br>for Global Users</h1>
+  <p class="lead">Korean beauty product pages were losing North American shoppers. I observed why on the retail floor, then redesigned 18 pages and built a staff training system.</p>
+  <div class="meta">
+    <span><b>Role</b> Brand Strategy Intern</span>
+    <span><b>Timeline</b> May&#8211;Jul 2025 &#183; 6.5 weeks</span>
+    <span><b>Context</b> Dasique &#183; Olive Young Global Mall</span>
   </div>
-  <div class="metrics">
-    <div class="metric"><div class="metric-num">18</div><div class="metric-label">Product pages redesigned</div></div>
-    <div class="metric"><div class="metric-num">64%</div><div class="metric-label">NA customer traffic</div></div>
-    <div class="metric"><div class="metric-num">25+</div><div class="metric-label">SKUs across categories</div></div>
+  <div class="nums">
+    <div class="num"><div class="num-v">18</div><div class="num-l">Product pages localized</div></div>
+    <div class="num"><div class="num-v">64%</div><div class="num-l">Traffic from North America</div></div>
+    <div class="num"><div class="num-v">6.5</div><div class="num-l">Weeks, end to end</div></div>
   </div>
 </div>
 
-<!-- âââââââ POSITIONING âââââââ -->
-<div class="positioning">
-  <p class="positioning-quote">&ldquo;I'm not a designer who makes things pretty. I'm a designer who understands <em>Activation</em> and <em>Retention</em> structure&mdash;and solves bottlenecks through UX.&rdquo;</p>
-</div>
-
-<!-- âââââââ THE PROBLEM âââââââ -->
+<!-- THE GAP -->
 <div class="sec">
-  <div class="sec-label">The Problem</div>
-  <h2 class="sec-h">Same product page. Two different shoppers.</h2>
-  <div class="sec-body">
-    <p>Dasique's product descriptions were direct-translated from the domestic market. The original copy led with <em>texture metaphors and mood</em>&mdash;&ldquo;a mermaid's magic, pressed into every shade.&rdquo; North American shoppers open a product page and scan for something else entirely: <em>shade count, wear time, whether it transfers.</em></p>
-    <p style="margin-top:12px">The pages weren't badly written. They were answering questions the majority of the audience wasn't asking.</p>
-  </div>
-
-  <div class="ba-screens" style="margin-top:28px">
-    <div>
-      <img src="img/before-korean-copy.png" alt="Original product page with mood-driven copy" loading="lazy">
-      <div class="ba-screen-label ba-screen-before">Original &mdash; mood-driven copy</div>
-    </div>
-    <div>
-      <img src="img/after-english-copy.png" alt="Redesigned product page with function-first copy" loading="lazy">
-      <div class="ba-screen-label ba-screen-after">Redesigned &mdash; function-first copy</div>
-    </div>
-  </div>
+  <div class="sec-label">The Gap</div>
+  <h2 class="sec-h">Same product page. Different purchase logic.</h2>
+  <p class="sec-p">Korean copy sells through mood and texture&#8212;&#8220;a mermaid&#8217;s magic.&#8221; NA shoppers scan for shade count, wear time, and whether it transfers. The gap wasn&#8217;t language. It was how each audience decides to buy.</p>
+  <img src="img/dasique-before-after.jpg" alt="Before and after: Korean sensory copy vs. localized function-first copy on desktop" class="img-full" loading="lazy">
+  <div class="img-caption">Left: Original Korean copy &#183; Right: Localized for NA shoppers</div>
 </div>
 
-<!-- âââââââ THE REDESIGN (After Only) âââââââ -->
+<!-- WHAT I SHIPPED: PRODUCT PAGES -->
 <div class="sec">
-  <div class="sec-label">The Redesign</div>
-  <h2 class="sec-h">Function-first copy that answers what NA shoppers actually search for.</h2>
-
-  <!-- Phone mockups showing Olive Young Global Mall product pages -->
-  <div class="phone-row">
+  <div class="sec-label">Deliverable 1</div>
+  <h2 class="sec-h">18 product pages, rewritten for purchase confidence.</h2>
+  <p class="sec-p">I benchmarked Sephora, Rhode, and Laneige NA to understand what copy patterns drive conversion. Then I rewrote every line to lead with function&#8212;shade count, wear time, finish, transfer&#8212;instead of mood.</p>
+  <div class="img-pair">
     <div>
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-          <img src="img/product-page-berry.png" alt="Olive Young Global &mdash; Dasique Berry Smoothie palette product page">
-        </div>
-      </div>
-      <div class="phone-label">Shadow Palette</div>
+      <img src="img/product-page-berry.png" alt="Localized product page &#8212; #18 Berry Smoothie shadow palette" loading="lazy">
+      <div class="img-pair-cap">Shadow Palette &#183; #18 Berry Smoothie</div>
     </div>
     <div>
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-          <img src="img/product-page-glitter.png" alt="Olive Young Global &mdash; Dasique glitter product detail page">
-        </div>
-      </div>
-      <div class="phone-label">Product Detail</div>
-    </div>
-    <div>
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-          <img src="img/after-english-copy.png" alt="Olive Young Global &mdash; Redesigned English copy">
-        </div>
-      </div>
-      <div class="phone-label">Redesigned Copy</div>
+      <img src="img/product-page-glitter.png" alt="Product detail &#8212; function-first glitter description" loading="lazy">
+      <div class="img-pair-cap">Product detail &#183; Function-first copy</div>
     </div>
   </div>
 
-  <!-- Redesigned copy cards -->
-  <div class="redesign-showcase">
-    <div class="redesign-card">
-      <div class="redesign-pname">Shadow Palette &middot; Rose Petal</div>
-      <div class="redesign-copy">9 shades, multi-sized glitter for dimensional shine. Ultra-smooth&mdash;easy blending, no creasing.</div>
-      <div class="redesign-tags">
-        <span class="redesign-tag">Function</span>
-        <span class="redesign-tag">Performance</span>
-        <span class="redesign-tag">Shade Count</span>
+  <div class="compare">
+    <div class="compare-col compare-before">
+      <div class="compare-label compare-label-b">Korean Original</div>
+      <div class="compare-item">
+        <div class="compare-name">Shadow Palette &#183; Rose Petal</div>
+        <div class="compare-copy">From subtle pearl to dazzling glitter&#8212;eye-catching textures that add presence. A mermaid mood built with delicately sparkling glitter.</div>
+      </div>
+      <div class="compare-item">
+        <div class="compare-name">Juicy Dewy Glow Tint</div>
+        <div class="compare-copy">Dewy pigment as if soaked in fruit juice. Moist hydration lingering on the lips.</div>
       </div>
     </div>
-    <div class="redesign-card">
-      <div class="redesign-pname">Juicy Dewy Glow Tint</div>
-      <div class="redesign-copy">Full pigment, no transfer. One coat, 8+ hour hydrating finish.</div>
-      <div class="redesign-tags">
-        <span class="redesign-tag">Wear Time</span>
-        <span class="redesign-tag">Coverage</span>
-        <span class="redesign-tag">Transfer-proof</span>
+    <div class="compare-col compare-after">
+      <div class="compare-label compare-label-a">Localized</div>
+      <div class="compare-item">
+        <div class="compare-name">Shadow Palette &#183; Rose Petal</div>
+        <div class="compare-copy">9 shades, multi-sized glitter for dimensional shine. Ultra-smooth&#8212;easy blending, no creasing.</div>
       </div>
-    </div>
-    <div class="redesign-card">
-      <div class="redesign-pname">Pastel Neon &middot; Lip Tint</div>
-      <div class="redesign-copy">Buildable matte-to-velvet. No feathering, no drying. Stays through coffee.</div>
-      <div class="redesign-tags">
-        <span class="redesign-tag">Finish</span>
-        <span class="redesign-tag">Longevity</span>
-        <span class="redesign-tag">Texture</span>
-      </div>
-    </div>
-    <div class="redesign-card">
-      <div class="redesign-pname">Blending Mood Cheek</div>
-      <div class="redesign-copy">Silky powder, zero fallout. Natural flush that layers without caking.</div>
-      <div class="redesign-tags">
-        <span class="redesign-tag">Application</span>
-        <span class="redesign-tag">Payoff</span>
-        <span class="redesign-tag">Blendability</span>
+      <div class="compare-item">
+        <div class="compare-name">Juicy Dewy Glow Tint</div>
+        <div class="compare-copy">Full pigment, no transfer. One coat, 8+ hour hydrating finish.</div>
       </div>
     </div>
   </div>
-
-  <div class="insight-box">
-    <strong>The shift:</strong> Korean copy optimized for <em>mood and aspiration</em>&mdash;&ldquo;a mermaid's magic.&rdquo; NA copy optimized for <em>purchase confidence</em>&mdash;shade count, wear time, transfer-proof claims. Same product, different Aha Moment.
-  </div>
+  <div class="insight">The shift: Korean copy optimized for <em>mood and aspiration.</em> NA copy optimized for <em>purchase confidence</em>&#8212;specs that answer the questions shoppers actually ask before clicking &#8220;Add to Cart.&#8221;</div>
 </div>
 
-<!-- âââââââ THE WORK âââââââ -->
-<div class="sec demo">
-  <div class="sec-label">The Work</div>
-  <h2 class="sec-h">Two deliverables. Both shipped.</h2>
-
-  <div class="demo-grid">
-    <!-- LEFT: Product Pages -->
-    <div class="demo-card">
-      <img src="img/product-page-berry.png" alt="Redesigned Dasique product page &mdash; #18 Berry Smoothie palette" loading="lazy">
-      <div class="demo-pair">
-        <img src="img/product-page-glitter.png" alt="Product detail &mdash; function-first glitter description" loading="lazy">
-        <img src="img/folder-structure.png" alt="18 product folders organized by category" loading="lazy">
-      </div>
-      <div class="demo-card-body">
-        <div class="demo-card-title">18 Product Pages &mdash; E-commerce Platform</div>
-        <div class="demo-card-desc">Redesigned copy for Shadow Palettes, Lip Tints, Cheek, Base, and more. Benchmarked against Rhode, Dior, and Laneige NA pages.</div>
-      </div>
-    </div>
-
-    <!-- RIGHT: Staff Training -->
-    <div class="demo-card">
-      <img src="img/staff-guide-cover.png" alt="Mobile staff training guide cover" loading="lazy">
-      <div class="demo-pair">
-        <img src="img/staff-english-phrases.png" alt="8 customer scenarios with English scripts" loading="lazy">
-        <img src="img/staff-training-doc.png" alt="Full staff training document with procedures" loading="lazy">
-      </div>
-      <div class="demo-card-body">
-        <div class="demo-card-title">Mobile Staff Training System</div>
-        <div class="demo-card-desc">8 customer scenarios with English scripts, pronunciation guides, and shift checklists. One mobile URL replaced a fragmented image-based workflow.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Staff Training Phone Mockup -->
-  <div style="margin-top:32px">
-    <div class="sec-body" style="margin-bottom:20px">
-      <p><strong>Deliverable &mdash; Staff Training System</strong></p>
-      <p style="margin-top:6px">From scattered images to one link. A mobile-first training guide that staff access through a single URL&mdash;no app install, no onboarding friction.</p>
-    </div>
-    <div class="phone-row">
-      <div>
-        <div class="phone-frame">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <img src="img/staff-guide-cover.png" alt="Staff guide &mdash; mobile view cover">
-          </div>
-        </div>
-        <div class="phone-label">Guide Cover</div>
-      </div>
-      <div>
-        <div class="phone-frame">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <img src="img/staff-english-phrases.png" alt="Staff guide &mdash; English phrases for customer scenarios">
-          </div>
-        </div>
-        <div class="phone-label">Customer Scripts</div>
-      </div>
-      <div>
-        <div class="phone-frame">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <img src="img/staff-training-doc.png" alt="Staff guide &mdash; training document procedures">
-          </div>
-        </div>
-        <div class="phone-label">Procedures</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- âââââââ PMPO Ã PRODUCT DESIGN âââââââ -->
+<!-- WHAT I SHIPPED: STAFF TRAINING -->
 <div class="sec">
-  <div class="sec-label">Design Thinking &mdash; PMPO Framework</div>
-  <h2 class="sec-h">How I think about product design decisions.</h2>
-  <div class="sec-body" style="margin-bottom:24px">
-    <p>Every design decision in this project maps to a product metric. Here's how I framed each one.</p>
-  </div>
-
-  <div class="pmpo-grid">
-    <div class="pmpo-card">
-      <div class="pmpo-concept">Aha Moment</div>
-      <div class="pmpo-title">What makes a shopper stay?</div>
-      <div class="pmpo-desc">The original pages buried functional info under poetic copy. NA shoppers' Aha Moment is seeing specs they can evaluate&mdash;shade count, wear time, transfer claim. I moved that to the first scroll.</div>
-      <div class="pmpo-question">&ldquo;How did you define the success metric for your onboarding UX?&rdquo;</div>
+  <div class="sec-label">Deliverable 2</div>
+  <h2 class="sec-h">Staff training system&#8212;one URL, zero onboarding friction.</h2>
+  <p class="sec-p">The Seongsu flagship staff relied on KakaoTalk images for training&#8212;scattered, hard to find, impossible to update. I built a mobile-first web guide with 11 bilingual customer scenarios, shift checklists, and store procedures.</p>
+  <img src="img/dasique-staff-training.jpg" alt="Staff training system: why, what, and expected outcome with mobile guide screenshots" class="img-full" loading="lazy">
+  <div class="img-caption">Problem &#8594; Solution &#8594; Expected outcome</div>
+  <div class="img-pair">
+    <div>
+      <img src="img/staff-english-phrases.png" alt="11 bilingual customer scenarios with English scripts" loading="lazy">
+      <div class="img-pair-cap">11 scenarios &#183; Korean + English scripts</div>
     </div>
-    <div class="pmpo-card">
-      <div class="pmpo-concept">Activation Funnel</div>
-      <div class="pmpo-title">Reducing Time-to-Aha</div>
-      <div class="pmpo-desc">Browse &rarr; Read Copy &rarr; Add to Cart. The friction was in step 2: copy that didn't answer purchase questions. Rewriting removed the gap between landing and converting.</div>
-      <div class="pmpo-question">&ldquo;What design decision did you make to reduce Time-to-Aha?&rdquo;</div>
-    </div>
-    <div class="pmpo-card">
-      <div class="pmpo-concept">Retention Detail</div>
-      <div class="pmpo-title">Microcopy as trust signal</div>
-      <div class="pmpo-desc">Edge cases matter: &ldquo;transfer-proof,&rdquo; &ldquo;no creasing,&rdquo; &ldquo;stays through coffee.&rdquo; These micro-details are what separate a bounce from a bookmark. Each line was tested against real shopper objections.</div>
-      <div class="pmpo-question">&ldquo;Show me the level of detail in your design work.&rdquo;</div>
-    </div>
-    <div class="pmpo-card">
-      <div class="pmpo-concept">Living Artifact</div>
-      <div class="pmpo-title">Hypothesis-driven iteration</div>
-      <div class="pmpo-desc">I didn't receive a spec and execute. I observed shoppers, built a hypothesis about the copy gap, benchmarked competitors, and iterated on the framework before writing a single product page.</div>
-      <div class="pmpo-question">&ldquo;Are you a designer who takes PRDs, or one who defines the problem?&rdquo;</div>
-    </div>
-    <div class="pmpo-card">
-      <div class="pmpo-concept">4 Product Risks</div>
-      <div class="pmpo-title">Valuable &middot; Usable &middot; Feasible &middot; Viable</div>
-      <div class="pmpo-desc"><strong>Valuable:</strong> 64% NA traffic with KR-optimized copy. <strong>Usable:</strong> Copy scannability for mobile shoppers. <strong>Feasible:</strong> 18 pages in 1.5 weeks, solo. <strong>Viable:</strong> Zero dev cost&mdash;content-only change.</div>
-      <div class="pmpo-question">&ldquo;Why this direction? Walk me through the trade-offs.&rdquo;</div>
-    </div>
-    <div class="pmpo-card">
-      <div class="pmpo-concept">Business Impact</div>
-      <div class="pmpo-title">Design decisions with measurable outcomes</div>
-      <div class="pmpo-desc">Copy redesign targets the conversion gap between browse and cart. Staff training reduces onboarding friction from days to minutes. Both deliverables directly address churn at different funnel stages.</div>
-      <div class="pmpo-question">&ldquo;How would you expect this design change to affect churn?&rdquo;</div>
+    <div>
+      <img src="img/staff-training-doc.png" alt="A/B shift checklists and store procedures" loading="lazy">
+      <div class="img-pair-cap">Shift checklists &#183; Store procedures</div>
     </div>
   </div>
 </div>
 
-<!-- âââââââ PROCESS âââââââ -->
+<!-- HOW I GOT THERE -->
 <div class="sec">
-  <div class="sec-label">The Process</div>
+  <div class="sec-label">Process</div>
   <h2 class="sec-h">6.5 weeks, four phases.</h2>
-  <div class="tl-grid">
-    <div class="tl-card">
-      <div class="tl-week">Weeks 1&ndash;4</div>
-      <div class="tl-phase">User Research</div>
-      <div class="tl-skill">Behavioral observation</div>
-      <div class="tl-desc">Observed international customers at the flagship location. Coded behavior patterns&mdash;what they asked, where they hesitated, what made them leave.</div>
+  <div class="tl">
+    <div class="tl-c">
+      <div class="tl-w">Weeks 1&#8211;4</div>
+      <div class="tl-t">Floor Observation</div>
+      <div class="tl-d">Shadowed staff at Seongsu flagship. Coded how international customers browsed, what they asked, where they hesitated.</div>
     </div>
-    <div class="tl-card">
-      <div class="tl-week">Week 5</div>
-      <div class="tl-phase">Content Redesign</div>
-      <div class="tl-skill">Competitive benchmarking</div>
-      <div class="tl-desc">Rewrote 18 product pages. Benchmarked against Rhode, Dior, and Laneige to identify how NA-facing brands structure product information.</div>
+    <div class="tl-c">
+      <div class="tl-w">Week 5</div>
+      <div class="tl-t">Content Rewrite</div>
+      <div class="tl-d">Benchmarked Rhode, Dior, Laneige NA. Rewrote 18 product pages. Delivered to web design team.</div>
     </div>
-    <div class="tl-card">
-      <div class="tl-week">Week 6</div>
-      <div class="tl-phase">Systems Design</div>
-      <div class="tl-skill">Operational UX</div>
-      <div class="tl-desc">Built a mobile staff training guide&mdash;8 customer scenarios with English scripts and pronunciation. Replaced a fragmented workflow with one shared URL.</div>
+    <div class="tl-c">
+      <div class="tl-w">Week 6</div>
+      <div class="tl-t">Staff Training</div>
+      <div class="tl-d">Built mobile guide&#8212;11 scenarios with English scripts and pronunciation. One URL replaced scattered images.</div>
     </div>
-    <div class="tl-card">
-      <div class="tl-week">Week 6.5</div>
-      <div class="tl-phase">Market Research</div>
-      <div class="tl-skill">Strategic pivot</div>
-      <div class="tl-desc">NA expansion research. Started with industry reports, pivoted mid-week to a consumer-perspective framework after finding the data too supply-side.</div>
+    <div class="tl-c">
+      <div class="tl-w">Week 6.5</div>
+      <div class="tl-t">NA Research</div>
+      <div class="tl-d">Compiled consumer-perspective market research for North American expansion strategy.</div>
     </div>
   </div>
 </div>
 
-<!-- âââââââ REFLECTION âââââââ -->
+<!-- WHAT I LEARNED -->
 <div class="sec">
-  <div class="sec-label">What I Learned</div>
-  <h2 class="sec-h">Localization isn't translation. It's redesigning for a different mental model.</h2>
-  <div class="sec-body">
-    <p>The product was the same. The quality was the same. But each audience had a completely different framework for evaluating it. One group responds to mood and sensory language. The other needs specs, wear time, and performance claims they can verify.</p>
-    <p style="margin-top:12px">Designing for global users means understanding that the <em>same screen</em> needs to answer <em>fundamentally different questions</em> depending on who's looking at it.</p>
+  <div class="sec-label">Reflection</div>
+  <h2 class="sec-h">What this project taught me.</h2>
+  <div class="learn">
+    <p>Good localization isn&#8217;t translation. It&#8217;s understanding that the same product solves different problems for different people&#8212;and designing the experience around <em>their</em> decision logic, not yours.</p>
+    <p style="margin-top:14px">The retail floor taught me something I couldn&#8217;t learn from data alone: hesitation has a body language. The moment a shopper tilts a product back toward the shelf is the moment your copy failed. That observation shaped every line I wrote.</p>
   </div>
 </div>
 
-<!-- âââââââ CTA âââââââ -->
-<div class="sec" style="padding-top:24px;border-top:1px solid var(--border)">
-  <div class="cs-cta">
-    <a href="https://bellakang017.github.io/portfolio-/">&larr; Back to Portfolio</a>
-  </div>
+<!-- CTA -->
+<div class="cta">
+  <a href="https://bellakang017.github.io/portfolio-/">&#8592; Back to Portfolio</a>
 </div>
 
 </div>
