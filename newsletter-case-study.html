@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Career Newsletter — Portfolio Showcase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            green: { brand: '#006B3F' },
+            gold: { brand: '#D4AF37' },
+            noir: '#1D1D1F',
+            ut: { orange: '#BF5700' },
+            surface: '#F5F5F0',
+            mist: '#E8E6E1',
+            outlook: { sidebar: '#F3F3F3', toolbar: '#F8F8F8', blue: '#0078D4', hover: '#E8E8E8' },
+          },
+          fontFamily: {
+            display: ['"Segoe UI"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            body: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', sans-serif; background: #F5F5F0; color: #1D1D1F; overflow-x: hidden; }
+
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.025;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .iphone-screen { scrollbar-width: none; }
+    .iphone-screen::-webkit-scrollbar { display: none; }
+    .outlook-reading::-webkit-scrollbar { width: 6px; }
+    .outlook-reading::-webkit-scrollbar-track { background: transparent; }
+    .outlook-reading::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 3px; }
+
+    .macbook-scene {}
+    .macbook-lid {}
+    .macbook-base { display: none; }
+    .macbook-hinge { display: none; }
+
+    /* Month tab */
+    .month-tab { transition: all 0.25s ease; }
+    .month-tab.active {
+      background: #BF5700;
+      color: white;
+      border-color: #BF5700;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.7s ease-out both; }
+    .fade-up-d1 { animation-delay: 0.15s; }
+    .fade-up-d2 { animation-delay: 0.3s; }
+  </style>
+</head>
+<body class="min-h-screen relative grain">
+
+  <!-- ─── Nav ─── -->
+  <nav class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-surface/80 border-b border-noir/5">
+    <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+      <span class="font-mono text-[11px] tracking-widest uppercase text-noir/50">Bella Kang</span>
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-[11px] tracking-widest uppercase text-noir/40">Work</span>
+        <span class="font-mono text-[11px] tracking-widest uppercase text-noir/40">About</span>
+        <span class="font-mono text-[11px] tracking-widest uppercase text-ut-orange font-medium">Contact</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- ─── Hero + Design Decisions ─── -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="pt-24 pb-10 px-6 max-w-7xl mx-auto fade-up">
+    <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+      <!-- LEFT -->
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-ut-orange bg-ut-orange/8 px-3 py-1.5 rounded-full">Email Newsletter</span>
+        </div>
+        <h1 class="font-display text-[clamp(1.75rem,4vw,3rem)] font-bold leading-[1.1] tracking-tight text-noir">
+          Global Career Newsletter<br />
+          <span class="text-ut-orange">for International Longhorns</span>
+        </h1>
+        <p class="mt-5 text-noir/55 text-[15px] leading-relaxed max-w-lg font-light">
+          A monthly email newsletter for UT Austin's international graduate students — career programming, visa guidance, tax resources, and professional development from the Office of Career &amp; Life Design.
+        </p>
+        <!-- Meta -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-noir/8 pt-6 mt-8">
+          <div>
+            <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/35 block mb-1">Role</span>
+            <span class="text-sm text-noir/80">Designer & Writer</span>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/35 block mb-1">Client</span>
+            <span class="text-sm text-noir/80">Career &amp; Life Design</span>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/35 block mb-1">Tools</span>
+            <span class="text-sm text-noir/80">Figma, Mailchimp</span>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/35 block mb-1">Audience</span>
+            <span class="text-sm text-noir/80">570+ subscribers</span>
+          </div>
+        </div>
+      </div>
+      <!-- RIGHT: Design Decisions -->
+      <div class="lg:w-[320px] flex-shrink-0">
+        <div class="font-mono text-[10px] tracking-[0.2em] uppercase text-noir/30 mb-6">Design Decisions</div>
+        <div class="mb-6">
+          <div class="flex items-center gap-2.5 mb-2">
+            <div class="w-6 h-6 rounded-md bg-ut-orange/8 flex items-center justify-center">
+              <div class="w-2.5 h-2.5 rounded-full bg-ut-orange"></div>
+            </div>
+            <h3 class="font-display text-sm font-semibold text-noir">Color System</h3>
+          </div>
+          <p class="text-[13px] text-noir/45 leading-relaxed mb-3">UT Orange anchors identity. Gold highlights deadlines. Green marks secondary accents.</p>
+          <div class="flex gap-1.5">
+            <div class="w-7 h-7 rounded-md bg-ut-orange" title="#BF5700"></div>
+            <div class="w-7 h-7 rounded-md bg-gold-brand" title="#D4AF37"></div>
+            <div class="w-7 h-7 rounded-md bg-green-brand" title="#006B3F"></div>
+            <div class="w-7 h-7 rounded-md bg-noir" title="#1D1D1F"></div>
+            <div class="w-7 h-7 rounded-md bg-surface border border-noir/8" title="#F5F5F0"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2.5 mb-2">
+            <div class="w-6 h-6 rounded-md bg-noir/5 flex items-center justify-center">
+              <span class="font-display text-xs font-semibold text-noir/50">Aa</span>
+            </div>
+            <h3 class="font-display text-sm font-semibold text-noir">Typography</h3>
+          </div>
+          <p class="text-[13px] text-noir/45 leading-relaxed mb-3">Segoe UI headings. JetBrains Mono labels. Inter body.</p>
+          <div class="space-y-1">
+            <div class="flex items-baseline gap-2.5">
+              <span class="font-mono text-[9px] text-noir/25 w-12">Display</span>
+              <span class="font-display text-[15px] text-noir/65">Segoe UI</span>
+            </div>
+            <div class="flex items-baseline gap-2.5">
+              <span class="font-mono text-[9px] text-noir/25 w-12">Label</span>
+              <span class="font-mono text-[11px] text-noir/65">JetBrains Mono</span>
+            </div>
+            <div class="flex items-baseline gap-2.5">
+              <span class="font-mono text-[9px] text-noir/25 w-12">Body</span>
+              <span class="font-body text-[13px] text-noir/65">Inter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Month Tabs ─── -->
+  <section class="px-6 max-w-7xl mx-auto pb-6 fade-up fade-up-d1">
+    <div class="flex items-center gap-3">
+      <button class="month-tab active font-mono text-[10px] tracking-[0.15em] uppercase px-4 py-2 rounded-full border border-ut-orange" onclick="switchMonth('mar', this)">March 2026</button>
+      <button class="month-tab font-mono text-[10px] tracking-[0.15em] uppercase px-4 py-2 rounded-full border border-noir/15 text-noir/40" onclick="switchMonth('feb', this)">February 2026</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- ─── Device Mockups ─── -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="px-6 max-w-7xl mx-auto pb-20 fade-up fade-up-d2">
+    <div class="flex flex-col lg:flex-row items-start gap-10">
+
+      <!-- ┌─────────────────────────────────────────┐ -->
+      <!-- │  MacBook + Outlook                      │ -->
+      <!-- └─────────────────────────────────────────┘ -->
+      <div class="w-full lg:flex-1 min-w-0">
+        <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-4 ml-1">Desktop — Outlook for Mac</div>
+
+        <div class="macbook-scene">
+          <!-- Lid (screen) -->
+          <div class="macbook-lid">
+            <div class="rounded-t-xl overflow-hidden border border-noir/10 shadow-2xl shadow-noir/15 bg-white">
+              <!-- macOS title bar -->
+              <div class="h-8 bg-gradient-to-b from-[#E8E8E8] to-[#DEDEDE] flex items-center px-3 gap-1.5 border-b border-noir/5">
+                <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+                <div class="flex-1 text-center">
+                  <span class="text-[10px] text-noir/35 font-display">Outlook</span>
+                </div>
+              </div>
+
+              <!-- Outlook toolbar -->
+              <div class="h-9 bg-outlook-toolbar flex items-center px-3 gap-3 border-b border-noir/5">
+                <div class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-noir/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" /></svg>
+                  <svg class="w-4 h-4 text-noir/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m15 15 6-6m0 0-6-6m6 6H9a6 6 0 0 0 0 12h3" /></svg>
+                </div>
+                <div class="flex-1"></div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-noir/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>
+                  <svg class="w-4 h-4 text-noir/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" /></svg>
+                </div>
+              </div>
+
+              <!-- Outlook layout: sidebar + reading pane -->
+              <div class="flex" style="height: 600px;">
+                <!-- Folder sidebar -->
+                <div class="w-[52px] bg-outlook-sidebar border-r border-noir/5 py-3 flex flex-col items-center gap-1">
+                  <div class="w-8 h-8 rounded-lg bg-outlook-blue/10 flex items-center justify-center mb-2">
+                    <svg class="w-4 h-4 text-outlook-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" /></svg>
+                  </div>
+                  <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+                    <svg class="w-4 h-4 text-noir/25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
+                  </div>
+                  <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+                    <svg class="w-4 h-4 text-noir/25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg>
+                  </div>
+                </div>
+
+                <!-- Message list -->
+                <div class="w-[200px] bg-white border-r border-noir/5 overflow-hidden">
+                  <div class="px-3 py-2 border-b border-noir/5">
+                    <div class="text-[11px] font-semibold text-noir/70">Inbox</div>
+                  </div>
+                  <!-- Active email -->
+                  <div class="px-3 py-2.5 bg-outlook-blue/8 border-l-2 border-outlook-blue">
+                    <div class="text-[9px] text-noir/40 mb-0.5">Career & Life Design</div>
+                    <div class="text-[10px] font-medium text-noir/80 leading-tight mb-0.5">Global Career Newsletter</div>
+                    <div class="text-[8px] text-noir/35 leading-snug truncate">Hello, International Longhorns!...</div>
+                  </div>
+                  <!-- Other emails -->
+                  <div class="px-3 py-2.5 border-b border-noir/3">
+                    <div class="text-[9px] text-noir/30 mb-0.5">Graduate School</div>
+                    <div class="text-[10px] text-noir/50 leading-tight mb-0.5">Thesis Deadline Reminder</div>
+                    <div class="text-[8px] text-noir/25 truncate">Please submit your...</div>
+                  </div>
+                  <div class="px-3 py-2.5 border-b border-noir/3">
+                    <div class="text-[9px] text-noir/30 mb-0.5">ISSS</div>
+                    <div class="text-[10px] text-noir/50 leading-tight mb-0.5">OPT Workshop Tomorrow</div>
+                    <div class="text-[8px] text-noir/25 truncate">Join us for a...</div>
+                  </div>
+                  <div class="px-3 py-2.5 border-b border-noir/3">
+                    <div class="text-[9px] text-noir/30 mb-0.5">Moody College</div>
+                    <div class="text-[10px] text-noir/50 leading-tight mb-0.5">Spring Research Symposium</div>
+                    <div class="text-[8px] text-noir/25 truncate">Abstract submissions...</div>
+                  </div>
+                  <div class="px-3 py-2.5 border-b border-noir/3">
+                    <div class="text-[9px] text-noir/30 mb-0.5">UT Libraries</div>
+                    <div class="text-[10px] text-noir/50 leading-tight mb-0.5">New Database Access</div>
+                    <div class="text-[8px] text-noir/25 truncate">We're excited to...</div>
+                  </div>
+                </div>
+
+                <!-- Reading pane -->
+                <div class="flex-1 bg-white overflow-y-auto outlook-reading" id="outlook-reading">
+                  <!-- Email header -->
+                  <div class="px-6 py-4 border-b border-noir/5">
+                    <h2 id="outlook-subject" class="font-display text-[16px] font-semibold text-noir mb-2">Global Career Newsletter for International Longhorns</h2>
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-full bg-ut-orange flex items-center justify-center flex-shrink-0">
+                        <span class="text-white text-[10px] font-bold">CLD</span>
+                      </div>
+                      <div>
+                        <div class="text-[11px] font-medium text-noir/70">Office of Career &amp; Life Design</div>
+                        <div class="text-[9px] text-noir/35">to: international-grads@utlists.utexas.edu</div>
+                      </div>
+                      <div id="outlook-date" class="ml-auto text-[9px] text-noir/30">Mar 10, 2026</div>
+                    </div>
+                  </div>
+
+                  <!-- Email body (newsletter content) -->
+                  <div id="email-content-mar">
+                    <!-- Newsletter Header -->
+                    <div class="bg-ut-orange px-6 py-5 text-center relative overflow-hidden">
+                      <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, white 10px, white 11px);"></div>
+                      <div class="relative">
+                        <h2 class="font-display text-white text-[18px] font-semibold leading-tight">Global Career Newsletter</h2>
+                        <div class="font-display text-gold-brand/90 text-[12px] italic mt-0.5">for International Longhorns</div>
+                        <div class="mt-2 w-10 h-px bg-gold-brand/40 mx-auto"></div>
+                        <div class="font-mono text-[7px] tracking-[0.15em] uppercase text-white/40 mt-2">March 2026 &nbsp;|&nbsp; Office of Career &amp; Life Design &nbsp;|&nbsp; The Graduate School</div>
+                      </div>
+                    </div>
+
+                    <div class="px-6 pt-5 pb-4">
+                      <p class="text-[12px] text-noir/70 font-medium">Hello, International Longhorns!</p>
+                      <p class="text-[11px] text-noir/50 leading-relaxed mt-2">Welcome to the March edition of the Global Grad Career Newsletter, your monthly roundup of career programming, timely resources, and key reminders for international students at UT Austin.</p>
+                    </div>
+
+                    <!-- Events -->
+                    <div class="px-6 pb-1">
+                      <div class="flex items-center gap-1.5 mb-3">
+                        <div class="w-0.5 h-4 rounded-full bg-ut-orange"></div>
+                        <h3 class="font-display text-[13px] font-semibold text-noir">Upcoming Events</h3>
+                      </div>
+                    </div>
+
+                    <div class="px-6 pb-3">
+                      <div class="bg-surface rounded-lg p-4 border border-noir/4 mb-3">
+                        <div class="font-mono text-[7px] tracking-[0.12em] uppercase text-ut-orange/70 mb-1">Event</div>
+                        <h4 class="text-[12px] font-semibold text-noir leading-snug mb-0.5">Coffee and Connections Hour #3: Who's That Pok&eacute;mon? Grad School Edition</h4>
+                        <div class="font-mono text-[8px] text-noir/35 mb-2">Thu, Mar 26 &nbsp;|&nbsp; 3:00–4:00 PM &nbsp;|&nbsp; FAC 2.134</div>
+                        <p class="text-[10px] text-noir/50 leading-relaxed mb-2">Take a 10-question self-assessment quiz to find your Grad Pok&eacute;mon Type, build your own Pok&eacute;mon card, then find your type match. No Pok&eacute;mon knowledge needed. Snacks provided.</p>
+                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange">Register &rarr;</a>
+                      </div>
+
+                      <div class="bg-surface rounded-lg p-4 border border-noir/4 mb-3">
+                        <div class="font-mono text-[7px] tracking-[0.12em] uppercase text-ut-orange/70 mb-1">Workshop</div>
+                        <h4 class="text-[12px] font-semibold text-noir leading-snug mb-0.5">IJSWG: "From 'Using AI' to 'Directing AI' — Build with Microsoft Copilot"</h4>
+                        <div class="font-mono text-[8px] text-noir/35 mb-2">Tue, Mar 31 &nbsp;|&nbsp; 3:00–4:00 PM &nbsp;|&nbsp; FAC 2.134</div>
+                        <p class="text-[10px] text-noir/50 leading-relaxed mb-2">Hands-on workshop: direct Microsoft Copilot for job search — tailoring materials, identifying visa sponsors, preparing for interviews. Bring your laptop.</p>
+                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange">Register &rarr;</a>
+                      </div>
+
+                      <div class="bg-surface rounded-lg p-4 border border-noir/4">
+                        <div class="font-mono text-[7px] tracking-[0.12em] uppercase text-ut-orange/70 mb-1">Virtual Panel</div>
+                        <h4 class="text-[12px] font-semibold text-noir leading-snug mb-0.5">GradFUTURES Forum: Supporting International Graduate Students</h4>
+                        <div class="font-mono text-[8px] text-noir/35 mb-2">Week of Mar 23 &nbsp;|&nbsp; Virtual</div>
+                        <p class="text-[10px] text-noir/50 leading-relaxed mb-2">Princeton's GradFUTURES with Fanta Aw (CEO, NAFSA) and Amy Nice (Immigration Counsel, Institute for Progress).</p>
+                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange">Register &rarr;</a>
+                      </div>
+                    </div>
+
+                    <!-- Need to Know -->
+                    <div class="px-6 py-1">
+                      <div class="flex items-center gap-1.5 mb-3">
+                        <div class="w-0.5 h-4 rounded-full bg-gold-brand"></div>
+                        <h3 class="font-display text-[13px] font-semibold text-noir">What You Need to Know This Month</h3>
+                      </div>
+                    </div>
+
+                    <div class="px-6 pb-3">
+                      <div class="border border-noir/4 rounded-lg p-4 mb-3">
+                        <h4 class="text-[11px] font-semibold text-noir mb-1.5">Summer Internship? Secure Work Authorization First</h4>
+                        <div class="space-y-1.5 mb-2">
+                          <div class="flex items-start gap-1.5">
+                            <div class="font-mono text-[7px] text-ut-orange font-medium bg-ut-orange/8 px-1 py-0.5 rounded mt-0.5 flex-shrink-0">F-1</div>
+                            <p class="text-[9px] text-noir/50 leading-relaxed">Apply for CPT through myIO at least 3 weeks before start date.</p>
+                          </div>
+                          <div class="flex items-start gap-1.5">
+                            <div class="font-mono text-[7px] text-ut-orange font-medium bg-ut-orange/8 px-1 py-0.5 rounded mt-0.5 flex-shrink-0">J-1</div>
+                            <p class="text-[9px] text-noir/50 leading-relaxed">Apply for Academic Training (AT) through myIO at least 3 weeks before start date.</p>
+                          </div>
+                        </div>
+                        <div class="bg-red-50 border border-red-200/50 rounded p-2">
+                          <p class="text-[9px] text-red-700/60 leading-relaxed"><strong class="font-medium">Important:</strong> Starting work before receiving your updated I-20/DS-2019 can result in visa status termination.</p>
+                        </div>
+                      </div>
+
+                      <div class="border border-noir/4 rounded-lg p-4 mb-3">
+                        <h4 class="text-[11px] font-semibold text-noir mb-1.5">Tax Season: What to File</h4>
+                        <div class="space-y-1 mb-2">
+                          <p class="text-[9px] text-noir/50 leading-relaxed"><strong class="text-noir/60">1.</strong> All nonresidents: Form 8843 (deadline Jun 15) — even with zero income.</p>
+                          <p class="text-[9px] text-noir/50 leading-relaxed"><strong class="text-noir/60">2.</strong> U.S. income earners: additional forms by Apr 15.</p>
+                          <p class="text-[9px] text-noir/50 leading-relaxed"><strong class="text-noir/60">3.</strong> Free Sprintax access via ISSS Tax Information page.</p>
+                        </div>
+                        <div class="font-mono text-[7px] tracking-[0.08em] uppercase text-noir/30 mb-1.5">Sprintax Webinars</div>
+                        <div class="flex flex-wrap gap-1.5">
+                          <span class="font-mono text-[7px] text-ut-orange bg-ut-orange/8 px-1.5 py-0.5 rounded">MAR 16</span>
+                          <span class="font-mono text-[7px] text-ut-orange bg-ut-orange/8 px-1.5 py-0.5 rounded">MAR 27</span>
+                          <span class="font-mono text-[7px] text-ut-orange bg-ut-orange/8 px-1.5 py-0.5 rounded">APR 01</span>
+                        </div>
+                      </div>
+
+                      <div class="border border-noir/4 rounded-lg p-4">
+                        <h4 class="text-[11px] font-semibold text-noir mb-1.5">Spring Break Travel Reminders</h4>
+                        <div class="space-y-1">
+                          <p class="text-[9px] text-noir/50 leading-relaxed"><strong class="text-noir/60">Traveling?</strong> Get travel signature on I-20/DS-2019 via myIO.</p>
+                          <p class="text-[9px] text-noir/50 leading-relaxed"><strong class="text-noir/60">Re-entering?</strong> Carry passport + visa + signed docs.</p>
+                          <p class="text-[9px] text-noir/50 leading-relaxed"><strong class="text-noir/60">Staying?</strong> Good time for CPT apps or tax filing.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="bg-noir px-6 py-4 text-center mt-3">
+                      <div class="text-[11px] text-white/60 italic mb-0.5">Hook 'em,</div>
+                      <div class="font-display text-white/85 text-[12px] font-medium">Global Impact Graduate Consultant</div>
+                      <div class="text-[9px] text-white/35 mt-0.5">Office of Career &amp; Life Design, The Graduate School</div>
+                      <div class="font-mono text-[7px] tracking-[0.12em] text-white/20 mt-0.5 uppercase">The University of Texas at Austin</div>
+                    </div>
+                  </div>
+
+                  <!-- February content (hidden by default) -->
+                  <div id="email-content-feb" style="display:none">
+                    <!-- Lunar New Year Banner -->
+                    <img src="feb%20coffee%20chat%201.png" alt="UT Austin Lunar New Year — Coffee Chat & Connection" class="w-full" />
+
+                    <div class="px-6 pt-5 pb-4">
+                      <p class="text-[12px] text-noir/70 font-medium">Hello, International Longhorns!</p>
+                      <p class="text-[11px] text-noir/50 leading-relaxed mt-2">As we welcome the Lunar New Year, we'd love to invite you to our <strong class="text-noir/70">First Coffee Chat &amp; Connection</strong> — a workshop designed especially for international scholars.</p>
+                    </div>
+
+                    <!-- Event details -->
+                    <div class="px-6 pb-4">
+                      <div class="bg-surface rounded-lg p-4 border border-noir/4">
+                        <div class="font-mono text-[7px] tracking-[0.12em] uppercase text-ut-orange/70 mb-2">Event</div>
+                        <h4 class="text-[13px] font-semibold text-noir leading-snug mb-1">Coffee Chat &amp; Connection #1: The Science of Belonging</h4>
+                        <div class="font-mono text-[8px] text-noir/35 mb-3">Wednesday, Feb 18 &nbsp;|&nbsp; 4:00–5:00 PM CST &nbsp;|&nbsp; FAC 2.134</div>
+                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange">RSVP Here &rarr;</a>
+                      </div>
+                    </div>
+
+                    <!-- Why This Matters -->
+                    <div class="px-6 pb-1">
+                      <div class="flex items-center gap-1.5 mb-3">
+                        <div class="w-0.5 h-4 rounded-full bg-ut-orange"></div>
+                        <h3 class="font-display text-[13px] font-semibold text-noir">Why This Matters</h3>
+                      </div>
+                    </div>
+
+                    <div class="px-6 pb-4">
+                      <div class="border-l-2 border-gold-brand/40 pl-4 mb-3">
+                        <p class="text-[11px] text-noir/55 italic leading-relaxed">"Do I really belong here?"</p>
+                      </div>
+                      <p class="text-[10px] text-noir/50 leading-relaxed mb-2">Starting in a new country, lab, or program often comes with a quiet question. Dr. Gregory from Stanford calls this <strong class="text-noir/65">belonging uncertainty</strong> — the tendency to interpret everyday challenges as signs that we don't fit in. It's common. And it's temporary.</p>
+                      <p class="text-[10px] text-noir/50 leading-relaxed">The good news: research shows that when we support others, we strengthen our own sense of belonging.</p>
+                    </div>
+
+                    <!-- What We'll Do -->
+                    <div class="px-6 pb-1">
+                      <div class="flex items-center gap-1.5 mb-3">
+                        <div class="w-0.5 h-4 rounded-full bg-green-brand"></div>
+                        <h3 class="font-display text-[13px] font-semibold text-noir">What We'll Do</h3>
+                      </div>
+                    </div>
+
+                    <div class="px-6 pb-4">
+                      <div class="space-y-2">
+                        <div class="bg-surface rounded-lg p-3 border border-noir/4">
+                          <div class="text-[11px] text-noir/70 font-medium mb-0.5">Networking Practice</div>
+                          <p class="text-[9px] text-noir/45">Connect with fellow international scholars over coffee</p>
+                        </div>
+                        <div class="bg-surface rounded-lg p-3 border border-noir/4">
+                          <div class="text-[11px] text-noir/70 font-medium mb-0.5">Workshop: Design Your Belonging at UT</div>
+                          <p class="text-[9px] text-noir/45">A practical framework to reframe transition challenges</p>
+                        </div>
+                        <div class="bg-surface rounded-lg p-3 border border-noir/4">
+                          <div class="text-[11px] text-noir/70 font-medium mb-0.5">Takeaways</div>
+                          <p class="text-[9px] text-noir/45">Understand belonging uncertainty. Belonging creates psychological safety — and that unlocks confidence, clarity, and connection.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Closing -->
+                    <div class="px-6 pb-4">
+                      <p class="text-[10px] text-noir/50 leading-relaxed">We hope you'll join us to start the year with community, courage, and extra Fortune — (福) together!</p>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="bg-noir px-6 py-4 text-center">
+                      <div class="text-[11px] text-white/60 italic mb-0.5">Warmly,</div>
+                      <div class="font-display text-white/85 text-[12px] font-medium">Bella Kang</div>
+                      <div class="text-[9px] text-white/35 mt-0.5">Global Impact Graduate Consultant</div>
+                      <div class="text-[9px] text-white/35">Office of Career &amp; Life Design, The Graduate School</div>
+                      <div class="font-mono text-[7px] tracking-[0.12em] text-white/20 mt-1 uppercase">The University of Texas at Austin</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Hinge -->
+          <div class="macbook-hinge"></div>
+          <!-- Base -->
+          <div class="macbook-base h-3 rounded-b-lg"></div>
+        </div>
+      </div>
+
+      <!-- ┌─────────────────────────────────────────┐ -->
+      <!-- │  iPhone — iOS Mail App                  │ -->
+      <!-- └─────────────────────────────────────────┘ -->
+      <div class="flex-shrink-0 flex flex-col items-center lg:items-start gap-6">
+        <div>
+        <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-4">iPhone 15 Pro — Mail</div>
+        <div class="relative">
+          <div class="w-[280px] h-[580px] rounded-[44px] bg-[#1A1A1A] p-[10px] shadow-2xl shadow-noir/20 relative">
+            <div class="absolute top-[14px] left-1/2 -translate-x-1/2 w-[90px] h-[28px] bg-black rounded-full z-20"></div>
+            <div class="w-full h-full rounded-[34px] overflow-hidden bg-white relative">
+              <!-- iOS Status Bar -->
+              <div class="h-[50px] bg-[#F6F6F6] flex items-end justify-between px-7 pb-1 relative z-10">
+                <span class="font-display text-[12px] font-semibold text-noir">9:41</span>
+                <div class="flex items-center gap-[3px]">
+                  <!-- Signal bars -->
+                  <svg class="w-[15px] h-[11px]" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="0.5" fill="#1D1D1F"/><rect x="4.5" y="4.5" width="3" height="6.5" rx="0.5" fill="#1D1D1F"/><rect x="9" y="2" width="3" height="9" rx="0.5" fill="#1D1D1F"/><rect x="13.5" y="0" width="3" height="11" rx="0.5" fill="#1D1D1F"/></svg>
+                  <!-- WiFi -->
+                  <svg class="w-[14px] h-[11px]" viewBox="0 0 16 12"><path d="M8 10.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM8 7c1.86 0 3.54.76 4.76 1.97l-1.42 1.42A4.98 4.98 0 008 9c-1.38 0-2.63.56-3.34 1.39L3.24 8.97A6.98 6.98 0 018 7zm0-3.5c2.9 0 5.5 1.17 7.4 3.07l-1.42 1.42A8.47 8.47 0 008 5.5c-2.35 0-4.47.95-6 2.49L.6 6.57A10.47 10.47 0 018 3.5z" fill="#1D1D1F"/></svg>
+                  <!-- Battery -->
+                  <svg class="w-[25px] h-[12px]" viewBox="0 0 25 12"><rect x="0" y="0.5" width="22" height="11" rx="2" stroke="#1D1D1F" stroke-width="1" fill="none"/><rect x="1.5" y="2" width="19" height="8" rx="1" fill="#1D1D1F"/><path d="M23 4v4a2 2 0 000-4z" fill="#1D1D1F" opacity="0.4"/></svg>
+                </div>
+              </div>
+
+              <!-- iOS Mail nav bar -->
+              <div class="h-[44px] bg-[#F6F6F6] border-b border-noir/8 flex items-center px-4">
+                <div class="flex items-center gap-1 text-outlook-blue">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
+                  <span class="text-[14px]">Inbox</span>
+                </div>
+                <div class="flex-1"></div>
+                <svg class="w-5 h-5 text-outlook-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>
+              </div>
+
+              <!-- Mail header -->
+              <div class="px-4 py-3 border-b border-noir/5">
+                <div id="iphone-subject" class="text-[14px] font-semibold text-noir leading-snug mb-1">Global Career Newsletter for International Longhorns</div>
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-ut-orange flex items-center justify-center flex-shrink-0">
+                    <span class="text-white text-[7px] font-bold">CLD</span>
+                  </div>
+                  <div>
+                    <div class="text-[10px] text-noir/60">Career &amp; Life Design</div>
+                    <div id="iphone-date" class="text-[9px] text-noir/30">Mar 10, 2026</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scrollable email content -->
+              <div class="iphone-screen overflow-y-auto" id="iphone-scroll" style="height: calc(100% - 50px - 44px - 68px);">
+
+                <!-- ── March iPhone content ── -->
+                <div id="iphone-content-mar">
+                <!-- Newsletter header -->
+                <div class="bg-ut-orange px-4 py-3.5 text-center relative overflow-hidden">
+                  <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 8px, white 8px, white 9px);"></div>
+                  <div class="relative">
+                    <h2 class="font-display text-white text-[14px] font-semibold leading-tight">Global Career Newsletter</h2>
+                    <div class="font-display text-gold-brand/80 text-[9px] italic mt-0.5">for International Longhorns</div>
+                    <div class="font-mono text-[5px] tracking-[0.12em] uppercase text-white/35 mt-1.5">March 2026</div>
+                  </div>
+                </div>
+
+                <div class="p-3">
+                  <p class="text-[9px] text-noir/60 font-medium mb-0.5">Hello, International Longhorns!</p>
+                  <p class="text-[8px] text-noir/45 leading-relaxed mb-2.5">Your monthly roundup of career programming, resources, and reminders.</p>
+
+                  <div class="flex items-center gap-1 mb-1.5">
+                    <div class="w-0.5 h-2.5 rounded-full bg-ut-orange"></div>
+                    <h3 class="font-display text-[10px] font-semibold text-noir">Upcoming Events</h3>
+                  </div>
+
+                  <div class="bg-surface rounded p-2.5 border border-noir/4 mb-1.5">
+                    <div class="font-mono text-[6px] tracking-[0.08em] uppercase text-ut-orange/60 mb-0.5">Mar 26 &middot; 3–4 PM</div>
+                    <div class="text-[9px] text-noir/70 font-medium leading-snug">Who's That Pok&eacute;mon? Grad School Edition</div>
+                    <div class="font-mono text-[6px] uppercase text-ut-orange mt-1">Register &rarr;</div>
+                  </div>
+
+                  <div class="bg-surface rounded p-2.5 border border-noir/4 mb-1.5">
+                    <div class="font-mono text-[6px] tracking-[0.08em] uppercase text-ut-orange/60 mb-0.5">Mar 31 &middot; 3–4 PM</div>
+                    <div class="text-[9px] text-noir/70 font-medium leading-snug">IJSWG: "Using AI" to "Directing AI"</div>
+                    <div class="font-mono text-[6px] uppercase text-ut-orange mt-1">Register &rarr;</div>
+                  </div>
+
+                  <div class="bg-surface rounded p-2.5 border border-noir/4 mb-2.5">
+                    <div class="font-mono text-[6px] tracking-[0.08em] uppercase text-ut-orange/60 mb-0.5">Week of Mar 23 &middot; Virtual</div>
+                    <div class="text-[9px] text-noir/70 font-medium leading-snug">GradFUTURES Forum</div>
+                    <div class="font-mono text-[6px] uppercase text-ut-orange mt-1">Register &rarr;</div>
+                  </div>
+
+                  <div class="flex items-center gap-1 mb-1.5">
+                    <div class="w-0.5 h-2.5 rounded-full bg-gold-brand"></div>
+                    <h3 class="font-display text-[10px] font-semibold text-noir">What You Need to Know</h3>
+                  </div>
+
+                  <div class="border border-noir/4 rounded p-2.5 mb-1.5">
+                    <div class="text-[9px] text-noir/70 font-medium mb-1">Summer Internship? Work Auth First</div>
+                    <div class="flex items-center gap-1 mb-0.5">
+                      <span class="font-mono text-[6px] text-ut-orange bg-ut-orange/8 px-1 rounded">F-1</span>
+                      <span class="text-[7px] text-noir/45">CPT via myIO, 3 weeks ahead</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <span class="font-mono text-[6px] text-ut-orange bg-ut-orange/8 px-1 rounded">J-1</span>
+                      <span class="text-[7px] text-noir/45">AT via myIO, 3 weeks ahead</span>
+                    </div>
+                  </div>
+
+                  <div class="border border-noir/4 rounded p-2.5 mb-1.5">
+                    <div class="text-[9px] text-noir/70 font-medium mb-0.5">Tax Season</div>
+                    <p class="text-[7px] text-noir/40 leading-relaxed">Form 8843 (Jun 15). Income: Apr 15. Free Sprintax via ISSS.</p>
+                  </div>
+
+                  <div class="border border-noir/4 rounded p-2.5 mb-2.5">
+                    <div class="text-[9px] text-noir/70 font-medium mb-0.5">Spring Break Travel</div>
+                    <p class="text-[7px] text-noir/40 leading-relaxed">Travel signature on I-20/DS-2019 via myIO. Carry passport + visa + signed docs.</p>
+                  </div>
+
+                  <div class="text-center mb-2.5">
+                    <a href="#" class="inline-block bg-ut-orange text-white font-mono text-[7px] tracking-[0.1em] uppercase px-4 py-1.5 rounded">Schedule Career Advising</a>
+                  </div>
+
+                  <div class="bg-noir rounded px-3 py-2.5 text-center">
+                    <div class="text-[7px] text-white/55 italic">Hook 'em,</div>
+                    <div class="font-display text-white/75 text-[8px] font-medium mt-0.5">Global Impact Graduate Consultant</div>
+                    <div class="text-[6px] text-white/25 mt-0.5">Office of Career &amp; Life Design</div>
+                  </div>
+                </div>
+                </div><!-- /iphone-content-mar -->
+
+                <!-- ── February iPhone content ── -->
+                <div id="iphone-content-feb" style="display:none">
+                  <!-- Newsletter header -->
+                  <div class="bg-ut-orange px-4 py-3.5 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 8px, white 8px, white 9px);"></div>
+                    <div class="relative">
+                      <h2 class="font-display text-white text-[14px] font-semibold leading-tight">Global Career Newsletter</h2>
+                      <div class="font-display text-gold-brand/80 text-[9px] italic mt-0.5">for International Longhorns</div>
+                      <div class="font-mono text-[5px] tracking-[0.12em] uppercase text-white/35 mt-1.5">February 2026</div>
+                    </div>
+                  </div>
+
+                  <!-- Banner image -->
+                  <img src="feb%20coffee%20chat%201.png" alt="UT Austin Lunar New Year — Coffee Chat" class="w-full" />
+
+                  <div class="p-3">
+                    <p class="text-[9px] text-noir/60 font-medium mb-0.5">Hello, International Longhorns!</p>
+                    <p class="text-[8px] text-noir/45 leading-relaxed mb-2.5">As we welcome the Lunar New Year, join our First Coffee Chat &amp; Connection — a workshop for international scholars.</p>
+
+                    <div class="flex items-center gap-1 mb-1.5">
+                      <div class="w-0.5 h-2.5 rounded-full bg-ut-orange"></div>
+                      <h3 class="font-display text-[10px] font-semibold text-noir">Event</h3>
+                    </div>
+
+                    <div class="bg-surface rounded p-2.5 border border-noir/4 mb-2.5">
+                      <div class="font-mono text-[6px] tracking-[0.08em] uppercase text-ut-orange/60 mb-0.5">Feb 18 &middot; 4–5 PM</div>
+                      <div class="text-[9px] text-noir/70 font-medium leading-snug">Coffee Chat &amp; Connection #1: The Science of Belonging</div>
+                      <div class="text-[7px] text-noir/40 mt-0.5">FAC 2.134</div>
+                      <div class="font-mono text-[6px] uppercase text-ut-orange mt-1">RSVP &rarr;</div>
+                    </div>
+
+                    <div class="flex items-center gap-1 mb-1.5">
+                      <div class="w-0.5 h-2.5 rounded-full bg-ut-orange"></div>
+                      <h3 class="font-display text-[10px] font-semibold text-noir">Why This Matters</h3>
+                    </div>
+
+                    <div class="border-l-2 border-gold-brand/40 pl-2.5 mb-2">
+                      <p class="text-[8px] text-noir/50 italic leading-relaxed">"Do I really belong here?"</p>
+                    </div>
+                    <p class="text-[7px] text-noir/40 leading-relaxed mb-2">Belonging uncertainty is common for international scholars. Research shows supporting others strengthens our own sense of belonging.</p>
+
+                    <div class="flex items-center gap-1 mb-1.5">
+                      <div class="w-0.5 h-2.5 rounded-full bg-green-brand"></div>
+                      <h3 class="font-display text-[10px] font-semibold text-noir">What We'll Do</h3>
+                    </div>
+
+                    <div class="space-y-1 mb-2.5">
+                      <div class="bg-surface rounded p-2 border border-noir/4">
+                        <div class="text-[8px] text-noir/60 font-medium">Networking Practice</div>
+                        <div class="text-[6px] text-noir/35">Connect over coffee</div>
+                      </div>
+                      <div class="bg-surface rounded p-2 border border-noir/4">
+                        <div class="text-[8px] text-noir/60 font-medium">Workshop: Design Your Belonging</div>
+                        <div class="text-[6px] text-noir/35">Reframe transition challenges</div>
+                      </div>
+                    </div>
+
+                    <div class="bg-noir rounded px-3 py-2.5 text-center">
+                      <div class="text-[7px] text-white/55 italic">Warmly,</div>
+                      <div class="font-display text-white/75 text-[8px] font-medium mt-0.5">Bella Kang</div>
+                      <div class="text-[6px] text-white/25 mt-0.5">Global Impact Graduate Consultant</div>
+                    </div>
+                  </div>
+                </div><!-- /iphone-content-feb -->
+
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-[14px] left-1/2 -translate-x-1/2 w-[100px] h-[4px] bg-white/20 rounded-full"></div>
+        </div>
+        </div>
+
+        <!-- Found the Herd Flyer (separate from newsletter) -->
+        <div id="flyer-card" class="w-[280px] transition-all duration-300" style="display:none">
+          <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-3">Event Flyer — Feb 2026</div>
+          <div class="rounded-xl overflow-hidden border border-noir/8 shadow-lg shadow-noir/8 bg-white">
+            <img src="feb%20flyer%201.png" alt="Found the Herd — First Coffee & Connection flyer" class="w-full" />
+            <div class="px-4 py-3">
+              <div class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange/60 mb-1">Companion Piece</div>
+              <div class="text-[11px] text-noir/70 font-medium leading-snug">Found the Herd</div>
+              <div class="text-[9px] text-noir/40 mt-0.5">Promotional flyer designed for the first Coffee Chat &amp; Connection event.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer class="border-t border-noir/5 py-8 px-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/25">&copy; 2026 Bella Kang</span>
+      <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/25">Austin, TX</span>
+    </div>
+  </footer>
+
+  <script>
+    // Month tab switching
+    function switchMonth(month, btn) {
+      document.querySelectorAll('.month-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Outlook content
+      const mar = document.getElementById('email-content-mar');
+      const feb = document.getElementById('email-content-feb');
+      const subject = document.getElementById('outlook-subject');
+      const date = document.getElementById('outlook-date');
+
+      // iPhone content
+      const iphoneMar = document.getElementById('iphone-content-mar');
+      const iphoneFeb = document.getElementById('iphone-content-feb');
+      const iphoneSubject = document.getElementById('iphone-subject');
+      const iphoneDate = document.getElementById('iphone-date');
+
+      // Flyer card
+      const flyer = document.getElementById('flyer-card');
+
+      if (month === 'mar') {
+        mar.style.display = '';
+        feb.style.display = 'none';
+        iphoneMar.style.display = '';
+        iphoneFeb.style.display = 'none';
+        flyer.style.display = 'none';
+        subject.textContent = 'Global Career Newsletter for International Longhorns';
+        date.textContent = 'Mar 10, 2026';
+        iphoneSubject.textContent = 'Global Career Newsletter for International Longhorns';
+        iphoneDate.textContent = 'Mar 10, 2026';
+      } else {
+        mar.style.display = 'none';
+        feb.style.display = '';
+        iphoneMar.style.display = 'none';
+        iphoneFeb.style.display = '';
+        flyer.style.display = '';
+        subject.textContent = 'Coffee Chat & Connection: The Science of Belonging';
+        date.textContent = 'Feb 10, 2026';
+        iphoneSubject.textContent = 'Coffee Chat & Connection: The Science of Belonging';
+        iphoneDate.textContent = 'Feb 10, 2026';
+      }
+
+      document.getElementById('outlook-reading').scrollTop = 0;
+      document.getElementById('iphone-scroll').scrollTop = 0;
+    }
+
+  </script>
+
+</body>
+</html>
