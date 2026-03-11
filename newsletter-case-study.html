@@ -69,6 +69,26 @@
     .fade-up { animation: fadeUp 0.7s ease-out both; }
     .fade-up-d1 { animation-delay: 0.15s; }
     .fade-up-d2 { animation-delay: 0.3s; }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .macbook-scene { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .macbook-lid > div { min-width: 640px; }
+      .macbook-scene::after {
+        content: 'Swipe to explore \2192';
+        display: block;
+        text-align: center;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        color: rgba(29,29,31,0.3);
+        margin-top: 8px;
+      }
+    }
+    @media (max-width: 480px) {
+      .w-\[280px\] { width: 260px; }
+      .h-\[580px\] { height: 540px; }
+    }
   </style>
 </head>
 <body class="min-h-screen relative grain">
