@@ -148,7 +148,7 @@ h1 span{color:var(--dq-deep)}
 
 /* — SLACK FRAME — */
 .slack-section{margin-top:40px}
-.slack-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.slack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .slack-frame{border-radius:12px;overflow:hidden;border:1px solid rgba(60,40,50,.1);box-shadow:0 12px 36px rgba(42,32,36,.07);background:var(--white);transition:all .3s var(--ease)}
 .slack-frame:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(42,32,36,.1)}
 .slack-bar{height:34px;background:linear-gradient(180deg,#ECECEC,#E0E0E0);display:flex;align-items:center;padding:0 12px;gap:6px;border-bottom:1px solid rgba(0,0,0,.06)}
@@ -157,11 +157,12 @@ h1 span{color:var(--dq-deep)}
 .slack-frame img{width:100%;display:block}
 .slack-caption{font-family:var(--mono);font-size:9px;color:var(--text-muted);letter-spacing:.04em;margin-top:8px;text-align:center}
 
-/* — FINDER FRAME — */
-.finder{border-radius:12px;overflow:hidden;border:1px solid rgba(60,40,50,.1);box-shadow:0 12px 36px rgba(42,32,36,.07);background:var(--white);margin-top:24px;max-width:500px}
-.finder-bar{height:34px;background:linear-gradient(180deg,#ECECEC,#E0E0E0);display:flex;align-items:center;padding:0 12px;gap:6px;border-bottom:1px solid rgba(0,0,0,.06)}
-.finder-bar-title{flex:1;text-align:center;font-family:var(--mono);font-size:10px;color:var(--text-light)}
-.finder img{width:100%;display:block}
+/* — BTS CARDS — */
+.bts-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px 24px;transition:all .3s var(--ease)}
+.bts-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(120,60,80,.06)}
+.bts-icon{font-size:28px;margin-bottom:14px}
+.bts-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px}
+.bts-desc{font-size:12.5px;color:var(--text-muted);line-height:1.65}
 
 /* — TIMELINE — */
 .timeline{display:flex;gap:0;margin-top:36px;position:relative}
@@ -214,6 +215,7 @@ h1 span{color:var(--dq-deep)}
   .vb-img{width:100%;max-width:480px}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .slack-grid{grid-template-columns:1fr}
+  .slack-section{margin-top:24px}
 }
 @media(max-width:768px){
   h1{font-size:32px}
@@ -500,50 +502,36 @@ h1 span{color:var(--dq-deep)}
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<!-- BEHIND THE SCENES: Slack + Folder -->
+<!-- BEHIND THE SCENES: Process -->
 <!-- ═══════════════════════════════════════════ -->
 <div class="sec reveal">
   <div class="sec-label">Behind the Scenes</div>
-  <h2 class="sec-h">How I collaborated with the team.</h2>
-  <p class="sec-p">Coordinating with the web design team and managing file handoffs across languages required clear documentation and structured Slack communication.</p>
+  <h2 class="sec-h">How the project was managed.</h2>
+  <p class="sec-p">Coordinating content delivery across languages required structured documentation, organized file handoffs, and clear communication with the web design team.</p>
 
   <div class="slack-section">
     <div class="slack-grid">
       <div class="reveal reveal-d1">
-        <div class="slack-frame">
-          <div class="slack-bar">
-            <div class="slack-bar-dot" style="background:#FF5F57"></div>
-            <div class="slack-bar-dot" style="background:#FFBD2E"></div>
-            <div class="slack-bar-dot" style="background:#28C840"></div>
-            <div class="slack-bar-title">Slack</div>
-          </div>
-          <img src="img/slack-collab.png" alt="Slack collaboration with design team" loading="lazy">
+        <div class="bts-card">
+          <div class="bts-icon">&#128194;</div>
+          <div class="bts-title">Structured File Handoffs</div>
+          <div class="bts-desc">Organized 18 product pages into a clear folder structure with naming conventions for Korean originals and English localizations. Each file tagged by product category and delivery status.</div>
         </div>
-        <div class="slack-caption">Team collaboration &middot; Cross-functional coordination</div>
       </div>
       <div class="reveal reveal-d2">
-        <div class="slack-frame">
-          <div class="slack-bar">
-            <div class="slack-bar-dot" style="background:#FF5F57"></div>
-            <div class="slack-bar-dot" style="background:#FFBD2E"></div>
-            <div class="slack-bar-dot" style="background:#28C840"></div>
-            <div class="slack-bar-title">Slack</div>
-          </div>
-          <img src="img/slack-handoff.png" alt="Content handoff to web design team" loading="lazy">
+        <div class="bts-card">
+          <div class="bts-icon">&#128172;</div>
+          <div class="bts-title">Cross-Team Coordination</div>
+          <div class="bts-desc">Daily Slack check-ins with the web design team. Each content delivery included a summary of changes, translation notes, and priority flags for time-sensitive updates.</div>
         </div>
-        <div class="slack-caption">Content handoff &middot; Deliverable documentation</div>
       </div>
-    </div>
-
-    <!-- Folder structure -->
-    <div class="finder reveal" style="margin-top:24px">
-      <div class="finder-bar">
-        <div class="slack-bar-dot" style="background:#FF5F57"></div>
-        <div class="slack-bar-dot" style="background:#FFBD2E"></div>
-        <div class="slack-bar-dot" style="background:#28C840"></div>
-        <div class="finder-bar-title">Finder &mdash; Dasique Project</div>
+      <div class="reveal reveal-d3">
+        <div class="bts-card">
+          <div class="bts-icon">&#128221;</div>
+          <div class="bts-title">Documentation System</div>
+          <div class="bts-desc">Built a Notion-based tracking sheet for all 18 products &mdash; status (drafted / reviewed / delivered), reviewer notes, and version history per page.</div>
+        </div>
       </div>
-      <img src="img/folder-structure.png" alt="Project folder structure" loading="lazy">
     </div>
   </div>
 </div>
