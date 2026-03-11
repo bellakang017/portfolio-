@@ -3,158 +3,338 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dasique &#8212; Product Localization | Bella Kang</title>
+<title>Dasique — Product Localization | Bella Kang</title>
 <meta name="description" content="Localized 18 e-commerce product pages for North American shoppers. Case study by Bella Kang.">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FAFAF7;--white:#FEFEFE;--cream:#F8F6F2;--blush:#E0D0D4;--rose:#A6707D;--rose-dark:#8B5565;--mauve:#704658;--plum:#6B2E4A;--text:#2A2024;--text-body:#4A4045;--text-muted:#6D6165;--text-light:#857A7E;--border:rgba(60,40,50,0.06);
-  --dq-rose:#9c6169;--dq-dark:#563740;--dq-blush:#f8f1f4;--dq-border:#ddb1b0;
-  --serif:'Newsreader',Georgia,serif;--mono:'IBM Plex Mono','SF Mono',monospace;--sans:'Poppins',system-ui,sans-serif;
+  --bg:#F7F5F3;--white:#FEFEFE;--cream:#F8F6F2;--blush:#E0D0D4;--rose:#A6707D;--rose-dark:#8B5565;--mauve:#704658;--plum:#6B2E4A;--text:#2A2024;--text-body:#4A4045;--text-muted:#6D6165;--text-light:#857A7E;--border:rgba(60,40,50,0.06);
+  --dq:#D4A0A0;--dq-deep:#9c6169;--dq-dark:#563740;--dq-blush:#f8f1f4;
+  --serif:'Newsreader',Georgia,serif;--mono:'IBM Plex Mono','SF Mono',monospace;--body:'Inter',system-ui,sans-serif;
   --ease:cubic-bezier(0.25,0.46,0.45,0.94)
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:var(--mono);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+body{font-family:var(--body);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 ::selection{background:var(--plum);color:#fff}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--blush);border-radius:10px}
 
-.page{max-width:900px;margin:0 auto;padding:48px 32px 80px}
-.back{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;margin-bottom:48px;transition:color .2s}
-.back:hover{color:var(--plum)}
+/* — NAV — */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(247,245,243,.8);border-bottom:1px solid rgba(60,40,50,.05)}
+.nav-in{max-width:1200px;margin:0 auto;padding:0 28px;height:52px;display:flex;align-items:center;justify-content:space-between}
+.nav-name{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted)}
+.nav-back{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--plum);text-decoration:none;display:flex;align-items:center;gap:6px;transition:all .2s}
+.nav-back:hover{gap:10px;color:var(--dq-deep)}
 
-/* &#8212; HERO &#8212; */
-.hero{margin-bottom:56px}
-.badge{display:inline-block;font-size:8px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:8px;background:rgba(156,97,105,.08);color:var(--dq-rose);margin-bottom:16px}
-h1{font-family:var(--serif);font-size:38px;font-weight:400;font-style:italic;color:var(--text);line-height:1.15;margin-bottom:16px}
-.lead{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--rose-dark);line-height:1.75;max-width:560px;margin-bottom:28px}
-.meta{display:flex;gap:20px;flex-wrap:wrap;font-size:10px;color:var(--text-muted);letter-spacing:.04em;margin-bottom:32px}
-.meta b{font-weight:600;color:var(--text-light)}
-.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.num{padding:20px 16px;background:var(--white);border:1px solid var(--border);border-radius:4px;text-align:center}
-.num-v{font-family:var(--serif);font-size:34px;font-weight:400;font-style:italic;color:var(--plum);margin-bottom:2px}
-.num-l{font-size:9px;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase}
+/* — HERO — */
+.hero{max-width:1200px;margin:0 auto;padding:88px 28px 0}
+.hero-inner{display:flex;gap:48px;align-items:flex-start}
+.hero-main{flex:1;min-width:0}
+.hero-side{width:300px;flex-shrink:0}
+.badge{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;background:rgba(156,97,105,.07);color:var(--dq-deep);margin-bottom:20px}
+h1{font-family:var(--serif);font-size:42px;font-weight:400;font-style:italic;color:var(--text);line-height:1.12;margin-bottom:18px;letter-spacing:-.01em}
+h1 span{color:var(--dq-deep)}
+.lead{font-family:var(--serif);font-size:15.5px;color:var(--text-body);line-height:1.8;margin-bottom:32px}
+.meta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;padding-top:24px;border-top:1px solid var(--border)}
+.meta-item .meta-label{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);margin-bottom:4px}
+.meta-item .meta-value{font-size:13.5px;color:var(--text);font-weight:500}
 
-/* &#8212; SECTIONS &#8212; */
-.sec{margin-bottom:64px}
-.sec-label{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.sec-label::before{content:'';width:14px;height:1px;background:var(--rose)}
-.sec-h{font-family:var(--serif);font-size:24px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:14px;line-height:1.3}
-.sec-p{font-family:var(--serif);font-size:14px;line-height:1.85;color:var(--text-body);max-width:600px}
+/* — HERO SIDE: Design Decisions — */
+.dd-title{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-light);margin-bottom:20px}
+.dd-block{margin-bottom:20px}
+.dd-block h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.dd-block h3::before{content:'';width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dd-color h3::before{background:var(--dq-deep)}
+.dd-type h3::before{background:var(--text-light)}
+.dd-block p{font-size:12px;color:var(--text-muted);line-height:1.6}
+.dd-colors{display:flex;gap:4px;margin-top:8px}
+.dd-colors div{width:28px;height:28px;border-radius:6px}
 
-/* &#8212; IMAGES &#8212; */
-.img-full{width:100%;border-radius:6px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(42,32,36,.06);display:block;margin:24px 0}
-.img-caption{font-size:9px;letter-spacing:.05em;color:var(--text-muted);margin-top:-14px;margin-bottom:24px}
-.img-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
-.img-pair img{width:100%;border-radius:6px;border:1px solid var(--border);box-shadow:0 6px 24px rgba(42,32,36,.05);display:block}
-.img-pair-cap{font-size:9px;color:var(--text-muted);letter-spacing:.04em;margin-top:6px}
+/* — STATS — */
+.stats{max-width:1200px;margin:0 auto;padding:48px 28px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 20px;text-align:center;transition:all .3s var(--ease)}
+.stat:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(42,32,36,.06)}
+.stat-v{font-family:var(--serif);font-size:38px;font-weight:400;font-style:italic;color:var(--plum);margin-bottom:4px}
+.stat-l{font-family:var(--mono);font-size:9px;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase}
 
-/* &#8212; INSIGHT BOX &#8212; */
-.insight{padding:20px 24px;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--dq-rose);border-radius:2px;margin:24px 0;font-family:var(--serif);font-size:14px;line-height:1.8;color:var(--text-body);max-width:600px}
-.insight em{color:var(--rose-dark)}
+/* — SECTIONS — */
+.sec{max-width:1200px;margin:0 auto;padding:72px 28px 0}
+.sec-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--dq-deep);font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';width:18px;height:1px;background:var(--dq-deep)}
+.sec-h{font-family:var(--serif);font-size:28px;font-weight:400;font-style:italic;color:var(--text);margin-bottom:14px;line-height:1.25}
+.sec-p{font-size:14px;line-height:1.85;color:var(--text-body);max-width:620px}
 
-/* &#8212; COPY COMPARISON &#8212; */
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;border-radius:6px;overflow:hidden;border:1px solid var(--dq-border);box-shadow:0 6px 24px rgba(86,55,64,.06)}
-.compare-col{padding:24px 20px}
+/* — BROWSER FRAME — */
+.browser{margin-top:36px;border-radius:12px;overflow:hidden;border:1px solid rgba(60,40,50,.1);box-shadow:0 16px 48px rgba(42,32,36,.08);background:var(--white)}
+.browser-bar{height:36px;background:linear-gradient(180deg,#ECECEC,#E2E2E2);display:flex;align-items:center;padding:0 14px;gap:8px;border-bottom:1px solid rgba(0,0,0,.06)}
+.browser-dot{width:10px;height:10px;border-radius:50%}
+.browser-dot.r{background:#FF5F57}.browser-dot.y{background:#FFBD2E}.browser-dot.g{background:#28C840}
+.browser-url{flex:1;margin:0 48px;height:22px;background:var(--white);border-radius:4px;font-family:var(--mono);font-size:10px;color:var(--text-light);display:flex;align-items:center;justify-content:center;letter-spacing:.02em}
+.browser-body{display:flex;min-height:420px}
+
+/* Olive Young e-commerce mockup */
+.oy-sidebar{width:200px;background:#FAFAFA;border-right:1px solid rgba(0,0,0,.05);padding:16px;display:flex;flex-direction:column;gap:10px}
+.oy-logo{font-size:13px;font-weight:700;color:#3B8741;margin-bottom:8px;letter-spacing:-.02em}
+.oy-cat{font-size:10px;color:var(--text-muted);padding:6px 8px;border-radius:4px;cursor:default;transition:background .2s}
+.oy-cat.active{background:rgba(59,135,65,.06);color:#3B8741;font-weight:500}
+.oy-content{flex:1;padding:24px;overflow:hidden}
+
+/* Before/After toggle */
+.toggle-wrap{display:flex;gap:0;margin-bottom:24px;border-radius:8px;overflow:hidden;border:1px solid rgba(60,40,50,.1)}
+.toggle-btn{flex:1;padding:10px 16px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s;background:var(--white);color:var(--text-muted);font-weight:500}
+.toggle-btn.active{background:var(--dq-deep);color:#fff}
+
+/* Product mockup inside browser */
+.product-mock{display:flex;gap:20px;align-items:flex-start}
+.product-img-wrap{width:200px;flex-shrink:0;border-radius:6px;overflow:hidden;border:1px solid rgba(0,0,0,.06)}
+.product-img-wrap img{width:100%;display:block}
+.product-info{flex:1}
+.product-brand{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dq-deep);margin-bottom:6px}
+.product-name{font-size:16px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.3}
+.product-price{font-size:14px;color:var(--text-muted);margin-bottom:12px}
+.product-desc{font-size:12px;line-height:1.7;color:var(--text-body);margin-bottom:14px}
+.product-desc.kr{font-style:italic;color:var(--text-muted)}
+.product-specs{display:flex;flex-direction:column;gap:6px}
+.product-spec{display:flex;align-items:center;gap:8px;font-size:10.5px}
+.product-spec .spec-dot{width:5px;height:5px;border-radius:50%;background:var(--dq-deep);flex-shrink:0}
+.product-spec .spec-label{color:var(--text-muted);font-weight:500}
+.product-spec .spec-val{color:var(--text-body)}
+.product-btn{margin-top:16px;padding:10px 24px;background:var(--dq-deep);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:default}
+
+/* — IPHONE FRAME — */
+.phone-section{display:flex;gap:48px;align-items:flex-start;margin-top:36px}
+.phone-text{flex:1;min-width:0}
+.iphone{width:280px;flex-shrink:0}
+.iphone-frame{background:#1A1A1A;border-radius:40px;padding:12px;box-shadow:0 20px 60px rgba(42,32,36,.15)}
+.iphone-notch{width:100px;height:26px;background:#1A1A1A;border-radius:0 0 16px 16px;margin:0 auto -13px;position:relative;z-index:2}
+.iphone-screen{background:var(--white);border-radius:30px;overflow:hidden;height:500px;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none}
+.iphone-screen::-webkit-scrollbar{display:none}
+.iphone-screen img{width:100%;display:block}
+.iphone-home{width:40%;height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin:8px auto 2px}
+
+/* — COPY COMPARISON — */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border-radius:12px;overflow:hidden;border:1px solid rgba(156,97,105,.15);box-shadow:0 12px 36px rgba(86,55,64,.06)}
+.compare-col{padding:32px 28px}
 .compare-before{background:var(--dq-blush)}
 .compare-after{background:var(--white)}
-.compare-label{font-family:var(--sans);font-size:8.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
-.compare-label-b{color:var(--text-muted)}
-.compare-label-a{color:var(--dq-rose)}
-.compare-item{margin-bottom:14px}
+.compare-label{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.compare-label::before{content:'';width:6px;height:6px;border-radius:50%}
+.compare-label-b{color:var(--text-muted)}.compare-label-b::before{background:var(--text-muted)}
+.compare-label-a{color:var(--dq-deep)}.compare-label-a::before{background:var(--dq-deep)}
+.compare-item{margin-bottom:18px}
 .compare-item:last-child{margin-bottom:0}
-.compare-name{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dq-dark);margin-bottom:4px}
-.compare-copy{font-family:var(--serif);font-size:12.5px;line-height:1.6;color:var(--text-body)}
+.compare-name{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dq-dark);margin-bottom:6px}
+.compare-copy{font-family:var(--serif);font-size:13px;line-height:1.65;color:var(--text-body)}
 
-/* &#8212; TIMELINE &#8212; */
-.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
-.tl-c{padding:18px 14px;background:var(--white);border:1px solid var(--border);border-radius:4px}
-.tl-w{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--dq-rose);font-weight:600;margin-bottom:6px}
-.tl-t{font-family:var(--serif);font-size:13px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:4px;line-height:1.3}
-.tl-d{font-size:9.5px;color:var(--text-muted);line-height:1.5}
+/* — INSIGHT — */
+.insight{padding:24px 28px;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--dq-deep);border-radius:2px;margin-top:32px;font-family:var(--serif);font-size:14px;line-height:1.85;color:var(--text-body);max-width:640px}
+.insight em{color:var(--rose-dark);font-style:italic}
 
-/* &#8212; LEARN &#8212; */
-.learn{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--text-body);max-width:600px;padding-top:24px;border-top:1px solid var(--border)}
+/* — TIMELINE — */
+.timeline{display:flex;gap:0;margin-top:32px;position:relative}
+.timeline::before{content:'';position:absolute;top:14px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--dq-deep),var(--blush))}
+.tl-item{flex:1;position:relative;padding-top:36px}
+.tl-dot{position:absolute;top:6px;left:0;width:18px;height:18px;border-radius:50%;background:var(--white);border:2px solid var(--dq-deep);z-index:1}
+.tl-item:nth-child(2) .tl-dot{border-color:var(--rose)}
+.tl-item:nth-child(3) .tl-dot{border-color:var(--mauve)}
+.tl-item:nth-child(4) .tl-dot{border-color:var(--blush)}
+.tl-week{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dq-deep);font-weight:600;margin-bottom:6px}
+.tl-title{font-family:var(--serif);font-size:14px;font-weight:500;font-style:italic;color:var(--text);margin-bottom:5px;line-height:1.3}
+.tl-desc{font-size:11px;color:var(--text-muted);line-height:1.55;padding-right:16px}
 
-/* &#8212; CTA &#8212; */
-.cta{margin-top:40px}
-.cta a{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--plum);text-decoration:none;padding:12px 20px;border:1px solid var(--blush);border-radius:20px;transition:all .25s var(--ease);letter-spacing:.03em}
-.cta a:hover{background:var(--cream);transform:translateX(4px)}
+/* — REFLECTION — */
+.reflection{max-width:640px;font-family:var(--serif);font-size:15px;line-height:1.9;color:var(--text-body);margin-top:20px}
+.reflection p+p{margin-top:16px}
+.reflection em{color:var(--rose-dark)}
 
+/* — CTA — */
+.cta{max-width:1200px;margin:0 auto;padding:60px 28px 80px}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--border)}
+.cta a{font-family:var(--mono);font-size:11px;color:var(--plum);text-decoration:none;display:flex;align-items:center;gap:8px;padding:12px 22px;border:1px solid var(--blush);border-radius:24px;transition:all .25s var(--ease);letter-spacing:.04em}
+.cta a:hover{background:var(--cream);transform:translateX(4px);box-shadow:0 4px 16px rgba(107,46,74,.08)}
+
+/* — ANIMATIONS — */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade{opacity:0;transform:translateY(20px);animation:fadeUp .7s var(--ease) forwards}
+.fade-d1{animation-delay:.15s}
+.fade-d2{animation-delay:.3s}
+.fade-d3{animation-delay:.45s}
+
+/* — RESPONSIVE — */
+@media(max-width:1024px){
+  .hero-inner{flex-direction:column;gap:32px}
+  .hero-side{width:100%}
+  .phone-section{flex-direction:column;align-items:center}
+  .iphone{width:260px}
+}
 @media(max-width:768px){
-  .page{padding:32px 20px 60px}
-  h1{font-size:28px}
-  .nums{grid-template-columns:1fr}
-  .img-pair{grid-template-columns:1fr}
+  h1{font-size:30px}
+  .stats-grid{grid-template-columns:1fr}
+  .browser-body{flex-direction:column}
+  .oy-sidebar{display:none}
+  .product-mock{flex-direction:column}
+  .product-img-wrap{width:100%}
   .compare{grid-template-columns:1fr}
-  .tl{grid-template-columns:1fr 1fr}
-  .meta{flex-direction:column;gap:8px}
+  .timeline{flex-direction:column;gap:24px}
+  .timeline::before{display:none}
+  .tl-item{padding-top:0;padding-left:32px}
+  .tl-dot{top:0;left:0}
+  .meta-grid{grid-template-columns:1fr 1fr}
+  .sec-h{font-size:22px}
+  .phone-section{gap:32px}
 }
 @media(max-width:480px){
-  .tl{grid-template-columns:1fr}
+  .hero{padding:76px 20px 0}
+  .stats,.sec{padding-left:20px;padding-right:20px}
+  .cta{padding-left:20px;padding-right:20px}
+  .meta-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<div class="page">
 
-<a href="https://bellakang017.github.io/portfolio-/" class="back">&#8592; Back to Portfolio</a>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-in">
+    <span class="nav-name">Bella Kang</span>
+    <a href="https://bellakang017.github.io/portfolio-/" class="nav-back">&larr; Portfolio</a>
+  </div>
+</nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="badge">Product Design</div>
-  <h1>Dasique &#8212; Localization<br>for Global Users</h1>
-  <p class="lead">Korean beauty product pages were losing North American shoppers. I observed why on the retail floor, then redesigned 18 pages and built a staff training system.</p>
-  <div class="meta">
-    <span><b>Role</b> Brand Strategy Intern</span>
-    <span><b>Timeline</b> May&#8211;Jul 2025 &#183; 6.5 weeks</span>
-    <span><b>Context</b> Dasique &#183; Olive Young Global Mall</span>
+<div class="hero fade">
+  <div class="hero-inner">
+    <div class="hero-main">
+      <div class="badge">Product Localization</div>
+      <h1>Dasique &mdash;<br><span>Localization for Global Users</span></h1>
+      <p class="lead">Korean beauty product pages were losing North American shoppers. I observed why on the retail floor, then redesigned 18 product pages and built a staff training system &mdash; all in 6.5 weeks.</p>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Role</div>
+          <div class="meta-value">Brand Strategy Intern</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Timeline</div>
+          <div class="meta-value">May&ndash;Jul 2025 &middot; 6.5 weeks</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Context</div>
+          <div class="meta-value">Dasique &middot; Olive Young Global Mall</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Tools</div>
+          <div class="meta-value">Google Docs, Notion, HTML/CSS</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="dd-title">Design Decisions</div>
+      <div class="dd-block dd-color">
+        <h3>Approach</h3>
+        <p>Sensory-first Korean copy &rarr; function-first English copy. Lead with specs shoppers scan for: shade count, wear time, transfer, finish.</p>
+      </div>
+      <div class="dd-block dd-type">
+        <h3>Key Insight</h3>
+        <p>The gap wasn&rsquo;t language. It was purchase logic &mdash; how each audience decides to buy.</p>
+      </div>
+    </div>
   </div>
-  <div class="nums">
-    <div class="num"><div class="num-v">18</div><div class="num-l">Product pages localized</div></div>
-    <div class="num"><div class="num-v">64%</div><div class="num-l">Traffic from North America</div></div>
-    <div class="num"><div class="num-v">6.5</div><div class="num-l">Weeks, end to end</div></div>
+</div>
+
+<!-- STATS -->
+<div class="stats fade fade-d1">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-v">18</div><div class="stat-l">Product pages localized</div></div>
+    <div class="stat"><div class="stat-v">64%</div><div class="stat-l">Traffic from North America</div></div>
+    <div class="stat"><div class="stat-v">11</div><div class="stat-l">Bilingual customer scenarios</div></div>
   </div>
 </div>
 
 <!-- THE GAP -->
-<div class="sec">
+<div class="sec fade fade-d2">
   <div class="sec-label">The Gap</div>
   <h2 class="sec-h">Same product page. Different purchase logic.</h2>
-  <p class="sec-p">Korean copy sells through mood and texture&#8212;&#8220;a mermaid&#8217;s magic.&#8221; NA shoppers scan for shade count, wear time, and whether it transfers. The gap wasn&#8217;t language. It was how each audience decides to buy.</p>
-  <div class="img-pair">
-    <div>
-      <img src="img/before-korean-copy.png" alt="Original Korean product page &#8212; sensory copy" loading="lazy">
-      <div class="img-pair-cap">Before &#183; Korean sensory copy</div>
+  <p class="sec-p">Korean copy sells through mood and texture &mdash; &ldquo;a mermaid&rsquo;s magic.&rdquo; NA shoppers scan for shade count, wear time, and whether it transfers.</p>
+
+  <!-- Browser Mockup: Before/After -->
+  <div class="browser">
+    <div class="browser-bar">
+      <div class="browser-dot r"></div>
+      <div class="browser-dot y"></div>
+      <div class="browser-dot g"></div>
+      <div class="browser-url">global.oliveyoung.com/product/dasique</div>
     </div>
-    <div>
-      <img src="img/after-english-copy.png" alt="Localized English product page &#8212; function-first copy" loading="lazy">
-      <div class="img-pair-cap">After &#183; Localized function-first copy</div>
+
+    <div class="toggle-wrap" style="margin:0;border-radius:0;border-left:0;border-right:0;border-top:0">
+      <button class="toggle-btn active" onclick="toggleView('after',this)">Localized (EN)</button>
+      <button class="toggle-btn" onclick="toggleView('before',this)">Original (KR)</button>
+    </div>
+
+    <div class="browser-body">
+      <div class="oy-sidebar">
+        <div class="oy-logo">OLIVE YOUNG</div>
+        <div class="oy-cat active">Eye Makeup</div>
+        <div class="oy-cat">Lip</div>
+        <div class="oy-cat">Base Makeup</div>
+        <div class="oy-cat">Skincare</div>
+        <div class="oy-cat">Body &amp; Hair</div>
+      </div>
+      <div class="oy-content">
+        <!-- AFTER view (default) -->
+        <div id="view-after">
+          <div class="product-mock">
+            <div class="product-img-wrap">
+              <img src="img/product-page-berry.png" alt="Berry Smoothie Shadow Palette" loading="lazy">
+            </div>
+            <div class="product-info">
+              <div class="product-brand">Dasique</div>
+              <div class="product-name">Shadow Palette #18 Berry Smoothie</div>
+              <div class="product-price">$26.00</div>
+              <div class="product-desc">9 shades from matte to multi-sized glitter. Ultra-smooth formula &mdash; easy blending, no creasing. Buildable pigment for natural-to-bold looks.</div>
+              <div class="product-specs">
+                <div class="product-spec"><span class="spec-dot"></span><span class="spec-label">Shades</span><span class="spec-val">9 (4 matte, 3 shimmer, 2 glitter)</span></div>
+                <div class="product-spec"><span class="spec-dot"></span><span class="spec-label">Finish</span><span class="spec-val">Velvet matte &amp; dimensional shine</span></div>
+                <div class="product-spec"><span class="spec-dot"></span><span class="spec-label">Wear</span><span class="spec-val">10+ hours, crease-resistant</span></div>
+                <div class="product-spec"><span class="spec-dot"></span><span class="spec-label">Transfer</span><span class="spec-val">Minimal &mdash; sets on contact</span></div>
+              </div>
+              <button class="product-btn">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <!-- BEFORE view -->
+        <div id="view-before" style="display:none">
+          <div class="product-mock">
+            <div class="product-img-wrap">
+              <img src="img/before-korean-copy.png" alt="Original Korean product page" loading="lazy">
+            </div>
+            <div class="product-info">
+              <div class="product-brand">Dasique</div>
+              <div class="product-name" style="font-size:14px">#18 &#48288;&#47532; &#49828;&#47924;&#46356; &#49100;&#46020;&#50864; &#54036;&#47112;&#53944;</div>
+              <div class="product-price">&yen;26,000</div>
+              <div class="product-desc kr">&ldquo;&#51008;&#51008;&#54620; &#54148; &#48512;&#53552; &#45576;&#48512;&#49888; &#44544;&#47532;&#53552;&#44620;&#51648;, &#49884;&#49440;&#51012; &#49324;&#47196;&#51105;&#45716; &#53581;&#49828;&#52376;. &#51064;&#50612;&#44277;&#51452;&#51032; &#47560;&#48277;&#52376;&#47100; &#48152;&#51677;&#51060;&#45716; &#44544;&#47532;&#53552;&#47196; &#50756;&#49457;&#54616;&#45716; &#47672;&#47700;&#51060;&#46300; &#47924;&#46300;.&rdquo;</div>
+              <div style="font-size:11px;color:var(--text-light);margin-top:12px;line-height:1.6;font-style:italic">&ldquo;From subtle pearl to dazzling glitter &mdash; eye-catching textures that add presence. A mermaid mood built with delicately sparkling glitter.&rdquo;</div>
+              <button class="product-btn" style="background:var(--text-muted);margin-top:16px">&#51109;&#48148;&#44396;&#45768;&#50640; &#45812;&#44592;</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- WHAT I SHIPPED: PRODUCT PAGES -->
+<!-- DELIVERABLE 1: PRODUCT PAGES -->
 <div class="sec">
   <div class="sec-label">Deliverable 1</div>
   <h2 class="sec-h">18 product pages, rewritten for purchase confidence.</h2>
-  <p class="sec-p">I benchmarked Sephora, Rhode, and Laneige NA to understand what copy patterns drive conversion. Then I rewrote every line to lead with function&#8212;shade count, wear time, finish, transfer&#8212;instead of mood.</p>
-  <div class="img-pair">
-    <div>
-      <img src="img/product-page-berry.png" alt="Localized product page &#8212; #18 Berry Smoothie shadow palette" loading="lazy">
-      <div class="img-pair-cap">Shadow Palette &#183; #18 Berry Smoothie</div>
-    </div>
-    <div>
-      <img src="img/product-page-glitter.png" alt="Product detail &#8212; function-first glitter description" loading="lazy">
-      <div class="img-pair-cap">Product detail &#183; Function-first copy</div>
-    </div>
-  </div>
+  <p class="sec-p">I benchmarked Sephora, Rhode, and Laneige NA to understand what copy patterns drive conversion. Then I rewrote every line to lead with function &mdash; shade count, wear time, finish, transfer &mdash; instead of mood.</p>
 
+  <!-- Copy Comparison -->
   <div class="compare">
     <div class="compare-col compare-before">
       <div class="compare-label compare-label-b">Korean Original</div>
       <div class="compare-item">
-        <div class="compare-name">Shadow Palette &#183; Rose Petal</div>
-        <div class="compare-copy">From subtle pearl to dazzling glitter&#8212;eye-catching textures that add presence. A mermaid mood built with delicately sparkling glitter.</div>
+        <div class="compare-name">Shadow Palette &middot; Rose Petal</div>
+        <div class="compare-copy">From subtle pearl to dazzling glitter &mdash; eye-catching textures that add presence. A mermaid mood built with delicately sparkling glitter.</div>
       </div>
       <div class="compare-item">
         <div class="compare-name">Juicy Dewy Glow Tint</div>
@@ -164,8 +344,8 @@ h1{font-family:var(--serif);font-size:38px;font-weight:400;font-style:italic;col
     <div class="compare-col compare-after">
       <div class="compare-label compare-label-a">Localized</div>
       <div class="compare-item">
-        <div class="compare-name">Shadow Palette &#183; Rose Petal</div>
-        <div class="compare-copy">9 shades, multi-sized glitter for dimensional shine. Ultra-smooth&#8212;easy blending, no creasing.</div>
+        <div class="compare-name">Shadow Palette &middot; Rose Petal</div>
+        <div class="compare-copy">9 shades, multi-sized glitter for dimensional shine. Ultra-smooth &mdash; easy blending, no creasing.</div>
       </div>
       <div class="compare-item">
         <div class="compare-name">Juicy Dewy Glow Tint</div>
@@ -173,72 +353,115 @@ h1{font-family:var(--serif);font-size:38px;font-weight:400;font-style:italic;col
       </div>
     </div>
   </div>
-  <div class="insight">The shift: Korean copy optimized for <em>mood and aspiration.</em> NA copy optimized for <em>purchase confidence</em>&#8212;specs that answer the questions shoppers actually ask before clicking &#8220;Add to Cart.&#8221;</div>
+
+  <div class="insight">The shift: Korean copy optimized for <em>mood and aspiration.</em> NA copy optimized for <em>purchase confidence</em> &mdash; specs that answer the questions shoppers actually ask before clicking &ldquo;Add to Cart.&rdquo;</div>
 </div>
 
-<!-- WHAT I SHIPPED: STAFF TRAINING -->
+<!-- DELIVERABLE 2: STAFF TRAINING -->
 <div class="sec">
   <div class="sec-label">Deliverable 2</div>
-  <h2 class="sec-h">Staff training system&#8212;one URL, zero onboarding friction.</h2>
-  <p class="sec-p">The Seongsu flagship staff relied on KakaoTalk images for training&#8212;scattered, hard to find, impossible to update. I built a mobile-first web guide with 11 bilingual customer scenarios, shift checklists, and store procedures.</p>
-  <img src="img/staff-guide-cover.png" alt="Dasique staff training guide cover &#8212; mobile-first web guide" class="img-full" loading="lazy">
-  <div class="img-caption">Mobile-first staff guide &#183; One URL for all training materials</div>
-  <div class="img-pair">
-    <div>
-      <img src="img/staff-english-phrases.png" alt="11 bilingual customer scenarios with English scripts" loading="lazy">
-      <div class="img-pair-cap">11 scenarios &#183; Korean + English scripts</div>
+  <h2 class="sec-h">Staff training system &mdash; one URL, zero onboarding friction.</h2>
+
+  <div class="phone-section">
+    <div class="phone-text">
+      <p class="sec-p">The Seongsu flagship staff relied on KakaoTalk images for training &mdash; scattered, hard to find, impossible to update.</p>
+      <p class="sec-p" style="margin-top:14px">I built a mobile-first web guide with 11 bilingual customer scenarios, shift checklists, and store procedures. One URL replaced an entire folder of screenshots.</p>
+      <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(156,97,105,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:13px">&#128172;</span></div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:1px">11 bilingual scenarios</div>
+            <div style="font-size:11px;color:var(--text-muted)">Korean + English scripts with pronunciation</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(156,97,105,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:13px">&#9745;</span></div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:1px">A/B shift checklists</div>
+            <div style="font-size:11px;color:var(--text-muted)">Opening, closing, and handoff procedures</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(156,97,105,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:13px">&#128279;</span></div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:1px">One URL, zero friction</div>
+            <div style="font-size:11px;color:var(--text-muted)">Mobile-first &mdash; no app download needed</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      <img src="img/staff-training-doc.png" alt="A/B shift checklists and store procedures" loading="lazy">
-      <div class="img-pair-cap">Shift checklists &#183; Store procedures</div>
+
+    <!-- iPhone mockup -->
+    <div class="iphone">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/staff-guide-cover.png" alt="Dasique staff training guide" loading="lazy">
+          <img src="img/staff-english-phrases.png" alt="Bilingual customer scenarios" loading="lazy">
+        </div>
+        <div class="iphone-home"></div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- HOW I GOT THERE -->
+<!-- PROCESS -->
 <div class="sec">
   <div class="sec-label">Process</div>
   <h2 class="sec-h">6.5 weeks, four phases.</h2>
-  <div class="tl">
-    <div class="tl-c">
-      <div class="tl-w">Weeks 1&#8211;4</div>
-      <div class="tl-t">Floor Observation</div>
-      <div class="tl-d">Shadowed staff at Seongsu flagship. Coded how international customers browsed, what they asked, where they hesitated.</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Weeks 1&ndash;4</div>
+      <div class="tl-title">Floor Observation</div>
+      <div class="tl-desc">Shadowed staff at Seongsu flagship. Coded how international customers browsed, what they asked, where they hesitated.</div>
     </div>
-    <div class="tl-c">
-      <div class="tl-w">Week 5</div>
-      <div class="tl-t">Content Rewrite</div>
-      <div class="tl-d">Benchmarked Rhode, Dior, Laneige NA. Rewrote 18 product pages. Delivered to web design team.</div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 5</div>
+      <div class="tl-title">Content Rewrite</div>
+      <div class="tl-desc">Benchmarked Rhode, Dior, Laneige NA. Rewrote 18 product pages for the web design team.</div>
     </div>
-    <div class="tl-c">
-      <div class="tl-w">Week 6</div>
-      <div class="tl-t">Staff Training</div>
-      <div class="tl-d">Built mobile guide&#8212;11 scenarios with English scripts and pronunciation. One URL replaced scattered images.</div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 6</div>
+      <div class="tl-title">Staff Training</div>
+      <div class="tl-desc">Built mobile guide &mdash; 11 scenarios with English scripts. One URL replaced scattered images.</div>
     </div>
-    <div class="tl-c">
-      <div class="tl-w">Week 6.5</div>
-      <div class="tl-t">NA Research</div>
-      <div class="tl-d">Compiled consumer-perspective market research for North American expansion strategy.</div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 6.5</div>
+      <div class="tl-title">NA Research</div>
+      <div class="tl-desc">Consumer-perspective market research for North American expansion strategy.</div>
     </div>
   </div>
 </div>
 
-<!-- WHAT I LEARNED -->
+<!-- REFLECTION -->
 <div class="sec">
   <div class="sec-label">Reflection</div>
   <h2 class="sec-h">What this project taught me.</h2>
-  <div class="learn">
-    <p>Good localization isn&#8217;t translation. It&#8217;s understanding that the same product solves different problems for different people&#8212;and designing the experience around <em>their</em> decision logic, not yours.</p>
-    <p style="margin-top:14px">The retail floor taught me something I couldn&#8217;t learn from data alone: hesitation has a body language. The moment a shopper tilts a product back toward the shelf is the moment your copy failed. That observation shaped every line I wrote.</p>
+  <div class="reflection">
+    <p>Good localization isn&rsquo;t translation. It&rsquo;s understanding that the same product solves different problems for different people &mdash; and designing the experience around <em>their</em> decision logic, not yours.</p>
+    <p>The retail floor taught me something I couldn&rsquo;t learn from data alone: hesitation has a body language. The moment a shopper tilts a product back toward the shelf is the moment your copy failed. That observation shaped every line I wrote.</p>
   </div>
 </div>
 
 <!-- CTA -->
 <div class="cta">
-  <a href="https://bellakang017.github.io/portfolio-/">&#8592; Back to Portfolio</a>
+  <div class="cta-inner">
+    <a href="https://bellakang017.github.io/portfolio-/">&larr; Back to Portfolio</a>
+    <a href="newsletter-case-study.html">Newsletter Case Study &rarr;</a>
+  </div>
 </div>
 
-</div>
+<script>
+function toggleView(view, btn) {
+  document.getElementById('view-before').style.display = view === 'before' ? 'block' : 'none';
+  document.getElementById('view-after').style.display = view === 'after' ? 'block' : 'none';
+  document.querySelectorAll('.toggle-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+}
+</script>
 </body>
 </html>
-
