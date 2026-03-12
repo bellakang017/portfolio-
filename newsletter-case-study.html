@@ -778,57 +778,76 @@
     </div>
   </section>
 
-  <!-- ─── Live Newsletter Previews ─── -->
-  <section class="relative grain py-20 px-6">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-3">Live Previews</div>
-        <h2 class="text-2xl font-semibold text-noir tracking-tight">Actual HTML Emails</h2>
-        <p class="text-sm text-noir/50 mt-2 max-w-md mx-auto">The emails as received by 570+ international graduate students — rendered live from the original HTML.</p>
+  <!-- ─── Full Email Archive ─── -->
+  <section class="relative grain py-20 px-6 sm:px-8">
+    <div class="max-w-4xl mx-auto reveal">
+      <div class="text-center mb-10">
+        <div class="font-mono text-[9px] tracking-[0.2em] uppercase text-noir/25 mb-3 font-medium">Delivered to 570+ subscribers</div>
+        <h2 class="font-display text-2xl sm:text-3xl font-bold text-noir tracking-tight">View Full Emails</h2>
+        <p class="text-[15px] text-noir/45 mt-3 max-w-md mx-auto leading-relaxed">The mockups above show the design in context. Below are the actual emails as they appeared in subscribers' inboxes.</p>
       </div>
 
-      <!-- March 2026 -->
-      <div class="mb-6">
-        <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-3">March 2026 — Monthly Newsletter</div>
-        <div class="rounded-xl overflow-hidden border border-noir/8 shadow-lg shadow-noir/8 bg-white">
-          <iframe
-            src="newsletter-march-2026.html"
-            width="100%"
-            height="860"
-            style="border: none;"
-            title="March 2026 Global Grad Career Newsletter"
-            loading="lazy">
-          </iframe>
+      <!-- Expand/Collapse button -->
+      <div class="text-center mb-8">
+        <button onclick="toggleEmails()" id="toggle-emails-btn" class="inline-flex items-center gap-2.5 font-display text-[13px] font-semibold text-ut-orange border-2 border-ut-orange/20 hover:border-ut-orange/40 px-6 py-3 rounded-full transition-all cursor-pointer hover:bg-ut-orange/[0.04]">
+          <svg id="toggle-icon-open" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          <svg id="toggle-icon-close" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/></svg>
+          <span id="toggle-label">Show Full Emails</span>
+        </button>
+      </div>
+
+      <!-- Collapsible email container -->
+      <div id="email-archive" style="display: none;">
+        <!-- Email tabs -->
+        <div class="flex items-center gap-2 mb-6 justify-center flex-wrap">
+          <button class="archive-tab active font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 rounded-full border border-ut-orange font-medium cursor-pointer bg-ut-orange text-white" onclick="switchArchive('mar', this)" style="box-shadow: 0 4px 16px rgba(191,87,0,0.2);">March 2026</button>
+          <button class="archive-tab font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 rounded-full border border-noir/12 text-noir/35 font-medium cursor-pointer" onclick="switchArchive('feb', this)">February 2026</button>
+          <button class="archive-tab font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 rounded-full border border-noir/12 text-noir/35 font-medium cursor-pointer" onclick="switchArchive('jan', this)">January 2026</button>
         </div>
-      </div>
 
-      <!-- February 2026 -->
-      <div>
-        <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-3">February 2026 — Event Invitation (Internal Comm)</div>
-        <div class="rounded-xl overflow-hidden border border-noir/8 shadow-lg shadow-noir/8 bg-white">
-          <iframe
-            src="newsletter-feb-2026.html"
-            width="100%"
-            height="720"
-            style="border: none;"
-            title="February 2026 Lunar New Year Coffee Chat Invitation"
-            loading="lazy">
-          </iframe>
+        <!-- March 2026 -->
+        <div id="archive-mar" class="archive-content">
+          <div class="font-mono text-[10px] tracking-[0.18em] uppercase text-noir/25 mb-3 font-medium">March 2026 — Monthly Newsletter</div>
+          <div class="rounded-2xl overflow-hidden border border-noir/6 shadow-xl shadow-noir/8 bg-white">
+            <iframe
+              src="newsletter-march-2026.html"
+              width="100%"
+              height="860"
+              style="border: none;"
+              title="March 2026 Global Grad Career Newsletter"
+              loading="lazy">
+            </iframe>
+          </div>
         </div>
-      </div>
 
-      <!-- January 2026 -->
-      <div class="mt-6">
-        <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-3">January 2026 — Event Invitation (Internal Comm)</div>
-        <div class="rounded-xl overflow-hidden border border-noir/8 shadow-lg shadow-noir/8 bg-white">
-          <iframe
-            src="newsletter-jan-2026.html"
-            width="100%"
-            height="780"
-            style="border: none;"
-            title="January 2026 Coffee and Connections Hour Invitation"
-            loading="lazy">
-          </iframe>
+        <!-- February 2026 -->
+        <div id="archive-feb" class="archive-content" style="display: none;">
+          <div class="font-mono text-[10px] tracking-[0.18em] uppercase text-noir/25 mb-3 font-medium">February 2026 — Event Invitation</div>
+          <div class="rounded-2xl overflow-hidden border border-noir/6 shadow-xl shadow-noir/8 bg-white">
+            <iframe
+              src="newsletter-feb-2026.html"
+              width="100%"
+              height="720"
+              style="border: none;"
+              title="February 2026 Lunar New Year Coffee Chat Invitation"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- January 2026 -->
+        <div id="archive-jan" class="archive-content" style="display: none;">
+          <div class="font-mono text-[10px] tracking-[0.18em] uppercase text-noir/25 mb-3 font-medium">January 2026 — Event Invitation</div>
+          <div class="rounded-2xl overflow-hidden border border-noir/6 shadow-xl shadow-noir/8 bg-white">
+            <iframe
+              src="newsletter-jan-2026.html"
+              width="100%"
+              height="780"
+              style="border: none;"
+              title="January 2026 Coffee and Connections Hour Invitation"
+              loading="lazy">
+            </iframe>
+          </div>
         </div>
       </div>
 
@@ -894,6 +913,40 @@
 
       document.getElementById('outlook-reading').scrollTop = 0;
       document.getElementById('iphone-scroll').scrollTop = 0;
+    }
+
+    // Toggle full email archive
+    function toggleEmails() {
+      const archive = document.getElementById('email-archive');
+      const btn = document.getElementById('toggle-emails-btn');
+      const label = document.getElementById('toggle-label');
+      const iconOpen = document.getElementById('toggle-icon-open');
+      const iconClose = document.getElementById('toggle-icon-close');
+      const isHidden = archive.style.display === 'none';
+
+      archive.style.display = isHidden ? '' : 'none';
+      label.textContent = isHidden ? 'Hide Full Emails' : 'Show Full Emails';
+      iconOpen.classList.toggle('hidden', isHidden);
+      iconClose.classList.toggle('hidden', !isHidden);
+    }
+
+    // Archive tab switching
+    function switchArchive(month, btn) {
+      document.querySelectorAll('.archive-tab').forEach(t => {
+        t.classList.remove('active');
+        t.style.background = '';
+        t.style.color = '';
+        t.style.borderColor = '';
+        t.style.boxShadow = '';
+      });
+      btn.classList.add('active');
+      btn.style.background = '#BF5700';
+      btn.style.color = 'white';
+      btn.style.borderColor = '#BF5700';
+      btn.style.boxShadow = '0 4px 16px rgba(191,87,0,0.2)';
+
+      document.querySelectorAll('.archive-content').forEach(c => c.style.display = 'none');
+      document.getElementById('archive-' + month).style.display = '';
     }
 
     // Scroll reveal with Intersection Observer
