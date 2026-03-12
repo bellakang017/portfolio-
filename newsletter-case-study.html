@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Global Career Newsletter — Portfolio Showcase</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -123,9 +124,17 @@
       box-shadow: 0 4px 16px rgba(191,87,0,0.04);
     }
 
-    /* Archive tab base */
+    /* Archive tab */
     .archive-tab {
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border-color: rgba(29,29,31,0.12);
+      color: rgba(29,29,31,0.35);
+    }
+    .archive-tab.active {
+      background: #BF5700;
+      color: white;
+      border-color: #BF5700;
+      box-shadow: 0 4px 16px rgba(191,87,0,0.2);
     }
     .archive-tab:not(.active):hover {
       border-color: #BF5700;
@@ -836,9 +845,9 @@
       <div id="email-archive" style="display: none;">
         <!-- Email tabs -->
         <div class="flex items-center gap-2 mb-6 justify-center flex-wrap">
-          <button class="archive-tab active font-mono text-[10px] tracking-[0.12em] uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-ut-orange font-medium cursor-pointer bg-ut-orange text-white" onclick="switchArchive('mar', this)" style="box-shadow: 0 4px 16px rgba(191,87,0,0.2);">March 2026</button>
-          <button class="archive-tab font-mono text-[10px] tracking-[0.12em] uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-noir/12 text-noir/35 font-medium cursor-pointer" onclick="switchArchive('feb', this)">February 2026</button>
-          <button class="archive-tab font-mono text-[10px] tracking-[0.12em] uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-noir/12 text-noir/35 font-medium cursor-pointer" onclick="switchArchive('jan', this)">January 2026</button>
+          <button class="archive-tab font-mono text-[10px] tracking-[0.12em] uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border font-medium cursor-pointer" onclick="switchArchive('mar', this)">March 2026</button>
+          <button class="archive-tab font-mono text-[10px] tracking-[0.12em] uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border font-medium cursor-pointer" onclick="switchArchive('feb', this)">February 2026</button>
+          <button class="archive-tab font-mono text-[10px] tracking-[0.12em] uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border font-medium cursor-pointer" onclick="switchArchive('jan', this)">January 2026</button>
         </div>
 
         <!-- March 2026 -->
@@ -954,11 +963,16 @@
     // Toggle full email archive
     function toggleEmails() {
       const archive = document.getElementById('email-archive');
-      const btn = document.getElementById('toggle-emails-btn');
       const label = document.getElementById('toggle-label');
       const iconOpen = document.getElementById('toggle-icon-open');
       const iconClose = document.getElementById('toggle-icon-close');
       const isHidden = archive.style.display === 'none';
+
+      if (isHidden) {
+        // Reset to first tab when opening
+        const firstTab = document.querySelector('.archive-tab');
+        if (firstTab) switchArchive('mar', firstTab);
+      }
 
       archive.style.display = isHidden ? '' : 'none';
       label.textContent = isHidden ? 'Hide Full Emails' : 'Show Full Emails';
@@ -968,19 +982,8 @@
 
     // Archive tab switching
     function switchArchive(month, btn) {
-      document.querySelectorAll('.archive-tab').forEach(t => {
-        t.classList.remove('active');
-        t.style.background = '';
-        t.style.color = '';
-        t.style.borderColor = '';
-        t.style.boxShadow = '';
-      });
+      document.querySelectorAll('.archive-tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
-      btn.style.background = '#BF5700';
-      btn.style.color = 'white';
-      btn.style.borderColor = '#BF5700';
-      btn.style.boxShadow = '0 4px 16px rgba(191,87,0,0.2)';
-
       document.querySelectorAll('.archive-content').forEach(c => c.style.display = 'none');
       document.getElementById('archive-' + month).style.display = '';
     }
