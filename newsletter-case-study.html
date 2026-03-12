@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
@@ -16,15 +16,16 @@
             green: { brand: '#006B3F' },
             gold: { brand: '#D4AF37' },
             noir: '#1D1D1F',
-            ut: { orange: '#BF5700' },
-            surface: '#F5F5F0',
+            ut: { orange: '#BF5700', 'orange-light': '#FFF3EB' },
+            surface: '#F8F7F4',
+            'surface-warm': '#F5F3EE',
             mist: '#E8E6E1',
             outlook: { sidebar: '#F3F3F3', toolbar: '#F8F8F8', blue: '#0078D4', hover: '#E8E8E8' },
           },
           fontFamily: {
-            display: ['"Segoe UI"', 'system-ui', 'sans-serif'],
+            display: ['Archivo', 'system-ui', 'sans-serif'],
+            body: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
-            body: ['Inter', 'sans-serif'],
           },
         },
       },
@@ -32,13 +33,14 @@
   </script>
   <style>
     * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    body { font-family: 'Inter', sans-serif; background: #F5F5F0; color: #1D1D1F; overflow-x: hidden; }
+    body { font-family: 'Space Grotesk', system-ui, sans-serif; background: #F8F7F4; color: #1D1D1F; overflow-x: hidden; }
+    h1, h2, h3, h4, nav, button { font-family: 'Archivo', system-ui, sans-serif; }
 
     .grain::after {
       content: '';
       position: absolute;
       inset: 0;
-      opacity: 0.025;
+      opacity: 0.02;
       pointer-events: none;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
@@ -49,31 +51,82 @@
     .outlook-reading::-webkit-scrollbar-track { background: transparent; }
     .outlook-reading::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 3px; }
 
-    .macbook-scene {}
-    .macbook-lid {}
-    .macbook-base { display: none; }
-    .macbook-hinge { display: none; }
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.12s; }
+    .reveal-d2 { transition-delay: 0.24s; }
+    .reveal-d3 { transition-delay: 0.36s; }
 
     /* Month tab */
-    .month-tab { transition: all 0.25s ease; }
+    .month-tab {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
     .month-tab.active {
       background: #BF5700;
       color: white;
       border-color: #BF5700;
+      box-shadow: 0 4px 16px rgba(191,87,0,0.2);
+    }
+    .month-tab:not(.active):hover {
+      border-color: #BF5700;
+      color: #BF5700;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Device mockups */
+    .device-frame {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .fade-up { animation: fadeUp 0.7s ease-out both; }
-    .fade-up-d1 { animation-delay: 0.15s; }
-    .fade-up-d2 { animation-delay: 0.3s; }
+    .device-frame:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 32px 64px rgba(29,29,31,0.12), 0 8px 24px rgba(29,29,31,0.06);
+    }
+
+    /* Design decisions panel */
+    .design-panel {
+      background: white;
+      border: 1px solid rgba(29,29,31,0.06);
+      border-radius: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      transition: all 0.3s ease;
+    }
+    .design-panel:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    /* Color swatch hover */
+    .swatch {
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+    .swatch:hover {
+      transform: scale(1.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Meta badge */
+    .meta-item {
+      background: white;
+      border: 1px solid rgba(29,29,31,0.06);
+      border-radius: 16px;
+      padding: 16px 20px;
+      transition: all 0.25s ease;
+    }
+    .meta-item:hover {
+      border-color: rgba(191,87,0,0.15);
+      box-shadow: 0 4px 16px rgba(191,87,0,0.04);
+    }
 
     /* Mobile responsive */
     @media (max-width: 768px) {
-      .macbook-scene { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      .macbook-lid > div { min-width: 640px; }
+      .macbook-scene { overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+      .macbook-lid > div { min-width: 640px; scroll-snap-align: start; }
       .macbook-scene::after {
         content: 'Swipe to explore \2192';
         display: block;
@@ -81,102 +134,116 @@
         font-family: 'JetBrains Mono', monospace;
         font-size: 10px;
         letter-spacing: 0.08em;
-        color: rgba(29,29,31,0.3);
-        margin-top: 8px;
+        color: rgba(29,29,31,0.25);
+        margin-top: 12px;
       }
     }
     @media (max-width: 480px) {
       .w-\[280px\] { width: 260px; }
       .h-\[580px\] { height: 540px; }
     }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .device-frame:hover { transform: none; }
+    }
   </style>
 </head>
 <body class="min-h-screen relative grain">
 
   <!-- ─── Nav ─── -->
-  <nav class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-surface/80 border-b border-noir/5">
-    <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-      <span class="font-mono text-[11px] tracking-widest uppercase text-noir/50">Bella Kang</span>
-      <a href="https://bellakang017.github.io/portfolio-/" class="flex items-center gap-2 font-mono text-[11px] tracking-widest uppercase text-noir/50 hover:text-ut-orange transition-colors no-underline">&larr; Portfolio</a>
+  <nav class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-surface/80 border-b border-noir/[0.04]">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
+      <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-noir/40 font-medium">Bella Kang</span>
+      <a href="https://bellakang017.github.io/portfolio-/" class="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.15em] uppercase text-noir/40 hover:text-ut-orange transition-colors no-underline font-medium group">
+        <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        Portfolio
+      </a>
     </div>
   </nav>
 
   <!-- ═══════════════════════════════════════════════════ -->
   <!-- ─── Hero + Design Decisions ─── -->
   <!-- ═══════════════════════════════════════════════════ -->
-  <section class="pt-24 pb-10 px-6 max-w-7xl mx-auto fade-up">
+  <section class="pt-28 sm:pt-32 pb-12 px-6 sm:px-8 max-w-7xl mx-auto">
     <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
       <!-- LEFT -->
       <div class="flex-1 min-w-0">
-        <div class="flex items-center gap-3 mb-5">
-          <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-ut-orange bg-ut-orange/8 px-3 py-1.5 rounded-full">Email Newsletter</span>
+        <div class="reveal flex items-center gap-3 mb-6">
+          <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-ut-orange bg-ut-orange/8 px-3.5 py-2 rounded-full font-medium">Email Newsletter</span>
         </div>
-        <h1 class="font-display text-[clamp(1.75rem,4vw,3rem)] font-bold leading-[1.1] tracking-tight text-noir">
+        <h1 class="reveal reveal-d1 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold leading-[1.08] tracking-tight text-noir">
           Global Career Newsletter<br />
           <span class="text-ut-orange">for International Longhorns</span>
         </h1>
-        <p class="mt-5 text-noir/55 text-[15px] leading-relaxed max-w-lg font-light">
+        <p class="reveal reveal-d2 mt-6 text-noir/50 text-[16px] leading-relaxed max-w-lg font-light">
           A monthly email newsletter for UT Austin's international graduate students — career programming, visa guidance, tax resources, and professional development from the Office of Career &amp; Life Design.
         </p>
         <!-- Meta -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-noir/8 pt-6 mt-8">
-          <div>
-            <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/35 block mb-1">Role</span>
-            <span class="text-sm text-noir/80">Designer & Writer</span>
+        <div class="reveal reveal-d3 grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10">
+          <div class="meta-item">
+            <span class="font-mono text-[9px] tracking-[0.18em] uppercase text-noir/30 block mb-1.5 font-medium">Role</span>
+            <span class="text-[14px] text-noir/75 font-medium">Designer & Writer</span>
           </div>
-          <div>
-            <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/35 block mb-1">Client</span>
-            <span class="text-sm text-noir/80">Career &amp; Life Design</span>
+          <div class="meta-item">
+            <span class="font-mono text-[9px] tracking-[0.18em] uppercase text-noir/30 block mb-1.5 font-medium">Client</span>
+            <span class="text-[14px] text-noir/75 font-medium">Career &amp; Life Design</span>
           </div>
-          <div>
-            <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/35 block mb-1">Tools</span>
-            <span class="text-sm text-noir/80">Figma, Copilot</span>
+          <div class="meta-item">
+            <span class="font-mono text-[9px] tracking-[0.18em] uppercase text-noir/30 block mb-1.5 font-medium">Tools</span>
+            <span class="text-[14px] text-noir/75 font-medium">Figma, Copilot</span>
           </div>
-          <div>
-            <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/35 block mb-1">Audience</span>
-            <span class="text-sm text-noir/80">570+ subscribers</span>
+          <div class="meta-item">
+            <span class="font-mono text-[9px] tracking-[0.18em] uppercase text-noir/30 block mb-1.5 font-medium">Audience</span>
+            <span class="text-[14px] text-noir/75 font-medium">570+ subscribers</span>
           </div>
         </div>
       </div>
+
       <!-- RIGHT: Design Decisions -->
-      <div class="lg:w-[320px] flex-shrink-0">
-        <div class="font-mono text-[10px] tracking-[0.2em] uppercase text-noir/30 mb-6">Design Decisions</div>
-        <div class="mb-6">
-          <div class="flex items-center gap-2.5 mb-2">
-            <div class="w-6 h-6 rounded-md bg-ut-orange/8 flex items-center justify-center">
-              <div class="w-2.5 h-2.5 rounded-full bg-ut-orange"></div>
+      <div class="reveal lg:w-[340px] flex-shrink-0">
+        <div class="design-panel p-6">
+          <div class="font-mono text-[9px] tracking-[0.2em] uppercase text-noir/25 mb-6 font-medium">Design Decisions</div>
+
+          <div class="mb-7">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 rounded-xl bg-ut-orange/8 flex items-center justify-center">
+                <div class="w-3 h-3 rounded-full bg-ut-orange"></div>
+              </div>
+              <h3 class="font-display text-[14px] font-bold text-noir">Color System</h3>
             </div>
-            <h3 class="font-display text-sm font-semibold text-noir">Color System</h3>
+            <p class="text-[13px] text-noir/40 leading-relaxed mb-4">UT Orange anchors identity. Gold highlights deadlines. Green marks secondary accents.</p>
+            <div class="flex gap-2">
+              <div class="swatch w-9 h-9 rounded-xl bg-ut-orange" title="#BF5700"></div>
+              <div class="swatch w-9 h-9 rounded-xl bg-gold-brand" title="#D4AF37"></div>
+              <div class="swatch w-9 h-9 rounded-xl bg-green-brand" title="#006B3F"></div>
+              <div class="swatch w-9 h-9 rounded-xl bg-noir" title="#1D1D1F"></div>
+              <div class="swatch w-9 h-9 rounded-xl bg-surface border border-noir/8" title="#F8F7F4"></div>
+            </div>
           </div>
-          <p class="text-[13px] text-noir/45 leading-relaxed mb-3">UT Orange anchors identity. Gold highlights deadlines. Green marks secondary accents.</p>
-          <div class="flex gap-1.5">
-            <div class="w-7 h-7 rounded-md bg-ut-orange" title="#BF5700"></div>
-            <div class="w-7 h-7 rounded-md bg-gold-brand" title="#D4AF37"></div>
-            <div class="w-7 h-7 rounded-md bg-green-brand" title="#006B3F"></div>
-            <div class="w-7 h-7 rounded-md bg-noir" title="#1D1D1F"></div>
-            <div class="w-7 h-7 rounded-md bg-surface border border-noir/8" title="#F5F5F0"></div>
-          </div>
-        </div>
-        <div>
-          <div class="flex items-center gap-2.5 mb-2">
-            <div class="w-6 h-6 rounded-md bg-noir/5 flex items-center justify-center">
-              <span class="font-display text-xs font-semibold text-noir/50">Aa</span>
+
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 rounded-xl bg-noir/[0.04] flex items-center justify-center">
+                <span class="font-display text-[13px] font-bold text-noir/40">Aa</span>
+              </div>
+              <h3 class="font-display text-[14px] font-bold text-noir">Typography</h3>
             </div>
-            <h3 class="font-display text-sm font-semibold text-noir">Typography</h3>
-          </div>
-          <p class="text-[13px] text-noir/45 leading-relaxed mb-3">Segoe UI headings. JetBrains Mono labels. Inter body.</p>
-          <div class="space-y-1">
-            <div class="flex items-baseline gap-2.5">
-              <span class="font-mono text-[9px] text-noir/25 w-12">Display</span>
-              <span class="font-display text-[15px] text-noir/65">Segoe UI</span>
-            </div>
-            <div class="flex items-baseline gap-2.5">
-              <span class="font-mono text-[9px] text-noir/25 w-12">Label</span>
-              <span class="font-mono text-[11px] text-noir/65">JetBrains Mono</span>
-            </div>
-            <div class="flex items-baseline gap-2.5">
-              <span class="font-mono text-[9px] text-noir/25 w-12">Body</span>
-              <span class="font-body text-[13px] text-noir/65">Inter</span>
+            <p class="text-[13px] text-noir/40 leading-relaxed mb-4">Segoe UI headings in-email. JetBrains Mono labels. Inter body text.</p>
+            <div class="space-y-2.5">
+              <div class="flex items-baseline gap-3">
+                <span class="font-mono text-[9px] text-noir/20 w-14 font-medium">Display</span>
+                <span class="font-display text-[15px] text-noir/55 font-medium">Segoe UI</span>
+              </div>
+              <div class="flex items-baseline gap-3">
+                <span class="font-mono text-[9px] text-noir/20 w-14 font-medium">Label</span>
+                <span class="font-mono text-[11px] text-noir/55">JetBrains Mono</span>
+              </div>
+              <div class="flex items-baseline gap-3">
+                <span class="font-mono text-[9px] text-noir/20 w-14 font-medium">Body</span>
+                <span class="font-body text-[13px] text-noir/55">Inter</span>
+              </div>
             </div>
           </div>
         </div>
@@ -185,49 +252,51 @@
   </section>
 
   <!-- ─── Month Tabs ─── -->
-  <section class="px-6 max-w-7xl mx-auto pb-6 fade-up fade-up-d1">
+  <section class="px-6 sm:px-8 max-w-7xl mx-auto pb-8 reveal">
     <div class="flex items-center gap-3">
-      <button class="month-tab active font-mono text-[10px] tracking-[0.15em] uppercase px-4 py-2 rounded-full border border-ut-orange" onclick="switchMonth('mar', this)">March 2026</button>
-      <button class="month-tab font-mono text-[10px] tracking-[0.15em] uppercase px-4 py-2 rounded-full border border-noir/15 text-noir/40" onclick="switchMonth('feb', this)">February 2026</button>
+      <button class="month-tab active font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 rounded-full border border-ut-orange font-medium cursor-pointer" onclick="switchMonth('mar', this)">March 2026</button>
+      <button class="month-tab font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 rounded-full border border-noir/12 text-noir/35 font-medium cursor-pointer" onclick="switchMonth('feb', this)">February 2026</button>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════ -->
   <!-- ─── Device Mockups ─── -->
   <!-- ═══════════════════════════════════════════════════ -->
-  <section class="px-6 max-w-7xl mx-auto pb-20 fade-up fade-up-d2">
-    <div class="flex flex-col lg:flex-row items-start gap-10">
+  <section class="px-6 sm:px-8 max-w-7xl mx-auto pb-24">
+    <div class="flex flex-col lg:flex-row items-start gap-12">
 
       <!-- ┌─────────────────────────────────────────┐ -->
       <!-- │  MacBook + Outlook                      │ -->
       <!-- └─────────────────────────────────────────┘ -->
-      <div class="w-full lg:flex-1 min-w-0">
-        <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-4 ml-1">Desktop — Outlook for Mac</div>
+      <div class="reveal w-full lg:flex-1 min-w-0">
+        <div class="font-mono text-[10px] tracking-[0.18em] uppercase text-noir/25 mb-5 ml-1 font-medium">Desktop — Outlook for Mac</div>
 
         <div class="macbook-scene">
           <!-- Lid (screen) -->
           <div class="macbook-lid">
-            <div class="rounded-t-xl overflow-hidden border border-noir/10 shadow-2xl shadow-noir/15 bg-white">
+            <div class="device-frame rounded-2xl overflow-hidden border border-noir/8 shadow-2xl shadow-noir/10 bg-white">
               <!-- macOS title bar -->
-              <div class="h-8 bg-gradient-to-b from-[#E8E8E8] to-[#DEDEDE] flex items-center px-3 gap-1.5 border-b border-noir/5">
-                <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
-                <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
-                <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+              <div class="h-9 bg-gradient-to-b from-[#EAEAEA] to-[#E0E0E0] flex items-center px-3.5 gap-2 border-b border-noir/5">
+                <div class="flex gap-2">
+                  <div class="w-3 h-3 rounded-full bg-[#FF5F57] shadow-inner"></div>
+                  <div class="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-inner"></div>
+                  <div class="w-3 h-3 rounded-full bg-[#28C840] shadow-inner"></div>
+                </div>
                 <div class="flex-1 text-center">
-                  <span class="text-[10px] text-noir/35 font-display">Outlook</span>
+                  <span class="text-[10px] text-noir/30 font-display font-medium">Outlook</span>
                 </div>
               </div>
 
               <!-- Outlook toolbar -->
               <div class="h-9 bg-outlook-toolbar flex items-center px-3 gap-3 border-b border-noir/5">
                 <div class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-noir/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" /></svg>
-                  <svg class="w-4 h-4 text-noir/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m15 15 6-6m0 0-6-6m6 6H9a6 6 0 0 0 0 12h3" /></svg>
+                  <svg class="w-4 h-4 text-noir/25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" /></svg>
+                  <svg class="w-4 h-4 text-noir/25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m15 15 6-6m0 0-6-6m6 6H9a6 6 0 0 0 0 12h3" /></svg>
                 </div>
                 <div class="flex-1"></div>
                 <div class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-noir/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>
-                  <svg class="w-4 h-4 text-noir/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" /></svg>
+                  <svg class="w-4 h-4 text-noir/25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>
+                  <svg class="w-4 h-4 text-noir/25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" /></svg>
                 </div>
               </div>
 
@@ -239,44 +308,44 @@
                     <svg class="w-4 h-4 text-outlook-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" /></svg>
                   </div>
                   <div class="w-8 h-8 rounded-lg flex items-center justify-center">
-                    <svg class="w-4 h-4 text-noir/25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
+                    <svg class="w-4 h-4 text-noir/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
                   </div>
                   <div class="w-8 h-8 rounded-lg flex items-center justify-center">
-                    <svg class="w-4 h-4 text-noir/25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg>
+                    <svg class="w-4 h-4 text-noir/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg>
                   </div>
                 </div>
 
                 <!-- Message list -->
                 <div class="w-[200px] bg-white border-r border-noir/5 overflow-hidden">
-                  <div class="px-3 py-2 border-b border-noir/5">
-                    <div class="text-[11px] font-semibold text-noir/70">Inbox</div>
+                  <div class="px-3 py-2.5 border-b border-noir/5">
+                    <div class="text-[11px] font-semibold text-noir/65 font-display">Inbox</div>
                   </div>
                   <!-- Active email -->
                   <div class="px-3 py-2.5 bg-outlook-blue/8 border-l-2 border-outlook-blue">
                     <div class="text-[9px] text-noir/40 mb-0.5">Career & Life Design</div>
                     <div class="text-[10px] font-medium text-noir/80 leading-tight mb-0.5">Global Career Newsletter</div>
-                    <div class="text-[8px] text-noir/35 leading-snug truncate">Hello, International Longhorns!...</div>
+                    <div class="text-[8px] text-noir/30 leading-snug truncate">Hello, International Longhorns!...</div>
                   </div>
                   <!-- Other emails -->
-                  <div class="px-3 py-2.5 border-b border-noir/3">
-                    <div class="text-[9px] text-noir/30 mb-0.5">Graduate School</div>
-                    <div class="text-[10px] text-noir/50 leading-tight mb-0.5">Thesis Deadline Reminder</div>
-                    <div class="text-[8px] text-noir/25 truncate">Please submit your...</div>
+                  <div class="px-3 py-2.5 border-b border-noir/[0.03]">
+                    <div class="text-[9px] text-noir/25 mb-0.5">Graduate School</div>
+                    <div class="text-[10px] text-noir/45 leading-tight mb-0.5">Thesis Deadline Reminder</div>
+                    <div class="text-[8px] text-noir/20 truncate">Please submit your...</div>
                   </div>
-                  <div class="px-3 py-2.5 border-b border-noir/3">
-                    <div class="text-[9px] text-noir/30 mb-0.5">ISSS</div>
-                    <div class="text-[10px] text-noir/50 leading-tight mb-0.5">OPT Workshop Tomorrow</div>
-                    <div class="text-[8px] text-noir/25 truncate">Join us for a...</div>
+                  <div class="px-3 py-2.5 border-b border-noir/[0.03]">
+                    <div class="text-[9px] text-noir/25 mb-0.5">ISSS</div>
+                    <div class="text-[10px] text-noir/45 leading-tight mb-0.5">OPT Workshop Tomorrow</div>
+                    <div class="text-[8px] text-noir/20 truncate">Join us for a...</div>
                   </div>
-                  <div class="px-3 py-2.5 border-b border-noir/3">
-                    <div class="text-[9px] text-noir/30 mb-0.5">Moody College</div>
-                    <div class="text-[10px] text-noir/50 leading-tight mb-0.5">Spring Research Symposium</div>
-                    <div class="text-[8px] text-noir/25 truncate">Abstract submissions...</div>
+                  <div class="px-3 py-2.5 border-b border-noir/[0.03]">
+                    <div class="text-[9px] text-noir/25 mb-0.5">Moody College</div>
+                    <div class="text-[10px] text-noir/45 leading-tight mb-0.5">Spring Research Symposium</div>
+                    <div class="text-[8px] text-noir/20 truncate">Abstract submissions...</div>
                   </div>
-                  <div class="px-3 py-2.5 border-b border-noir/3">
-                    <div class="text-[9px] text-noir/30 mb-0.5">UT Libraries</div>
-                    <div class="text-[10px] text-noir/50 leading-tight mb-0.5">New Database Access</div>
-                    <div class="text-[8px] text-noir/25 truncate">We're excited to...</div>
+                  <div class="px-3 py-2.5 border-b border-noir/[0.03]">
+                    <div class="text-[9px] text-noir/25 mb-0.5">UT Libraries</div>
+                    <div class="text-[10px] text-noir/45 leading-tight mb-0.5">New Database Access</div>
+                    <div class="text-[8px] text-noir/20 truncate">We're excited to...</div>
                   </div>
                 </div>
 
@@ -284,26 +353,26 @@
                 <div class="flex-1 bg-white overflow-y-auto outlook-reading" id="outlook-reading">
                   <!-- Email header -->
                   <div class="px-6 py-4 border-b border-noir/5">
-                    <h2 id="outlook-subject" class="font-display text-[16px] font-semibold text-noir mb-2">Global Career Newsletter for International Longhorns</h2>
+                    <h2 id="outlook-subject" class="font-display text-[16px] font-bold text-noir mb-2">Global Career Newsletter for International Longhorns</h2>
                     <div class="flex items-center gap-3">
                       <div class="w-8 h-8 rounded-full bg-ut-orange flex items-center justify-center flex-shrink-0">
-                        <span class="text-white text-[10px] font-bold">CLD</span>
+                        <span class="text-white text-[10px] font-bold font-display">CLD</span>
                       </div>
                       <div>
-                        <div class="text-[11px] font-medium text-noir/70">Office of Career &amp; Life Design</div>
-                        <div class="text-[9px] text-noir/35">to: international-grads@utlists.utexas.edu</div>
+                        <div class="text-[11px] font-medium text-noir/65">Office of Career &amp; Life Design</div>
+                        <div class="text-[9px] text-noir/30">to: international-grads@utlists.utexas.edu</div>
                       </div>
-                      <div id="outlook-date" class="ml-auto text-[9px] text-noir/30">Mar 10, 2026</div>
+                      <div id="outlook-date" class="ml-auto text-[9px] text-noir/25 font-mono">Mar 10, 2026</div>
                     </div>
                   </div>
 
-                  <!-- Email body (newsletter content) -->
+                  <!-- Email body (newsletter content) — March -->
                   <div id="email-content-mar">
                     <!-- Newsletter Header -->
                     <div class="bg-ut-orange px-6 py-5 text-center relative overflow-hidden">
                       <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, white 10px, white 11px);"></div>
                       <div class="relative">
-                        <h2 class="font-display text-white text-[18px] font-semibold leading-tight">Global Career Newsletter</h2>
+                        <h2 class="font-display text-white text-[18px] font-bold leading-tight">Global Career Newsletter</h2>
                         <div class="font-display text-gold-brand/90 text-[12px] italic mt-0.5">for International Longhorns</div>
                         <div class="mt-2 w-10 h-px bg-gold-brand/40 mx-auto"></div>
                         <div class="font-mono text-[7px] tracking-[0.15em] uppercase text-white/40 mt-2">March 2026 &nbsp;|&nbsp; Office of Career &amp; Life Design &nbsp;|&nbsp; The Graduate School</div>
@@ -319,7 +388,7 @@
                     <div class="px-6 pb-1">
                       <div class="flex items-center gap-1.5 mb-3">
                         <div class="w-0.5 h-4 rounded-full bg-ut-orange"></div>
-                        <h3 class="font-display text-[13px] font-semibold text-noir">Upcoming Events</h3>
+                        <h3 class="font-display text-[13px] font-bold text-noir">Upcoming Events</h3>
                       </div>
                     </div>
 
@@ -329,7 +398,7 @@
                         <h4 class="text-[12px] font-semibold text-noir leading-snug mb-0.5">Coffee and Connections Hour #3: Who's That Pok&eacute;mon? Grad School Edition</h4>
                         <div class="font-mono text-[8px] text-noir/35 mb-2">Thu, Mar 26 &nbsp;|&nbsp; 3:00–4:00 PM &nbsp;|&nbsp; FAC 2.134</div>
                         <p class="text-[10px] text-noir/50 leading-relaxed mb-2">Take a 10-question self-assessment quiz to find your Grad Pok&eacute;mon Type, build your own Pok&eacute;mon card, then find your type match. No Pok&eacute;mon knowledge needed. Snacks provided.</p>
-                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange">Register &rarr;</a>
+                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange font-medium">Register &rarr;</a>
                       </div>
 
                       <div class="bg-surface rounded-lg p-4 border border-noir/4 mb-3">
@@ -337,7 +406,7 @@
                         <h4 class="text-[12px] font-semibold text-noir leading-snug mb-0.5">IJSWG: "From 'Using AI' to 'Directing AI' — Build with Microsoft Copilot"</h4>
                         <div class="font-mono text-[8px] text-noir/35 mb-2">Tue, Mar 31 &nbsp;|&nbsp; 3:00–4:00 PM &nbsp;|&nbsp; FAC 2.134</div>
                         <p class="text-[10px] text-noir/50 leading-relaxed mb-2">Hands-on workshop: direct Microsoft Copilot for job search — tailoring materials, identifying visa sponsors, preparing for interviews. Bring your laptop.</p>
-                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange">Register &rarr;</a>
+                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange font-medium">Register &rarr;</a>
                       </div>
 
                       <div class="bg-surface rounded-lg p-4 border border-noir/4">
@@ -345,7 +414,7 @@
                         <h4 class="text-[12px] font-semibold text-noir leading-snug mb-0.5">GradFUTURES Forum: Supporting International Graduate Students</h4>
                         <div class="font-mono text-[8px] text-noir/35 mb-2">Week of Mar 23 &nbsp;|&nbsp; Virtual</div>
                         <p class="text-[10px] text-noir/50 leading-relaxed mb-2">Princeton's GradFUTURES with Fanta Aw (CEO, NAFSA) and Amy Nice (Immigration Counsel, Institute for Progress).</p>
-                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange">Register &rarr;</a>
+                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange font-medium">Register &rarr;</a>
                       </div>
                     </div>
 
@@ -353,7 +422,7 @@
                     <div class="px-6 py-1">
                       <div class="flex items-center gap-1.5 mb-3">
                         <div class="w-0.5 h-4 rounded-full bg-gold-brand"></div>
-                        <h3 class="font-display text-[13px] font-semibold text-noir">What You Need to Know This Month</h3>
+                        <h3 class="font-display text-[13px] font-bold text-noir">What You Need to Know This Month</h3>
                       </div>
                     </div>
 
@@ -425,7 +494,7 @@
                         <div class="font-mono text-[7px] tracking-[0.12em] uppercase text-ut-orange/70 mb-2">Event</div>
                         <h4 class="text-[13px] font-semibold text-noir leading-snug mb-1">Coffee Chat &amp; Connection #1: The Science of Belonging</h4>
                         <div class="font-mono text-[8px] text-noir/35 mb-3">Wednesday, Feb 18 &nbsp;|&nbsp; 4:00–5:00 PM CST &nbsp;|&nbsp; FAC 2.134</div>
-                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange">RSVP Here &rarr;</a>
+                        <a href="#" class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange font-medium">RSVP Here &rarr;</a>
                       </div>
                     </div>
 
@@ -433,7 +502,7 @@
                     <div class="px-6 pb-1">
                       <div class="flex items-center gap-1.5 mb-3">
                         <div class="w-0.5 h-4 rounded-full bg-ut-orange"></div>
-                        <h3 class="font-display text-[13px] font-semibold text-noir">Why This Matters</h3>
+                        <h3 class="font-display text-[13px] font-bold text-noir">Why This Matters</h3>
                       </div>
                     </div>
 
@@ -449,7 +518,7 @@
                     <div class="px-6 pb-1">
                       <div class="flex items-center gap-1.5 mb-3">
                         <div class="w-0.5 h-4 rounded-full bg-green-brand"></div>
-                        <h3 class="font-display text-[13px] font-semibold text-noir">What We'll Do</h3>
+                        <h3 class="font-display text-[13px] font-bold text-noir">What We'll Do</h3>
                       </div>
                     </div>
 
@@ -472,7 +541,7 @@
 
                     <!-- Closing -->
                     <div class="px-6 pb-4">
-                      <p class="text-[10px] text-noir/50 leading-relaxed">We hope you'll join us to start the year with community, courage, and extra Fortune — (福) together!</p>
+                      <p class="text-[10px] text-noir/50 leading-relaxed">We hope you'll join us to start the year with community, courage, and extra Fortune — (&#31119;) together!</p>
                     </div>
 
                     <!-- Footer -->
@@ -489,26 +558,22 @@
               </div>
             </div>
           </div>
-          <!-- Hinge -->
-          <div class="macbook-hinge"></div>
-          <!-- Base -->
-          <div class="macbook-base h-3 rounded-b-lg"></div>
         </div>
       </div>
 
       <!-- ┌─────────────────────────────────────────┐ -->
       <!-- │  iPhone — iOS Mail App                  │ -->
       <!-- └─────────────────────────────────────────┘ -->
-      <div class="flex-shrink-0 flex flex-col items-center lg:items-start gap-6">
+      <div class="reveal reveal-d2 flex-shrink-0 flex flex-col items-center lg:items-start gap-8">
         <div>
-        <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-4">iPhone 15 Pro — Mail</div>
+        <div class="font-mono text-[10px] tracking-[0.18em] uppercase text-noir/25 mb-5 font-medium">iPhone 15 Pro — Mail</div>
         <div class="relative">
-          <div class="w-[280px] h-[580px] rounded-[44px] bg-[#1A1A1A] p-[10px] shadow-2xl shadow-noir/20 relative">
+          <div class="device-frame w-[280px] h-[580px] rounded-[44px] bg-[#1A1A1A] p-[10px] shadow-2xl shadow-noir/15 relative">
             <div class="absolute top-[14px] left-1/2 -translate-x-1/2 w-[90px] h-[28px] bg-black rounded-full z-20"></div>
             <div class="w-full h-full rounded-[34px] overflow-hidden bg-white relative">
               <!-- iOS Status Bar -->
               <div class="h-[50px] bg-[#F6F6F6] flex items-end justify-between px-7 pb-1 relative z-10">
-                <span class="font-display text-[12px] font-semibold text-noir">9:41</span>
+                <span class="font-display text-[12px] font-bold text-noir">9:41</span>
                 <div class="flex items-center gap-[3px]">
                   <!-- Signal bars -->
                   <svg class="w-[15px] h-[11px]" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="0.5" fill="#1D1D1F"/><rect x="4.5" y="4.5" width="3" height="6.5" rx="0.5" fill="#1D1D1F"/><rect x="9" y="2" width="3" height="9" rx="0.5" fill="#1D1D1F"/><rect x="13.5" y="0" width="3" height="11" rx="0.5" fill="#1D1D1F"/></svg>
@@ -531,14 +596,14 @@
 
               <!-- Mail header -->
               <div class="px-4 py-3 border-b border-noir/5">
-                <div id="iphone-subject" class="text-[14px] font-semibold text-noir leading-snug mb-1">Global Career Newsletter for International Longhorns</div>
+                <div id="iphone-subject" class="text-[14px] font-bold text-noir leading-snug mb-1 font-display">Global Career Newsletter for International Longhorns</div>
                 <div class="flex items-center gap-2">
                   <div class="w-6 h-6 rounded-full bg-ut-orange flex items-center justify-center flex-shrink-0">
-                    <span class="text-white text-[7px] font-bold">CLD</span>
+                    <span class="text-white text-[7px] font-bold font-display">CLD</span>
                   </div>
                   <div>
-                    <div class="text-[10px] text-noir/60">Career &amp; Life Design</div>
-                    <div id="iphone-date" class="text-[9px] text-noir/30">Mar 10, 2026</div>
+                    <div class="text-[10px] text-noir/55">Career &amp; Life Design</div>
+                    <div id="iphone-date" class="text-[9px] text-noir/25 font-mono">Mar 10, 2026</div>
                   </div>
                 </div>
               </div>
@@ -552,7 +617,7 @@
                 <div class="bg-ut-orange px-4 py-3.5 text-center relative overflow-hidden">
                   <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 8px, white 8px, white 9px);"></div>
                   <div class="relative">
-                    <h2 class="font-display text-white text-[14px] font-semibold leading-tight">Global Career Newsletter</h2>
+                    <h2 class="font-display text-white text-[14px] font-bold leading-tight">Global Career Newsletter</h2>
                     <div class="font-display text-gold-brand/80 text-[9px] italic mt-0.5">for International Longhorns</div>
                     <div class="font-mono text-[5px] tracking-[0.12em] uppercase text-white/35 mt-1.5">March 2026</div>
                   </div>
@@ -564,40 +629,40 @@
 
                   <div class="flex items-center gap-1 mb-1.5">
                     <div class="w-0.5 h-2.5 rounded-full bg-ut-orange"></div>
-                    <h3 class="font-display text-[10px] font-semibold text-noir">Upcoming Events</h3>
+                    <h3 class="font-display text-[10px] font-bold text-noir">Upcoming Events</h3>
                   </div>
 
                   <div class="bg-surface rounded p-2.5 border border-noir/4 mb-1.5">
                     <div class="font-mono text-[6px] tracking-[0.08em] uppercase text-ut-orange/60 mb-0.5">Mar 26 &middot; 3–4 PM</div>
                     <div class="text-[9px] text-noir/70 font-medium leading-snug">Who's That Pok&eacute;mon? Grad School Edition</div>
-                    <div class="font-mono text-[6px] uppercase text-ut-orange mt-1">Register &rarr;</div>
+                    <div class="font-mono text-[6px] uppercase text-ut-orange mt-1 font-medium">Register &rarr;</div>
                   </div>
 
                   <div class="bg-surface rounded p-2.5 border border-noir/4 mb-1.5">
                     <div class="font-mono text-[6px] tracking-[0.08em] uppercase text-ut-orange/60 mb-0.5">Mar 31 &middot; 3–4 PM</div>
                     <div class="text-[9px] text-noir/70 font-medium leading-snug">IJSWG: "Using AI" to "Directing AI"</div>
-                    <div class="font-mono text-[6px] uppercase text-ut-orange mt-1">Register &rarr;</div>
+                    <div class="font-mono text-[6px] uppercase text-ut-orange mt-1 font-medium">Register &rarr;</div>
                   </div>
 
                   <div class="bg-surface rounded p-2.5 border border-noir/4 mb-2.5">
                     <div class="font-mono text-[6px] tracking-[0.08em] uppercase text-ut-orange/60 mb-0.5">Week of Mar 23 &middot; Virtual</div>
                     <div class="text-[9px] text-noir/70 font-medium leading-snug">GradFUTURES Forum</div>
-                    <div class="font-mono text-[6px] uppercase text-ut-orange mt-1">Register &rarr;</div>
+                    <div class="font-mono text-[6px] uppercase text-ut-orange mt-1 font-medium">Register &rarr;</div>
                   </div>
 
                   <div class="flex items-center gap-1 mb-1.5">
                     <div class="w-0.5 h-2.5 rounded-full bg-gold-brand"></div>
-                    <h3 class="font-display text-[10px] font-semibold text-noir">What You Need to Know</h3>
+                    <h3 class="font-display text-[10px] font-bold text-noir">What You Need to Know</h3>
                   </div>
 
                   <div class="border border-noir/4 rounded p-2.5 mb-1.5">
                     <div class="text-[9px] text-noir/70 font-medium mb-1">Summer Internship? Work Auth First</div>
                     <div class="flex items-center gap-1 mb-0.5">
-                      <span class="font-mono text-[6px] text-ut-orange bg-ut-orange/8 px-1 rounded">F-1</span>
+                      <span class="font-mono text-[6px] text-ut-orange bg-ut-orange/8 px-1 rounded font-medium">F-1</span>
                       <span class="text-[7px] text-noir/45">CPT via myIO, 3 weeks ahead</span>
                     </div>
                     <div class="flex items-center gap-1">
-                      <span class="font-mono text-[6px] text-ut-orange bg-ut-orange/8 px-1 rounded">J-1</span>
+                      <span class="font-mono text-[6px] text-ut-orange bg-ut-orange/8 px-1 rounded font-medium">J-1</span>
                       <span class="text-[7px] text-noir/45">AT via myIO, 3 weeks ahead</span>
                     </div>
                   </div>
@@ -613,7 +678,7 @@
                   </div>
 
                   <div class="text-center mb-2.5">
-                    <a href="#" class="inline-block bg-ut-orange text-white font-mono text-[7px] tracking-[0.1em] uppercase px-4 py-1.5 rounded">Schedule Career Advising</a>
+                    <a href="#" class="inline-block bg-ut-orange text-white font-mono text-[7px] tracking-[0.1em] uppercase px-4 py-1.5 rounded font-medium">Schedule Career Advising</a>
                   </div>
 
                   <div class="bg-noir rounded px-3 py-2.5 text-center">
@@ -630,7 +695,7 @@
                   <div class="bg-ut-orange px-4 py-3.5 text-center relative overflow-hidden">
                     <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 8px, white 8px, white 9px);"></div>
                     <div class="relative">
-                      <h2 class="font-display text-white text-[14px] font-semibold leading-tight">Global Career Newsletter</h2>
+                      <h2 class="font-display text-white text-[14px] font-bold leading-tight">Global Career Newsletter</h2>
                       <div class="font-display text-gold-brand/80 text-[9px] italic mt-0.5">for International Longhorns</div>
                       <div class="font-mono text-[5px] tracking-[0.12em] uppercase text-white/35 mt-1.5">February 2026</div>
                     </div>
@@ -645,19 +710,19 @@
 
                     <div class="flex items-center gap-1 mb-1.5">
                       <div class="w-0.5 h-2.5 rounded-full bg-ut-orange"></div>
-                      <h3 class="font-display text-[10px] font-semibold text-noir">Event</h3>
+                      <h3 class="font-display text-[10px] font-bold text-noir">Event</h3>
                     </div>
 
                     <div class="bg-surface rounded p-2.5 border border-noir/4 mb-2.5">
                       <div class="font-mono text-[6px] tracking-[0.08em] uppercase text-ut-orange/60 mb-0.5">Feb 18 &middot; 4–5 PM</div>
                       <div class="text-[9px] text-noir/70 font-medium leading-snug">Coffee Chat &amp; Connection #1: The Science of Belonging</div>
                       <div class="text-[7px] text-noir/40 mt-0.5">FAC 2.134</div>
-                      <div class="font-mono text-[6px] uppercase text-ut-orange mt-1">RSVP &rarr;</div>
+                      <div class="font-mono text-[6px] uppercase text-ut-orange mt-1 font-medium">RSVP &rarr;</div>
                     </div>
 
                     <div class="flex items-center gap-1 mb-1.5">
                       <div class="w-0.5 h-2.5 rounded-full bg-ut-orange"></div>
-                      <h3 class="font-display text-[10px] font-semibold text-noir">Why This Matters</h3>
+                      <h3 class="font-display text-[10px] font-bold text-noir">Why This Matters</h3>
                     </div>
 
                     <div class="border-l-2 border-gold-brand/40 pl-2.5 mb-2">
@@ -667,7 +732,7 @@
 
                     <div class="flex items-center gap-1 mb-1.5">
                       <div class="w-0.5 h-2.5 rounded-full bg-green-brand"></div>
-                      <h3 class="font-display text-[10px] font-semibold text-noir">What We'll Do</h3>
+                      <h3 class="font-display text-[10px] font-bold text-noir">What We'll Do</h3>
                     </div>
 
                     <div class="space-y-1 mb-2.5">
@@ -698,13 +763,13 @@
 
         <!-- Found the Herd Flyer (separate from newsletter) -->
         <div id="flyer-card" class="w-[280px] transition-all duration-300" style="display:none">
-          <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/30 mb-3">Event Flyer — Feb 2026</div>
-          <div class="rounded-xl overflow-hidden border border-noir/8 shadow-lg shadow-noir/8 bg-white">
+          <div class="font-mono text-[10px] tracking-[0.18em] uppercase text-noir/25 mb-4 font-medium">Event Flyer — Feb 2026</div>
+          <div class="device-frame rounded-2xl overflow-hidden border border-noir/6 shadow-xl shadow-noir/8 bg-white">
             <img src="feb%20flyer%201.png" alt="Found the Herd — First Coffee & Connection flyer" class="w-full" />
-            <div class="px-4 py-3">
-              <div class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange/60 mb-1">Companion Piece</div>
-              <div class="text-[11px] text-noir/70 font-medium leading-snug">Found the Herd</div>
-              <div class="text-[9px] text-noir/40 mt-0.5">Promotional flyer designed for the first Coffee Chat &amp; Connection event.</div>
+            <div class="px-5 py-4">
+              <div class="font-mono text-[8px] tracking-[0.1em] uppercase text-ut-orange/60 mb-1 font-medium">Companion Piece</div>
+              <div class="text-[12px] text-noir/70 font-semibold leading-snug font-display">Found the Herd</div>
+              <div class="text-[10px] text-noir/40 mt-1 leading-relaxed">Promotional flyer designed for the first Coffee Chat &amp; Connection event.</div>
             </div>
           </div>
         </div>
@@ -771,10 +836,16 @@
   </section>
 
   <!-- ─── Footer ─── -->
-  <footer class="border-t border-noir/5 py-8 px-6">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/25">&copy; 2026 Bella Kang</span>
-      <span class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/25">Austin, TX</span>
+  <footer class="border-t border-noir/[0.04] py-10 px-6 sm:px-8 bg-white/30">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-[10px] tracking-[0.18em] uppercase text-noir/20 font-medium">&copy; 2026 Bella Kang</span>
+        <span class="hidden sm:inline text-noir/10">|</span>
+        <span class="font-mono text-[10px] tracking-[0.18em] uppercase text-noir/20 font-medium">Austin, TX</span>
+      </div>
+      <a href="https://bellakang017.github.io/portfolio-/" class="font-mono text-[10px] tracking-[0.15em] uppercase text-noir/25 hover:text-ut-orange transition-colors font-medium">
+        View Full Portfolio &rarr;
+      </a>
     </div>
   </footer>
 
@@ -825,6 +896,16 @@
       document.getElementById('iphone-scroll').scrollTop = 0;
     }
 
+    // Scroll reveal with Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
 </body>
